@@ -1,4 +1,4 @@
-package src;
+package src.vista;
 
 // GUI
 import java.util.*;
@@ -8,17 +8,15 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-// SQL
-import java.sql.DriverManager;
-import java.sql.Connection;
+//llamar al DAO
 
-public class CargaDatos {
+public class Vista {
+
+	//clase DAO
+
+	//botones, frames, etc...
 
 	public JPanel content;
-	public JPanel a;
-	public JPanel b;
-	public JPanel c;
-
 
 	public JPanel getContent(){
 		return content;

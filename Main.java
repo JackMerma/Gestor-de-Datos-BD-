@@ -1,5 +1,6 @@
-import src.CargaDatos;
-import src.Conexion;
+import src.vista.*;
+import src.modelo.*;
+import src.controlador.*;
 
 import java.util.*;
 import java.awt.*;
@@ -22,7 +23,9 @@ public class Main {
 	}
 
 	public static void generateContent(){
-		CargaDatos cd = new CargaDatos();
-		frame.add(cd.getContent());
+		Vista vi = new Vista();
+		Controlador con = new Controlador(vi); 
+
+		frame.add(vi.getContent());
 	}
 }
