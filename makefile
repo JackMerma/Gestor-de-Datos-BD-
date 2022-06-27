@@ -19,7 +19,8 @@ SQLCONNECT = .:lib/mysql-connector-java-8.0.28.jar
 # classes macro
 
 CLASSES = \
-			 Main.java
+			 Main.java \
+			 src/Conexion.java
 
 # default make target entry
 
