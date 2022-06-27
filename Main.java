@@ -12,7 +12,8 @@ public class Main {
 
 	public static void main(String [] args){
 		frame = new JFrame(PROJECTNAME);
-		frame.setSize(200, 300);
+		frame.setSize(500, 600);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 
 		generateContent();
@@ -21,6 +22,7 @@ public class Main {
 	}
 
 	public static void generateContent(){
-
+		CargaDatos cd = new CargaDatos();
+		frame.add(cd.getContent());
 	}
 }
