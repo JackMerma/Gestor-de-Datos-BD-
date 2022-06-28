@@ -20,6 +20,12 @@ public class Main {
 		generateContent();
 
 		frame.setVisible(true);
+		//probando la coneccion
+
+		Conexion con = new Conexion();
+		con.conectar();
+		System.out.println("En conexion");
+		con.desconectar();
 	}
 
 	public static void generateContent(){
