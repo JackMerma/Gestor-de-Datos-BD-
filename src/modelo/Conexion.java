@@ -33,4 +33,8 @@ public class Conexion {
 			e.printStackTrace();
 		}
 	}
+
+	public Connection getConnection(){
+		return con;
+	}
 }
