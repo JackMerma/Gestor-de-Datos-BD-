@@ -21,15 +21,33 @@ public class Controlador implements ActionListener{
 
 	public Controlador(Vista v){
 		this.vista = v;
-		vista.b.addActionListener(this);
+		vista.adicionar.addActionListener(this);
+		vista.modificar.addActionListener(this);
+		vista.eliminar.addActionListener(this);
+		vista.cancelar.addActionListener(this);
+		vista.inactivar.addActionListener(this);
+		vista.reactivar.addActionListener(this);
+		vista.actualizar.addActionListener(this);
+		vista.salir.addActionListener(this);
 	}
 
 	public void actionPerformed(ActionEvent e){
-		if(e.getSource() == vista.b){
-			ArrayList<CategoriaCliente> dat = catclidao.listar();
-			//no hace nada
+		if(e.getSource() == vista.adicionar){
+
+		}else if(e.getSource() == vista.modificar){
+
+		}else if(e.getSource() == vista.eliminar){
+
+		}else if(e.getSource() == vista.cancelar){
+
+		}else if(e.getSource() == vista.inactivar){
+
+		}else if(e.getSource() == vista.reactivar){
+
+		}else if(e.getSource() == vista.actualizar){
+
+		}else if(e.getSource() == vista.salir){
+
 		}
 	}
 }
-
-
