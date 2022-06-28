@@ -4,16 +4,10 @@ import java.sql.DriverManager;
 import java.sql.Connection;
 
 public class Conexion {
-	private String password;
-	private String dataBaseName;
-	private String userName;
+	private String password = "73123732";
+	private String dataBaseName = "BD_EMPRESA_DISTRIBUCION";
+	private String userName = "root";
 	private Connection con;
-
-	public Conexion(String p, String dbn, String un){
-		this.password = p;
-		this.dataBaseName = dbn;
-		this.userName = un;
-	}
 
 	public void conectar(){
 		System.out.println("Conectando a " + dataBaseName + " ...");
