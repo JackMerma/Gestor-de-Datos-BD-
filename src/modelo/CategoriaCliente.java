@@ -9,6 +9,10 @@ public class CategoriaCliente {
 		this.limCredito = limCredito;
 	}
 
+	public CategoriaCliente(){
+		this(-1, -1);
+	}
+
 	public void setIde(int ide){
 		this.ide = ide;
 	}
