@@ -27,6 +27,14 @@ public class Vista {
 	
 
 	// option Panel
+	public JButton adicionar = new JButton("Adicionar");
+	public JButton modificar = new JButton("Modificar");
+	public JButton eliminar = new JButton("Eliminar");
+	public JButton cancelar = new JButton("Cancelar");
+	public JButton inactivar = new JButton("Inactivar");
+	public JButton reactivar = new JButton("Reactivar");
+	public JButton actualizar = new JButton("Actualizar");
+	public JButton salir = new JButton("Salir");
 
 
 	public JPanel getContent(){
