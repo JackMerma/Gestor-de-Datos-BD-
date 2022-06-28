@@ -28,15 +28,41 @@ public class CategoriaClienteDAO {
 				catCli.setLimCredito(rs.getInt(2));
 				listCatCli.add(catCli);
 			}
-			System.out.println("CategoriaClienteDAO Listar:Correcto");
+			System.out.println("CategoriaClienteDAO Listar:CORRECTO");
 
-			con.desconectar();
 		}catch(Exception e){
+			System.out.println("CategoriaClienteDAO listar:ERROR");
 			System.err.println(e);
+		}finally{
+			con.desconectar();
 		}
 		
 		return listCatCli;
 	}
+
+	// agregar
+	public int add(CategoriaCliente catCli){
+		int state = 0;
+		String sql = "INSERT INTO `GZZ_CATEGORIA_CLIENTE` (`CatCliIde`, `CatCliLimCre`) VALUES (?, ?);";
+		try{
+			con.conectar();
+			bd = con.getConnection();
+			ps = bd.prepareStatement(sql);
+			// llenamos los datos
+			ps.setString(1,catCli.getIde()+"");
+			ps.setString(2,catCli.getLimCredito()+"");
+			state = ps.executeUpdate();
+			System.out.println("categoriaClienteDao Add: CORRECTO");
+
+		}catch(SQLException e){
+			System.out.println("categoriaClienteDao add: ERROR"); 
+			System.out.println(e);
+		}finally{
+			con.desconectar();
+		}
+		return state;
+	}
+
 }
 
 
