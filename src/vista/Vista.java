@@ -38,14 +38,11 @@ public class Vista {
 
 	public JPanel getContent(){
 		content = new JPanel(new BorderLayout());
-		JPanel centerContent = new JPanel(new GridLayout(3,1));
+		JPanel centerContent = new JPanel(new GridLayout(3,1,5,5));
 
-		// relleno (bordes) en paneles
+		// relleno (bordes) en panel
 
 		createPanelWidth(content);
-		createPanelWidth(addPanel);
-		createPanelWidth(viewPanel);
-		createPanelWidth(optionPanel);
 
 		// creación de contenido en cada panel
 
@@ -69,21 +66,21 @@ public class Vista {
 	 */
 
 	public void createAddPanelContent(){
-
+		//modifica addPanel
 	}
 
 	public void createViewPanelContent(){
-
+		//modifica viewPanel
 	}
 
 	public void createOptionPanelContent(){
-
+		//modifica optionPanel
 	}
 
 
 	public void createPanelWidth(JPanel panel){
-		panel.add(new JLabel(""), BorderLayout.NORTH);
-		panel.add(new JLabel(""), BorderLayout.SOUTH);
+		panel.add(new JLabel("\n"), BorderLayout.NORTH);
+		panel.add(new JLabel("\n"), BorderLayout.SOUTH);
 		panel.add(new JLabel("   "), BorderLayout.EAST);
 		panel.add(new JLabel("   "), BorderLayout.WEST);
 	}
