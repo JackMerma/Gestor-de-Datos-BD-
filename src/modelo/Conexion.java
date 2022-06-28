@@ -4,7 +4,8 @@ import java.sql.DriverManager;
 import java.sql.Connection;
 
 public class Conexion {
-	private String password = "73123732";
+	private String url = "jdbc:mysql://0.tcp.sa.ngrok.io:17320/";
+	private String password = "mypassword";
 	private String dataBaseName = "BD_EMPRESA_DISTRIBUCION";
 	private String userName = "root";
 	private Connection con;
@@ -14,7 +15,7 @@ public class Conexion {
 
 		try{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + dataBaseName, userName, password);
+			con = DriverManager.getConnection(url + dataBaseName, userName, password);
 			System.out.println("Base de datos conectada");
 		}catch(Exception e){
 			System.out.println("No se pudo conectar a la base de datos");
