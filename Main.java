@@ -21,17 +21,16 @@ public class Main {
 
 		frame.setVisible(true);
 		//probando la coneccion
+		CategoriaClienteDAO test = new CategoriaClienteDAO();
+		
+		test.listar();
 
-		Conexion con = new Conexion();
-		con.conectar();
-		System.out.println("En conexion");
-		con.desconectar();
 	}
 
 	public static void generateContent(){
 		Vista vi = new Vista();
 		Controlador con = new Controlador(vi); 
-
+		
 		frame.add(vi.getContent());
 	}
 }
