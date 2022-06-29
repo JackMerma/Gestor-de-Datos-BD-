@@ -11,6 +11,7 @@ import src.modelo.CategoriaCliente;
 import src.modelo.CategoriaClienteDAO;
 import src.vista.Vista;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class Controlador implements ActionListener{
 	public Vista vista = new Vista();
 	public CategoriaClienteDAO catclidao = new CategoriaClienteDAO();
 	public CategoriaCliente catcli = new CategoriaCliente();
+	DefaultTableModel modelo = new DefaultTableModel();
 
 	private int CarFlaAct = 0;
 	private int action; // 1: agregar, 
@@ -33,10 +35,11 @@ public class Controlador implements ActionListener{
 		vista.reactivar.addActionListener(this);
 		vista.actualizar.addActionListener(this);
 		vista.salir.addActionListener(this);
-		listar();
+		listar(vista.tabla);
 	}
 
 	private void agregar(){
+		
 		String ide = vista.ide.getText();
 		String limi = vista.limCredito.getText();
 		String esta = vista.estaRegis.getText();
@@ -44,7 +47,8 @@ public class Controlador implements ActionListener{
 		catcli.setIde(Integer.parseInt(ide));
 		catcli.setLimCredito(Integer.parseInt(limi));
 		catcli.setEstadoRegistro(esta.charAt(0));
-
+		
+		limpiarTabla();
 		int n = catclidao.add(catcli);
 
 		if (n == 1) {
@@ -52,11 +56,15 @@ public class Controlador implements ActionListener{
 		} else {
 			JOptionPane.showMessageDialog(null, "Error");
 		}
+		
 		limpiar();
+		listar(vista.tabla);
 	}
 
-	public void listar() {
-        // vista.tabla.setModel(vista.modelo);
+	public void listar(JTable tabla) {
+        centrarCeldas(tabla);
+        modelo = (DefaultTableModel) tabla.getModel();
+        tabla.setModel(modelo);
 		ArrayList<CategoriaCliente> lista = catclidao.listar();
 		System.out.println(lista);
         Object[] objeto = new Object[3];
@@ -64,11 +72,24 @@ public class Controlador implements ActionListener{
             objeto[0] = lista.get(i).getIde();
             objeto[1] = lista.get(i).getLimCredito();
             objeto[2] = lista.get(i).getEstadoRegistro();
-            vista.modelo.addRow(objeto);
+            modelo.addRow(objeto);
         }
-		vista.tabla.setModel(vista.modelo);
-		vista.miBarra.setViewportView(vista.tabla);
 
+    }
+
+	void limpiarTabla() {
+        for (int i = 0; i < vista.tabla.getRowCount(); i++) {
+            modelo.removeRow(i);
+            i = i - 1;
+        }
+    }
+
+	void centrarCeldas(JTable tabla) {
+        DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
+        tcr.setHorizontalAlignment(SwingConstants.CENTER);
+        for (int i = 0; i < vista.tabla.getColumnCount(); i++) {
+            tabla.getColumnModel().getColumn(i).setCellRenderer(tcr);
+        }
     }
 
 	public void actionPerformed(ActionEvent e){

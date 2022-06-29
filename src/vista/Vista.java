@@ -6,6 +6,9 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.*;
 
+import src.modelo.CategoriaCliente;
+import src.modelo.CategoriaClienteDAO;
+
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -141,7 +144,7 @@ public class Vista {
 			public boolean isCellEditable(int fila,int col){
 				return false;
 			}};
-		DefaultTableModel modelo = (DefaultTableModel)tabla.getModel();
+		modelo = (DefaultTableModel)tabla.getModel();
 
 		miBarra = new JScrollPane(tabla);
 		
@@ -152,17 +155,7 @@ public class Vista {
 		//));
 		tabla.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 		tabla.setModel(new javax.swing.table.DefaultTableModel(
-					new Object [][] {
-						{null, null, null},
-						{null, null, null},
-						{null, null, null},
-						{null, null, null},
-						{null, null, null},
-						{null, null, null},
-						{null, null, null},
-						{null, null, null},
-						{null, null, null},
-					},
+					null,
 					new String [] {
 						"Ide", "LimiteCredito", "EstadoRegistro"
 					}
