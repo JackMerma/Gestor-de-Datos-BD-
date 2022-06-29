@@ -7,6 +7,8 @@ import javax.swing.*;
 import javax.swing.table.*;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 
 public class Vista {
@@ -137,6 +139,8 @@ public class Vista {
 			public boolean isCellEditable(int fila,int col){
 				return false;
 			}};
+		DefaultTableModel modelo = (DefaultTableModel)tabla.getModel();
+
 		JScrollPane miBarra = new JScrollPane(tabla);
 		
 		
@@ -166,6 +170,41 @@ public class Vista {
 		tabla.getTableHeader().setReorderingAllowed(false);
 		
 		tabla.setRowMargin(4);
+
+		tabla.addMouseListener( new MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent e){
+				int fila = tabla.rowAtPoint(e.getPoint());
+				int columna = tabla.columnAtPoint(e.getPoint());
+				System.out.println("fila:"+fila+", Col:"+columna);
+			}
+      		
+
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+   		});
 		viewPanel.add(miBarra, BorderLayout.CENTER);
 	}
 
