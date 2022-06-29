@@ -28,6 +28,8 @@ public class Vista {
 	// view Panel
 	//decidir recurso a usar...
 	public JTable tabla;
+	public JScrollPane miBarra;
+	public DefaultTableModel modelo;
 
 	// option Panel
 	public JButton adicionar = new JButton("Adicionar");
@@ -141,7 +143,7 @@ public class Vista {
 			}};
 		DefaultTableModel modelo = (DefaultTableModel)tabla.getModel();
 
-		JScrollPane miBarra = new JScrollPane(tabla);
+		miBarra = new JScrollPane(tabla);
 		
 		
 		//tabla.setModel(new DefaultTableModel(

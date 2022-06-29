@@ -11,6 +11,7 @@ import src.modelo.CategoriaCliente;
 import src.modelo.CategoriaClienteDAO;
 import src.vista.Vista;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 import java.util.ArrayList;
 
@@ -32,6 +33,7 @@ public class Controlador implements ActionListener{
 		vista.reactivar.addActionListener(this);
 		vista.actualizar.addActionListener(this);
 		vista.salir.addActionListener(this);
+		listar();
 	}
 
 	private void agregar(){
@@ -52,6 +54,22 @@ public class Controlador implements ActionListener{
 		}
 		limpiar();
 	}
+
+	public void listar() {
+        // vista.tabla.setModel(vista.modelo);
+		ArrayList<CategoriaCliente> lista = catclidao.listar();
+		System.out.println(lista);
+        Object[] objeto = new Object[3];
+        for (int i = 0; i < lista.size(); i++) {
+            objeto[0] = lista.get(i).getIde();
+            objeto[1] = lista.get(i).getLimCredito();
+            objeto[2] = lista.get(i).getEstadoRegistro();
+            vista.modelo.addRow(objeto);
+        }
+		vista.tabla.setModel(vista.modelo);
+		vista.miBarra.setViewportView(vista.tabla);
+
+    }
 
 	public void actionPerformed(ActionEvent e){
 		if(e.getSource() == vista.adicionar){

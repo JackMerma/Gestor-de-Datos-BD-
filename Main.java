@@ -21,19 +21,20 @@ public class Main {
 
 		frame.setVisible(true);
 		//probando la coneccion
-		CategoriaClienteDAO test = new CategoriaClienteDAO();
-		CategoriaCliente catCli = new CategoriaCliente(2,2000);// mejorar esta parte, se duplica la clave
-		catCli.setLimCredito(100);
-		test.modificar(catCli);
-		//test.add(catCli);
-		test.listar();
+		// CategoriaClienteDAO test = new CategoriaClienteDAO();
+		// CategoriaCliente catCli = new CategoriaCliente(2,2000);// mejorar esta parte, se duplica la clave
+		// catCli.setLimCredito(100);
+		// test.modificar(catCli);
+		// //test.add(catCli);
+		// test.listar();
 
 	}
 
 	public static void generateContent(){
 		Vista vi = new Vista();
-		Controlador con = new Controlador(vi); 
 		
 		frame.add(vi.getContent());
+		Controlador con = new Controlador(vi); 
+	
 	}
 }
