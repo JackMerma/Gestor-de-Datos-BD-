@@ -1,7 +1,7 @@
 package src.modelo;
 
 import java.sql.DriverManager;
-import java.sql.Connection;
+import java.sql.*;
 
 public class Conexion {
 	private String url = "jdbc:mysql://0.tcp.sa.ngrok.io:17320/";
@@ -20,5 +20,21 @@ public class Conexion {
 		}catch(Exception e){
 			System.out.println("No se pudo conectar a la base de datos");
 		}
+	}
+
+
+	public void desconectar(){
+		try{
+			con.close();
+			System.out.println("Conexion cerrada");
+
+		}catch(SQLException e){
+			System.out.println("No se pudo desconectar");
+			e.printStackTrace();
+		}
+	}
+
+	public Connection getConnection(){
+		return con;
 	}
 }
