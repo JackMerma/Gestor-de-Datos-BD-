@@ -73,6 +73,38 @@ public class Controlador implements ActionListener{
 		listar(vista.tabla);
 	}
 
+	// Para modificar una categoria
+	private void modificar(){
+		// Obtenemos datos
+		String ide = vista.ide.getText();
+		String limi = vista.limCredito.getText();
+		String esta = vista.estaRegis.getText();
+
+		// Creamos un objeto
+		catcli.setIde(Integer.parseInt(ide));
+		catcli.setLimCredito(Integer.parseInt(limi));
+		catcli.setEstadoRegistro(esta.charAt(0));
+
+		// limpiamos la tabla anterior
+		limpiarTabla();
+		
+		// agregamos 
+		int n = catclidao.modificar(catcli);
+
+		// verificamor resultado
+		if (n == 1) {
+			JOptionPane.showMessageDialog(null, "Usuario Agregado con Exito.");
+		} else {
+			JOptionPane.showMessageDialog(null, "Error");
+		}
+		
+		// limpiamor entrada de texto
+		limpiar();
+
+		// listamor nueva tabla
+		listar(vista.tabla);
+	}
+
 	// lista los nuevos datos
 	public void listar(JTable tabla) {
         centrarCeldas(tabla);
@@ -106,6 +138,25 @@ public class Controlador implements ActionListener{
 
 		}else if(e.getSource() == vista.modificar){
 			System.out.println("Apreto: modificar");
+			int fila = vista.tabla.getSelectedRow();
+            if (fila == -1) {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar Una fila..!!");
+            } else {
+                String id = (String) vista.tabla.getValueAt(fila, 0).toString();
+                String limete = (String) vista.tabla.getValueAt(fila, 1).toString();
+                String estado = (String) vista.tabla.getValueAt(fila, 2).toString();
+
+				vista.ide.setText(id);
+                vista.limCredito.setText(limete);
+                vista.estaRegis.setText(estado);
+
+				vista.ide.setEditable(false);
+				vista.estaRegis.setEditable(false);
+
+				CarFlaAct = 1;
+				action = 2;
+				
+            }
 
 		}else if(e.getSource() == vista.eliminar){
 			System.out.println("Apreto: eliminar");
@@ -128,8 +179,10 @@ public class Controlador implements ActionListener{
 				JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 					System.out.println("Afecta a la bd");
 
-					if(action==1){
+					if(action==1){ //Agregar
 						agregar();
+					}else if(action == 2){
+						modificar();
 					}
 					CarFlaAct=0;	
 				}				
