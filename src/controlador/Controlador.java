@@ -33,21 +33,30 @@ public class Controlador implements ActionListener{
 
 	public void actionPerformed(ActionEvent e){
 		if(e.getSource() == vista.adicionar){
+			System.out.println("Apreto: adicionar");
 
 		}else if(e.getSource() == vista.modificar){
+			System.out.println("Apreto: modificar");
 
 		}else if(e.getSource() == vista.eliminar){
+			System.out.println("Apreto: eliminar");
 
 		}else if(e.getSource() == vista.cancelar){
+			System.out.println("Apreto: cancelar");
 
 		}else if(e.getSource() == vista.inactivar){
+			System.out.println("Apreto: inactivar");
 
 		}else if(e.getSource() == vista.reactivar){
+			System.out.println("Apreto: reactivar");
 
 		}else if(e.getSource() == vista.actualizar){
+			System.out.println("Apreto: actualizar");
 
 		}else if(e.getSource() == vista.salir){
+			System.out.println("Apreto: salir ");
 
+ 
 		}
 	}
 }
