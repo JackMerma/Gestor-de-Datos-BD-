@@ -24,6 +24,7 @@ public class CategoriaClienteDAO {
 			rs = ps.executeQuery();
 			// recibimos los resultados
 			while(rs.next()){
+				catCli = new CategoriaCliente();
 				catCli.setIde(rs.getInt(1));
 				catCli.setLimCredito(rs.getInt(2));
 				catCli.setEstadoRegistro(rs.getString(3).charAt(0));
@@ -62,6 +63,29 @@ public class CategoriaClienteDAO {
 		}finally{
 			con.desconectar();
 		}
+		return state;
+	}
+
+	public int modificar(CategoriaCliente catCli){
+		int state = 0;
+		String sql = "UPDATE `GZZ_CATEGORIA_CLIENTE` SET `CatCliLimCre` = ?, `CatCliEstReg` = ? WHERE `GZZ_CATEGORIA_CLIENTE`.`CatCliIde` = ?;";
+		try{
+			con.conectar();
+			bd = con.getConnection();
+			ps = bd.prepareStatement(sql);
+			// llenamos datos
+			ps.setString(1,catCli.getLimCredito()+"");
+			ps.setString(2,catCli.getEstadoRegistro()+"");
+			ps.setString(3,catCli.getIde()+"");
+			state = ps.executeUpdate(); 
+			System.out.println("categoriaClienteDao ModificarInter: CORRECTO");
+		}catch (SQLException e){
+			System.out.println("categoriaClienteDao ModificarInter: ERROR");
+			System.out.println(e);
+		}finally{
+			con.desconectar();
+		}
+
 		return state;
 	}
 
