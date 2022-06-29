@@ -131,8 +131,11 @@ public class Vista {
 	public void createViewPanelContent(){
 		//modifica viewPanel
 		
-		String[] title = {"Ide", "limCredito", "Estado"};
-		tabla = new JTable(null, title);
+		//DefaultTableModel model = new DefaultTableModel(new String[] {"Columna 1", "Columna 2"}, 0);        
+		tabla = new JTable();
+		JScrollPane miBarra = new JScrollPane(tabla);
+		
+		
 		//tabla.setModel(new DefaultTableModel(
 			//		null,
 				//	title
@@ -143,7 +146,7 @@ public class Vista {
 
 					},
 					new String [] {
-						"ID", "NOMBRES", "CORREO", "TELEFONO"
+						"Ide", "LimiteCredito", "EstadoRegistro"
 					}
 					));
 		tabla.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -151,7 +154,7 @@ public class Vista {
 		tabla.setRowMargin(4);
 		tabla.getTableHeader().setReorderingAllowed(false);
 		JLabel te = new JLabel("fnfm");
-		viewPanel.add(tabla, BorderLayout.CENTER);
+		viewPanel.add(miBarra, BorderLayout.CENTER);
 	}
 
 	public void createOptionPanelContent(){
