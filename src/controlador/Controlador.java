@@ -10,6 +10,7 @@ import javax.swing.*;
 import src.modelo.CategoriaCliente;
 import src.modelo.CategoriaClienteDAO;
 import src.vista.Vista;
+import javax.swing.JOptionPane;
 
 import java.util.ArrayList;
 
@@ -20,6 +21,7 @@ public class Controlador implements ActionListener{
 	public CategoriaCliente catcli = new CategoriaCliente();
 
 	private int CarFlaAct = 0;
+	private int action; // 1: agregar, 
 	public Controlador(Vista v){
 		this.vista = v;
 		vista.adicionar.addActionListener(this);
@@ -32,14 +34,35 @@ public class Controlador implements ActionListener{
 		vista.salir.addActionListener(this);
 	}
 
+	private void agregar(){
+		String ide = vista.ide.getText();
+		String limi = vista.limCredito.getText();
+		String esta = vista.estaRegis.getText();
+
+		catcli.setIde(Integer.parseInt(ide));
+		catcli.setLimCredito(Integer.parseInt(limi));
+		catcli.setEstadoRegistro(esta.charAt(0));
+
+		int n = catclidao.add(catcli);
+
+		if (n == 1) {
+			JOptionPane.showMessageDialog(null, "Usuario Agregado con Exito.");
+		} else {
+			JOptionPane.showMessageDialog(null, "Error");
+		}
+		limpiar();
+	}
+
 	public void actionPerformed(ActionEvent e){
 		if(e.getSource() == vista.adicionar){
 			System.out.println("Apreto: adicionar");
-			limpiar();
+			//limpiar();
 			vista.estaRegis.setText("A");
 			vista.estaRegis.setEditable(false);
 
 			CarFlaAct = 1;
+			action=1;
+			
 
 
 		}else if(e.getSource() == vista.modificar){
@@ -65,6 +88,10 @@ public class Controlador implements ActionListener{
 				if (JOptionPane.showConfirmDialog(null, "Está seguro que desea realizar esta acción", "WARNING",
 				JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
 					System.out.println("Afecta a la bd");
+
+					if(action==1){
+						agregar();
+					}
 					CarFlaAct=0;	
 				}				
 		
