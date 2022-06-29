@@ -26,6 +26,7 @@ public class CategoriaClienteDAO {
 			while(rs.next()){
 				catCli.setIde(rs.getInt(1));
 				catCli.setLimCredito(rs.getInt(2));
+				catCli.setEstadoRegistro(rs.getString(3).charAt(0));
 				listCatCli.add(catCli);
 			}
 			System.out.println("CategoriaClienteDAO Listar:CORRECTO");
@@ -43,7 +44,7 @@ public class CategoriaClienteDAO {
 	// agregar
 	public int add(CategoriaCliente catCli){
 		int state = 0;
-		String sql = "INSERT INTO `GZZ_CATEGORIA_CLIENTE` (`CatCliIde`, `CatCliLimCre`) VALUES (?, ?);";
+		String sql = "INSERT INTO `GZZ_CATEGORIA_CLIENTE` (`CatCliIde`, `CatCliLimCre`, `CatCliEstReg`) VALUES (?, ?, ?);";
 		try{
 			con.conectar();
 			bd = con.getConnection();
@@ -51,6 +52,7 @@ public class CategoriaClienteDAO {
 			// llenamos los datos
 			ps.setString(1,catCli.getIde()+"");
 			ps.setString(2,catCli.getLimCredito()+"");
+			ps.setString(3, "A");
 			state = ps.executeUpdate();
 			System.out.println("categoriaClienteDao Add: CORRECTO");
 
