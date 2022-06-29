@@ -132,7 +132,11 @@ public class Vista {
 		//modifica viewPanel
 		
 		//DefaultTableModel model = new DefaultTableModel(new String[] {"Columna 1", "Columna 2"}, 0);        
-		tabla = new JTable();
+		tabla = new JTable(){
+			// para evitar que sea editabue
+			public boolean isCellEditable(int fila,int col){
+				return false;
+			}};
 		JScrollPane miBarra = new JScrollPane(tabla);
 		
 		
@@ -143,7 +147,15 @@ public class Vista {
 		tabla.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 		tabla.setModel(new javax.swing.table.DefaultTableModel(
 					new Object [][] {
-
+						{null, null, null},
+						{null, null, null},
+						{null, null, null},
+						{null, null, null},
+						{null, null, null},
+						{null, null, null},
+						{null, null, null},
+						{null, null, null},
+						{null, null, null},
 					},
 					new String [] {
 						"Ide", "LimiteCredito", "EstadoRegistro"
@@ -151,9 +163,9 @@ public class Vista {
 					));
 		tabla.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 		tabla.setFocusable(false);
-		tabla.setRowMargin(4);
 		tabla.getTableHeader().setReorderingAllowed(false);
-		JLabel te = new JLabel("fnfm");
+		
+		tabla.setRowMargin(4);
 		viewPanel.add(miBarra, BorderLayout.CENTER);
 	}
 
