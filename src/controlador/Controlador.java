@@ -170,6 +170,38 @@ public class Controlador implements ActionListener{
 	}
 
 	
+	// Para reactivar una categoria
+	private void reactivar(){
+		// Obtenemos datos
+		String ide = vista.ide.getText();
+		String limi = vista.limCredito.getText();
+		String esta = vista.estaRegis.getText();
+
+		// Creamos un objeto
+		catcli.setIde(Integer.parseInt(ide));
+		catcli.setLimCredito(Integer.parseInt(limi));
+		catcli.setEstadoRegistro(esta.charAt(0));
+
+		// limpiamos la tabla anterior
+		limpiarTabla();
+		
+		// agregamos 
+		int n = catclidao.modificar(catcli);
+
+		// verificamor resultado
+		if (n == 1) {
+			JOptionPane.showMessageDialog(null, "Usuario Reavilitado con Exito.");
+		} else {
+			JOptionPane.showMessageDialog(null, "Error");
+		}
+		
+		// limpiamor entrada de texto
+		limpiar();
+
+		// listamor nueva tabla
+		listar(vista.tabla);
+	}	
+
 	// lista los nuevos datos
 	public void listar(JTable tabla) {
         centrarCeldas(tabla);
@@ -277,6 +309,26 @@ public class Controlador implements ActionListener{
 		}else if(e.getSource() == vista.reactivar){
 			System.out.println("Apreto: reactivar");
 
+			int fila = vista.tabla.getSelectedRow();
+            if (fila == -1) {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar Una fila..!!");
+            } else {
+                String id = (String) vista.tabla.getValueAt(fila, 0).toString();
+                String limete = (String) vista.tabla.getValueAt(fila, 1).toString();
+                String estado = (String) vista.tabla.getValueAt(fila, 2).toString();
+
+				vista.ide.setText(id);
+                vista.limCredito.setText(limete);
+                vista.estaRegis.setText("A");
+
+				vista.ide.setEditable(false);
+				vista.limCredito.setEditable(false);
+				vista.estaRegis.setEditable(false);
+
+				CarFlaAct = 1;
+				action = 5;
+				
+            }
 		}else if(e.getSource() == vista.actualizar){
 			System.out.println("Apreto: actualizar");
 			if(CarFlaAct==1){
@@ -292,6 +344,8 @@ public class Controlador implements ActionListener{
 						eliminar();
 					}else if(action == 4){ //Inavilitar
 						inavilitar();
+					}else if(action == 5){ //Reactivar
+						reactivar();
 					}
 
 					CarFlaAct=0;	
