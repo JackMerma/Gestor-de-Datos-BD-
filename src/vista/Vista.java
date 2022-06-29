@@ -26,7 +26,7 @@ public class Vista {
 	// add Panel
 	public JTextField ide = new JTextField(10);
 	public JTextField limCredito = new JTextField(10);
-	public JTextField estaRegis = new JTextField("A", 1);
+	public JTextField estaRegis = new JTextField("", 1);
 
 	// view Panel
 	//decidir recurso a usar...

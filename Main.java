@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class Main {
 	
-	public static final String PROJECTNAME = "ZZZZZ";
+	public static final String PROJECTNAME = "EMPRESA DE DISTRIBUCION";
 	public static JFrame frame;
 
 	public static void main(String [] args){
