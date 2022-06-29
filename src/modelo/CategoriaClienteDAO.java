@@ -24,6 +24,7 @@ public class CategoriaClienteDAO {
 			rs = ps.executeQuery();
 			// recibimos los resultados
 			while(rs.next()){
+				catCli = new CategoriaCliente();
 				catCli.setIde(rs.getInt(1));
 				catCli.setLimCredito(rs.getInt(2));
 				catCli.setEstadoRegistro(rs.getString(3).charAt(0));
