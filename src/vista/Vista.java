@@ -4,6 +4,7 @@ package src.vista;
 import java.util.*;
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.table.*;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -24,6 +25,7 @@ public class Vista {
 
 	// view Panel
 	//decidir recurso a usar...
+	public JTable tabla;
 
 	// option Panel
 	public JButton adicionar = new JButton("Adicionar");
@@ -111,7 +113,7 @@ public class Vista {
 		JPanel estaRegisButtonPanel = new JPanel(new FlowLayout());
 		//createPanelWidth(estaRegisButtonPanel, true, true, false, false);
 
-		estaRegis.setEditable(false);
+		//estaRegis.setEditable(false);
 		estaRegisButtonPanel.add(estaRegis);
 		estaRegisPanel.add(estaRegisButtonPanel);
 		
@@ -128,6 +130,28 @@ public class Vista {
 
 	public void createViewPanelContent(){
 		//modifica viewPanel
+		
+		String[] title = {"Ide", "limCredito", "Estado"};
+		tabla = new JTable(null, title);
+		//tabla.setModel(new DefaultTableModel(
+			//		null,
+				//	title
+		//));
+		tabla.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+		tabla.setModel(new javax.swing.table.DefaultTableModel(
+					new Object [][] {
+
+					},
+					new String [] {
+						"ID", "NOMBRES", "CORREO", "TELEFONO"
+					}
+					));
+		tabla.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+		tabla.setFocusable(false);
+		tabla.setRowMargin(4);
+		tabla.getTableHeader().setReorderingAllowed(false);
+		JLabel te = new JLabel("fnfm");
+		viewPanel.add(tabla, BorderLayout.CENTER);
 	}
 
 	public void createOptionPanelContent(){
