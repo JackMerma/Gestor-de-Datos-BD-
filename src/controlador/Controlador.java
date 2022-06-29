@@ -93,7 +93,39 @@ public class Controlador implements ActionListener{
 
 		// verificamor resultado
 		if (n == 1) {
-			JOptionPane.showMessageDialog(null, "Usuario Agregado con Exito.");
+			JOptionPane.showMessageDialog(null, "Usuario Modificado con Exito.");
+		} else {
+			JOptionPane.showMessageDialog(null, "Error");
+		}
+		
+		// limpiamor entrada de texto
+		limpiar();
+
+		// listamor nueva tabla
+		listar(vista.tabla);
+	}
+
+	// Para modificar una categoria
+	private void eliminar(){
+		// Obtenemos datos
+		String ide = vista.ide.getText();
+		String limi = vista.limCredito.getText();
+		String esta = vista.estaRegis.getText();
+
+		// Creamos un objeto
+		catcli.setIde(Integer.parseInt(ide));
+		catcli.setLimCredito(Integer.parseInt(limi));
+		catcli.setEstadoRegistro(esta.charAt(0));
+
+		// limpiamos la tabla anterior
+		limpiarTabla();
+		
+		// agregamos 
+		int n = catclidao.modificar(catcli);
+
+		// verificamor resultado
+		if (n == 1) {
+			JOptionPane.showMessageDialog(null, "Usuario Eliminado con Exito.");
 		} else {
 			JOptionPane.showMessageDialog(null, "Error");
 		}
@@ -161,6 +193,26 @@ public class Controlador implements ActionListener{
 		}else if(e.getSource() == vista.eliminar){
 			System.out.println("Apreto: eliminar");
 
+			int fila = vista.tabla.getSelectedRow();
+            if (fila == -1) {
+                JOptionPane.showMessageDialog(null, "Debe Seleccionar Una fila..!!");
+            } else {
+                String id = (String) vista.tabla.getValueAt(fila, 0).toString();
+                String limete = (String) vista.tabla.getValueAt(fila, 1).toString();
+                String estado = (String) vista.tabla.getValueAt(fila, 2).toString();
+
+				vista.ide.setText(id);
+                vista.limCredito.setText(limete);
+                vista.estaRegis.setText("*");
+
+				vista.ide.setEditable(false);
+				vista.limCredito.setEditable(false);
+				vista.estaRegis.setEditable(false);
+
+				CarFlaAct = 1;
+				action = 3;
+				
+            }
 		}else if(e.getSource() == vista.cancelar){
 			System.out.println("Apreto: cancelar");
 			CarFlaAct=0;
@@ -181,9 +233,12 @@ public class Controlador implements ActionListener{
 
 					if(action==1){ //Agregar
 						agregar();
-					}else if(action == 2){
+					}else if(action == 2){ //Modificar
 						modificar();
+					}else if(action == 3){ //Eliminar
+						eliminar();
 					}
+					
 					CarFlaAct=0;	
 				}				
 		
