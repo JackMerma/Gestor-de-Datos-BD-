@@ -20,7 +20,7 @@ public class Vista {
 	// add Panel
 	public JTextField ide = new JTextField(10);
 	public JTextField limCredito = new JTextField(10);
-	public JTextField estaRegis = new JTextField(1);
+	public JTextField estaRegis = new JTextField("A", 1);
 
 	// view Panel
 	//decidir recurso a usar...
@@ -111,6 +111,7 @@ public class Vista {
 		JPanel estaRegisButtonPanel = new JPanel(new FlowLayout());
 		//createPanelWidth(estaRegisButtonPanel, true, true, false, false);
 
+		estaRegis.setEditable(false);
 		estaRegisButtonPanel.add(estaRegis);
 		estaRegisPanel.add(estaRegisButtonPanel);
 		
@@ -130,7 +131,23 @@ public class Vista {
 	}
 
 	public void createOptionPanelContent(){
-		//modifica optionPanel
+		JPanel optionPanelContent = new JPanel(new BorderLayout());
+
+		JPanel optionPanelContentContent = new JPanel(new GridLayout(2,4,5,45));
+
+		optionPanelContentContent.add(adicionar);
+		optionPanelContentContent.add(modificar);
+		optionPanelContentContent.add(eliminar);
+		optionPanelContentContent.add(cancelar);
+		optionPanelContentContent.add(inactivar);
+		optionPanelContentContent.add(reactivar);
+		optionPanelContentContent.add(actualizar);
+		optionPanelContentContent.add(salir);
+
+		optionPanelContent.add(optionPanelContentContent);
+		createPanelWidth(optionPanelContent, true, true, true, true);
+		createPanelWidth(optionPanel, true, true, true, true);
+		optionPanel.add(optionPanelContent);
 	}
 
 
