@@ -25,6 +25,8 @@ public class Controlador implements ActionListener{
 
 	private int CarFlaAct = 0;
 	private int action; // 1: agregar, 
+
+	// constructor
 	public Controlador(Vista v){
 		this.vista = v;
 		vista.adicionar.addActionListener(this);
@@ -38,35 +40,45 @@ public class Controlador implements ActionListener{
 		listar(vista.tabla);
 	}
 
+	// metodo que agrera a una nueva categoria
 	private void agregar(){
 		
+		// Obtenemos datos
 		String ide = vista.ide.getText();
 		String limi = vista.limCredito.getText();
 		String esta = vista.estaRegis.getText();
 
+		// Creamos un objeto
 		catcli.setIde(Integer.parseInt(ide));
 		catcli.setLimCredito(Integer.parseInt(limi));
 		catcli.setEstadoRegistro(esta.charAt(0));
 		
+		// limpiamos la tabla anterior
 		limpiarTabla();
+		
+		// agregamos 
 		int n = catclidao.add(catcli);
 
+		// verificamor resultado
 		if (n == 1) {
 			JOptionPane.showMessageDialog(null, "Usuario Agregado con Exito.");
 		} else {
 			JOptionPane.showMessageDialog(null, "Error");
 		}
 		
+		// limpiamor entrada de texto
 		limpiar();
+
+		// listamor nueva tabla
 		listar(vista.tabla);
 	}
 
+	// lista los nuevos datos
 	public void listar(JTable tabla) {
         centrarCeldas(tabla);
         modelo = (DefaultTableModel) tabla.getModel();
         tabla.setModel(modelo);
 		ArrayList<CategoriaCliente> lista = catclidao.listar();
-		System.out.println(lista);
         Object[] objeto = new Object[3];
         for (int i = 0; i < lista.size(); i++) {
             objeto[0] = lista.get(i).getIde();
@@ -77,20 +89,8 @@ public class Controlador implements ActionListener{
 
     }
 
-	void limpiarTabla() {
-        for (int i = 0; i < vista.tabla.getRowCount(); i++) {
-            modelo.removeRow(i);
-            i = i - 1;
-        }
-    }
 
-	void centrarCeldas(JTable tabla) {
-        DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
-        tcr.setHorizontalAlignment(SwingConstants.CENTER);
-        for (int i = 0; i < vista.tabla.getColumnCount(); i++) {
-            tabla.getColumnModel().getColumn(i).setCellRenderer(tcr);
-        }
-    }
+
 
 	public void actionPerformed(ActionEvent e){
 		if(e.getSource() == vista.adicionar){
@@ -139,11 +139,11 @@ public class Controlador implements ActionListener{
 			}
 		}else if(e.getSource() == vista.salir){
 			System.out.println("Apreto: salir ");
-
+			System.exit(0);
  
 		}
 	}
-
+	// limpia la entrada de texto
 	private void limpiar(){
 		vista.ide.setText("");
 		vista.limCredito.setText("");
@@ -152,5 +152,22 @@ public class Controlador implements ActionListener{
 		vista.limCredito.setEditable(true);
 		vista.estaRegis.setEditable(true);
 		
+	}
+
+	// limpia la tabla
+	void limpiarTabla() {
+		for (int i = 0; i < vista.tabla.getRowCount(); i++) {
+			modelo.removeRow(i);
+			i = i - 1;
+		}
+	}
+
+	// centra los numeros
+	void centrarCeldas(JTable tabla) {
+		DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
+		tcr.setHorizontalAlignment(SwingConstants.CENTER);
+		for (int i = 0; i < vista.tabla.getColumnCount(); i++) {
+			tabla.getColumnModel().getColumn(i).setCellRenderer(tcr);
+		}
 	}
 }
