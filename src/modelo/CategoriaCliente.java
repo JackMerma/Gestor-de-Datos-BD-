@@ -3,10 +3,13 @@ package src.modelo;
 public class CategoriaCliente {
 	public int ide;
 	public int limCredito;
+	public char estadoRegistro;
 
 	public CategoriaCliente(int ide, int limCredito){
 		this.ide = ide;
 		this.limCredito = limCredito;
+		this.estadoRegistro = 'A';
+		
 	}
 
 	public CategoriaCliente(){
@@ -27,5 +30,13 @@ public class CategoriaCliente {
 
 	public int getLimCredito(){
 		return this.limCredito;
+	}
+
+	public char getEstadoRegistro(){
+		return this.estadoRegistro;
+	}
+
+	public void setEstadoRegistro(char s){
+		this.estadoRegistro = s;
 	}
 }
