@@ -1,18 +1,18 @@
 package src.modelo;
 
-public class Registro {
+public class RolRegistro {
 	public int ide;
 	public String descripcionRol;
 	public char estadoRegistro;
 
-	public Registro(int ide, String descripcionRol){
+	public RolRegistro(int ide, String descripcionRol){
 		this.ide = ide;
 		this.descripcionRol = descripcionRol;
 		this.estadoRegistro = 'A';
 		
 	}
 
-	public Registro(){
+	public RolRegistro(){
 		this(-1, "");
 	}
 

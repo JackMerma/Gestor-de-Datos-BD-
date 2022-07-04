@@ -5,16 +5,16 @@ import java.sql.Connection;
 import java.sql.*;
 import java.util.*;
 
-public class RegistroDAO {
+public class RolRegistroDAO {
 
 	public Conexion con = new Conexion();
-	public Registro registro = new Registro();
+	public RolRegistro registro = new RolRegistro();
 	private PreparedStatement ps; 
 	private ResultSet rs;
 	private Connection bd;  
 
-	public ArrayList<Registro> listar(){
-		ArrayList<Registro> listRegistro = new ArrayList<Registro>();
+	public ArrayList<RolRegistro> listar(){
+		ArrayList<RolRegistro> listRegistro = new ArrayList<RolRegistro>();
 		String sql = "SELECT * FROM `GZZ_ROL_REGISTRO`";
 
 		try{
@@ -24,17 +24,17 @@ public class RegistroDAO {
 			rs = ps.executeQuery();
 			// recibimos los resultados
 			while(rs.next()){
-				registro = new Registro();
+				registro = new RolRegistro();
 				registro.setIde(rs.getInt(1));
 				registro.setDescripcionCargo(rs.getString(2));
 				registro.setSueldo(rs.getString(3));
 				registro.setEstadoRegistro(rs.getString(4).charAt(0));
 				listRegistro.add(registro);
 			}
-			System.out.println("RegistroDAO Listar:CORRECTO");
+			System.out.println("RolRegistroDAO Listar:CORRECTO");
 
 		}catch(Exception e){
-			System.out.println("RegistroDAO listar:ERROR");
+			System.out.println("RolRegistroDAO listar:ERROR");
 			System.err.println(e);
 		}finally{
 			con.desconectar();
@@ -44,7 +44,7 @@ public class RegistroDAO {
 	}
 
 	// agregar
-	public int add(Registro registro){
+	public int add(RolRegistro registro){
 		int state = 0;
 		String sql = "INSERT INTO `GZZ_ROL_REGISTRO` (`RolRegIde`, `RolRegDes`, `RolRegEstReg`) VALUES (?, ?, ?);";
 		try{
@@ -56,10 +56,10 @@ public class RegistroDAO {
 			ps.setString(2,registro.getDescripcionRol()+"");
 			ps.setString(3, "A");
 			state = ps.executeUpdate();
-			System.out.println("RegistroDAO Add: CORRECTO");
+			System.out.println("RolRegistroDAO Add: CORRECTO");
 
 		}catch(SQLException e){
-			System.out.println("RegistroDAO add: ERROR"); 
+			System.out.println("RolRegistroDAO add: ERROR"); 
 			System.out.println(e);
 		}finally{
 			con.desconectar();
@@ -67,7 +67,7 @@ public class RegistroDAO {
 		return state;
 	}
 
-	public int modificar(Registro registro){
+	public int modificar(RolRegistro registro){
 		int state = 0;
 		String sql = "UPDATE `GZZ_ROL_REGISTRO` SET `RolRegDes` = ?, `RolRegEstReg` = ? WHERE `GZZ_ROL_REGISTRO`.`RolRegIde` = ?;";
 		try{
@@ -79,9 +79,9 @@ public class RegistroDAO {
 			ps.setString(2,registro.getEstadoRegistro()+"");
 			ps.setString(3,registro.getIde()+"");
 			state = ps.executeUpdate(); 
-			System.out.println("RegistroDAO ModificarInter: CORRECTO");
+			System.out.println("RolRegistroDAO ModificarInter: CORRECTO");
 		}catch (SQLException e){
-			System.out.println("RegistroDAO ModificarInter: ERROR");
+			System.out.println("RolRegistroDAO ModificarInter: ERROR");
 			System.out.println(e);
 		}finally{
 			con.desconectar();
