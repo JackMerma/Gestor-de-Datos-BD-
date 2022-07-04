@@ -79,12 +79,14 @@ public class ControladorCargo implements ActionListener{
 	private void modificar(){
 		// Obtenemos datos
 		String ide = vista.ide.getText();
-		String limi = vista.limCredito.getText();
+		String desc = vista.descripcion.getText();
+		String sueldo = vista.sueldo.getText();
 		String esta = vista.estaRegis.getText();
 
 		// Creamos un objeto
 		catcli.setIde(Integer.parseInt(ide));
-		catcli.setLimCredito(Integer.parseInt(limi));
+		catcli.setDescripcionCargo(desc);
+		catcli.setSueldo(Integer.parseInt(sueldo));
 		catcli.setEstadoRegistro(esta.charAt(0));
 
 		// limpiamos la tabla anterior
@@ -95,7 +97,7 @@ public class ControladorCargo implements ActionListener{
 
 		// verificamor resultado
 		if (n == 1) {
-			JOptionPane.showMessageDialog(null, "Usuario Modificado con Exito.");
+			JOptionPane.showMessageDialog(null, "Modificado con Exito.");
 		} else {
 			JOptionPane.showMessageDialog(null, "Error");
 		}
