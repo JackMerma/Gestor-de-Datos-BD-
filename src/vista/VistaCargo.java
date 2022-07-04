@@ -21,7 +21,7 @@ public class VistaCargo {
 
 	// add Panel
 	public JTextField ide = new JTextField(10);
-	public JTextField descripcion = new JTextField(15);
+	public JTextField descripcion = new JTextField(10);
 	public JTextField sueldo = new JTextField(10);
 	public JTextField estaRegis = new JTextField("", 1);
 
