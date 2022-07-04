@@ -66,21 +66,21 @@ public class TipoRepresentanteVentaDAO {
 		return state;
 	}
 
-	public int modificar(Registro registro){
+	public int modificar(TipoRepresentanteVenta tipRepVenta){
 		int state = 0;
-		String sql = "UPDATE `GZZ_ROL_REGISTRO` SET `RolRegDes` = ?, `RolRegEstReg` = ? WHERE `GZZ_ROL_REGISTRO`.`RolRegIde` = ?;";
+		String sql = "UPDATE `GZZ_TIPO_REPRESENTANTE_VENTAS` SET `TipRepVenDes` = ?, `TipRepVenEstReg` = ? WHERE `GZZ_TIPO_REPRESENTANTE_VENTAS`.`TipRepVenIde` = ?;";
 		try{
 			con.conectar();
 			bd = con.getConnection();
 			ps = bd.prepareStatement(sql);
 			// llenamos datos
-			ps.setString(1,registro.getDescripcionRol()+"");
-			ps.setString(2,registro.getEstadoRegistro()+"");
-			ps.setString(3,registro.getIde()+"");
+			ps.setString(1,tipRepVenta.getDescTipoRepVenta()+"");
+			ps.setString(2,tipRepVenta.getEstadoRegistro()+"");
+			ps.setString(3,tipRepVenta.getIde()+"");
 			state = ps.executeUpdate(); 
-			System.out.println("RegistroDAO ModificarInter: CORRECTO");
+			System.out.println("TipoRepresentanteVentaDAO ModificarInter: CORRECTO");
 		}catch (SQLException e){
-			System.out.println("RegistroDAO ModificarInter: ERROR");
+			System.out.println("TipoRepresentanteVentaDAO ModificarInter: ERROR");
 			System.out.println(e);
 		}finally{
 			con.desconectar();
