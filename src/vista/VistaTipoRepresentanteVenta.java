@@ -71,7 +71,7 @@ public class VistaTipoRepresentanteVenta {
 	 */
 
 	public void createAddPanelContent(){
-		addPanel.add(new JLabel("Registro de Categoría Cliente"), BorderLayout.NORTH);
+		addPanel.add(new JLabel("Registro de Tipo Representante Venta"), BorderLayout.NORTH);
 
 		JPanel addPanelContent = new JPanel(new BorderLayout());
 
@@ -94,7 +94,7 @@ public class VistaTipoRepresentanteVenta {
 		// descTipRepVen field
 		
 		JPanel descTipRepVenPanel = new JPanel(new GridLayout(1,2));
-		JLabel descTipRepVenLabel = new JLabel("Tipo de representante en ventas:");
+		JLabel descTipRepVenLabel = new JLabel("Tipo de representante:");
 		descTipRepVenLabel.setHorizontalAlignment(JLabel.CENTER);
 
 		descTipRepVenPanel.add(descTipRepVenLabel);
@@ -153,7 +153,7 @@ public class VistaTipoRepresentanteVenta {
 		tabla.setModel(new javax.swing.table.DefaultTableModel(
 					null,
 					new String [] {
-						"Ide", "LimiteCredito", "EstadoRegistro"
+						"Ide", "TipoRepresentante", "EstadoRegistro"
 					}
 					));
 		tabla.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
