@@ -15,7 +15,7 @@ public class TipoRepresentanteVentaDAO {
 
 	public ArrayList<TipoRepresentanteVenta> listar(){
 		ArrayList<TipoRepresentanteVenta> listTipRepVenta = new ArrayList<TipoRepresentanteVenta>();
-		String sql = "SELECT * FROM `GZZ_ROL_REGISTRO`";
+		String sql = "SELECT * FROM `GZZ_TIPO_REPRESENTANTE_VENTAS`";
 
 		try{
 			con.conectar();
