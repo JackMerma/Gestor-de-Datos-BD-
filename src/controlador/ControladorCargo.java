@@ -19,8 +19,8 @@ import java.util.ArrayList;
 public class ControladorCargo implements ActionListener{
 
 	public VistaCargo vista = new VistaCargo();
-	public CargoDAO catclidao = new CargoDAO();
-	public Cargo catcli = new Cargo();
+	public CargoDAO cargodao = new CargoDAO();
+	public Cargo cargo = new Cargo();
 	DefaultTableModel modelo = new DefaultTableModel();
 
 	private int CarFlaAct = 0;
@@ -50,16 +50,16 @@ public class ControladorCargo implements ActionListener{
 		String esta = vista.estaRegis.getText();
 
 		// Creamos un objeto
-		catcli.setIde(Integer.parseInt(ide));
-		catcli.setDescripcionCargo(desc);
-		catcli.setSueldo(Integer.parseInt(sueldo));
-		catcli.setEstadoRegistro(esta.charAt(0));
+		cargo.setIde(Integer.parseInt(ide));
+		cargo.setDescripcionCargo(desc);
+		cargo.setSueldo(Integer.parseInt(sueldo));
+		cargo.setEstadoRegistro(esta.charAt(0));
 		
 		// limpiamos la tabla anterior
 		limpiarTabla();
 		
 		// agregamos 
-		int n = catclidao.add(catcli);
+		int n = cargodao.add(cargo);
 
 		// verificamor resultado
 		if (n == 1) {
@@ -84,16 +84,16 @@ public class ControladorCargo implements ActionListener{
 		String esta = vista.estaRegis.getText();
 
 		// Creamos un objeto
-		catcli.setIde(Integer.parseInt(ide));
-		catcli.setDescripcionCargo(desc);
-		catcli.setSueldo(Integer.parseInt(sueldo));
-		catcli.setEstadoRegistro(esta.charAt(0));
+		cargo.setIde(Integer.parseInt(ide));
+		cargo.setDescripcionCargo(desc);
+		cargo.setSueldo(Integer.parseInt(sueldo));
+		cargo.setEstadoRegistro(esta.charAt(0));
 
 		// limpiamos la tabla anterior
 		limpiarTabla();
 		
 		// agregamos 
-		int n = catclidao.modificar(catcli);
+		int n = cargodao.modificar(cargo);
 
 		// verificamor resultado
 		if (n == 1) {
@@ -113,23 +113,25 @@ public class ControladorCargo implements ActionListener{
 	private void eliminar(){
 		// Obtenemos datos
 		String ide = vista.ide.getText();
-		String limi = vista.limCredito.getText();
+		String desc = vista.descripcion.getText();
+		String sueldo = vista.sueldo.getText();
 		String esta = vista.estaRegis.getText();
 
 		// Creamos un objeto
-		catcli.setIde(Integer.parseInt(ide));
-		catcli.setLimCredito(Integer.parseInt(limi));
-		catcli.setEstadoRegistro(esta.charAt(0));
+		cargo.setIde(Integer.parseInt(ide));
+		cargo.setDescripcionCargo(desc);
+		cargo.setSueldo(Integer.parseInt(sueldo));
+		cargo.setEstadoRegistro(esta.charAt(0));
 
 		// limpiamos la tabla anterior
 		limpiarTabla();
 		
 		// agregamos 
-		int n = catclidao.modificar(catcli);
+		int n = cargodao.modificar(cargo);
 
 		// verificamor resultado
 		if (n == 1) {
-			JOptionPane.showMessageDialog(null, "Usuario Eliminado con Exito.");
+			JOptionPane.showMessageDialog(null, "Eliminado con Exito.");
 		} else {
 			JOptionPane.showMessageDialog(null, "Error");
 		}
@@ -145,19 +147,21 @@ public class ControladorCargo implements ActionListener{
 	private void inavilitar(){
 		// Obtenemos datos
 		String ide = vista.ide.getText();
-		String limi = vista.limCredito.getText();
+		String desc = vista.descripcion.getText();
+		String sueldo = vista.sueldo.getText();
 		String esta = vista.estaRegis.getText();
 
 		// Creamos un objeto
-		catcli.setIde(Integer.parseInt(ide));
-		catcli.setLimCredito(Integer.parseInt(limi));
-		catcli.setEstadoRegistro(esta.charAt(0));
+		cargo.setIde(Integer.parseInt(ide));
+		cargo.setDescripcionCargo(desc);
+		cargo.setSueldo(Integer.parseInt(sueldo));
+		cargo.setEstadoRegistro(esta.charAt(0));
 
 		// limpiamos la tabla anterior
 		limpiarTabla();
 		
 		// agregamos 
-		int n = catclidao.modificar(catcli);
+		int n = cargodao.modificar(cargo);
 
 		// verificamor resultado
 		if (n == 1) {
@@ -182,15 +186,15 @@ public class ControladorCargo implements ActionListener{
 		String esta = vista.estaRegis.getText();
 
 		// Creamos un objeto
-		catcli.setIde(Integer.parseInt(ide));
-		catcli.setLimCredito(Integer.parseInt(limi));
-		catcli.setEstadoRegistro(esta.charAt(0));
+		cargo.setIde(Integer.parseInt(ide));
+		cargo.setLimCredito(Integer.parseInt(limi));
+		cargo.setEstadoRegistro(esta.charAt(0));
 
 		// limpiamos la tabla anterior
 		limpiarTabla();
 		
 		// agregamos 
-		int n = catclidao.modificar(catcli);
+		int n = cargodao.modificar(cargo);
 
 		// verificamor resultado
 		if (n == 1) {
@@ -211,7 +215,7 @@ public class ControladorCargo implements ActionListener{
         centrarCeldas(tabla);
         modelo = (DefaultTableModel) tabla.getModel();
         tabla.setModel(modelo);
-		ArrayList<CategoriaCliente> lista = catclidao.listar();
+		ArrayList<CategoriaCliente> lista = cargodao.listar();
         Object[] objeto = new Object[3];
         for (int i = 0; i < lista.size(); i++) {
             objeto[0] = lista.get(i).getIde();
