@@ -1,5 +1,6 @@
 package src.vista;
 
+// GUI
 import java.util.*;
 import java.awt.*;
 import javax.swing.*;
@@ -10,9 +11,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 
-public class VistaCargo {
+public class VistaRolRegistro {
 	public JPanel content;
-	private String nombreTabla = "CARGO";
+	private String nombreTabla = "ROL REGISTRO";
 
 	// 3 paneles principales
 	public JPanel addPanel = new JPanel(new BorderLayout());
@@ -21,11 +22,11 @@ public class VistaCargo {
 
 	// add Panel
 	public JTextField ide = new JTextField(10);
-	public JTextField descripcion = new JTextField(10);
-	public JTextField sueldo = new JTextField(10);
+	public JTextField rolDesc = new JTextField(10);
 	public JTextField estaRegis = new JTextField("", 1);
 
 	// view Panel
+	//decidir recurso a usar...
 	public JTable tabla;
 	public JScrollPane miBarra;
 	public DefaultTableModel modelo;
@@ -71,11 +72,11 @@ public class VistaCargo {
 	 */
 
 	public void createAddPanelContent(){
-		addPanel.add(new JLabel("Registro de Cargo"), BorderLayout.NORTH);
+		addPanel.add(new JLabel("Registro de Rol Registro"), BorderLayout.NORTH);
 
 		JPanel addPanelContent = new JPanel(new BorderLayout());
 
-		JPanel addPanelContentContent = new JPanel(new GridLayout(4,1,5,10));
+		JPanel addPanelContentContent = new JPanel(new GridLayout(3,1,5,25));
 
 		// ide field
 
@@ -86,36 +87,24 @@ public class VistaCargo {
 		idePanel.add(ideLabel);
 
 		JPanel ideButtonPanel= new JPanel(new FlowLayout());
+		//createPanelWidth(ideButtonPanel, true, true, false, false);
 
 		ideButtonPanel.add(ide);
 		idePanel.add(ideButtonPanel);
 
-		// descripcion
+		// rolDesc field
 		
-		JPanel descripcionPanel = new JPanel(new GridLayout(1,2));
-		JLabel descripcionLabel = new JLabel("Descripción del cargo:");
-		descripcionLabel.setHorizontalAlignment(JLabel.CENTER);
+		JPanel rolDescPanel = new JPanel(new GridLayout(1,2));
+		JLabel rolDescLabel = new JLabel("Descripcion del rol:");
+		rolDescLabel.setHorizontalAlignment(JLabel.CENTER);
 
-		descripcionPanel.add(descripcionLabel);
+		rolDescPanel.add(rolDescLabel);
 
-		JPanel descripcionButtonPanel = new JPanel(new FlowLayout());
-		//createPanelWidth(descripcionButtonPanel, true, true, false, false);
+		JPanel rolDescButtonPanel = new JPanel(new FlowLayout());
+		//createPanelWidth(rolDescButtonPanel, true, true, false, false);
 
-		descripcionButtonPanel.add(descripcion);
-		descripcionPanel.add(descripcionButtonPanel);
-
-		// sueldo
-
-		JPanel sueldoPanel = new JPanel(new GridLayout(1,2));
-		JLabel sueldoLabel = new JLabel("Sueldo:");
-		sueldoLabel.setHorizontalAlignment(JLabel.CENTER);
-
-		sueldoPanel.add(sueldoLabel);
-
-		JPanel sueldoButtonPanel = new JPanel(new FlowLayout());
-
-		sueldoButtonPanel.add(sueldo);
-		sueldoPanel.add(sueldoButtonPanel);
+		rolDescButtonPanel.add(rolDesc);
+		rolDescPanel.add(rolDescButtonPanel);
 
 		// estaRegis field
 
@@ -135,8 +124,7 @@ public class VistaCargo {
 
 		//agregando paneles
 		addPanelContentContent.add(idePanel);
-		addPanelContentContent.add(sueldoPanel);
-		addPanelContentContent.add(descripcionPanel);
+		addPanelContentContent.add(rolDescPanel);
 		addPanelContentContent.add(estaRegisPanel);
 
 		createPanelWidth(addPanelContent, true, true, true, true);
@@ -166,7 +154,7 @@ public class VistaCargo {
 		tabla.setModel(new javax.swing.table.DefaultTableModel(
 					null,
 					new String [] {
-						"Ide", "DescripcionCargo", "Sueldo", "EstadoRegistro"
+						"Ide", "DescripcionRol", "EstadoRegistro"
 					}
 					));
 		tabla.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
