@@ -44,23 +44,22 @@ public class RegistroDAO {
 	}
 
 	// agregar
-	public int add(Cargo cargo){
+	public int add(Registro registro){
 		int state = 0;
-		String sql = "INSERT INTO `GZZ_CARGO` (`CarIde`, `CarDes`, `CarSue`, `CatEstReg`) VALUES (?, ?, ?, ?);";
+		String sql = "INSERT INTO `GZZ_ROL_REGISTRO` (`RolRegIde`, `RolRegDes`, `RolRegEstReg`) VALUES (?, ?, ?);";
 		try{
 			con.conectar();
 			bd = con.getConnection();
 			ps = bd.prepareStatement(sql);
 			// llenamos los datos
-			ps.setString(1,cargo.getIde()+"");
-			ps.setString(2,cargo.getDescripcionCargo()+"");
-			ps.setString(3,cargo.getSueldo()+"");
-			ps.setString(4, "A");
+			ps.setString(1,registro.getIde()+"");
+			ps.setString(2,registro.getDescripcionRol()+"");
+			ps.setString(3, "A");
 			state = ps.executeUpdate();
-			System.out.println("CargoDAO Add: CORRECTO");
+			System.out.println("RegistroDAO Add: CORRECTO");
 
 		}catch(SQLException e){
-			System.out.println("CargoDAO add: ERROR"); 
+			System.out.println("RegistroDAO add: ERROR"); 
 			System.out.println(e);
 		}finally{
 			con.desconectar();
