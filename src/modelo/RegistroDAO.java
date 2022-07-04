@@ -67,22 +67,21 @@ public class RegistroDAO {
 		return state;
 	}
 
-	public int modificar(Cargo cargo){
+	public int modificar(Registro registro){
 		int state = 0;
-		String sql = "UPDATE `GZZ_CARGO` SET `CarDes` = ?, `CarSue` = ?, `CatEstReg` = ? WHERE `GZZ_CARGO`.`CarIde` = ?;";
+		String sql = "UPDATE `GZZ_ROL_REGISTRO` SET `RolRegDes` = ?, `RolRegEstReg` = ? WHERE `GZZ_ROL_REGISTRO`.`RolRegIde` = ?;";
 		try{
 			con.conectar();
 			bd = con.getConnection();
 			ps = bd.prepareStatement(sql);
 			// llenamos datos
-			ps.setString(1,cargo.getDescripcionCargo()+"");
-			ps.setString(2,cargo.getSueldo()+"");
-			ps.setString(3,cargo.getEstadoRegistro()+"");
-			ps.setString(4,cargo.getIde()+"");
+			ps.setString(1,registro.getDescripcionRol()+"");
+			ps.setString(2,registro.getEstadoRegistro()+"");
+			ps.setString(3,registro.getIde()+"");
 			state = ps.executeUpdate(); 
-			System.out.println("categoriaClienteDao ModificarInter: CORRECTO");
+			System.out.println("RegistroDAO ModificarInter: CORRECTO");
 		}catch (SQLException e){
-			System.out.println("categoriaClienteDao ModificarInter: ERROR");
+			System.out.println("RegistroDAO ModificarInter: ERROR");
 			System.out.println(e);
 		}finally{
 			con.desconectar();
