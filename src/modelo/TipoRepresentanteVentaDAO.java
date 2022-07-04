@@ -43,22 +43,22 @@ public class TipoRepresentanteVentaDAO {
 	}
 
 	// agregar
-	public int add(Registro registro){
+	public int add(TipoRepresentanteVenta tipRepVenta){
 		int state = 0;
-		String sql = "INSERT INTO `GZZ_ROL_REGISTRO` (`RolRegIde`, `RolRegDes`, `RolRegEstReg`) VALUES (?, ?, ?);";
+		String sql = "INSERT INTO `GZZ_TIPO_REPRESENTANTE_VENTAS` (`TipRepVenIde`, `TipRepVenDes`, `TipRepVenEstReg`) VALUES (?, ?, ?);";
 		try{
 			con.conectar();
 			bd = con.getConnection();
 			ps = bd.prepareStatement(sql);
 			// llenamos los datos
-			ps.setString(1,registro.getIde()+"");
-			ps.setString(2,registro.getDescripcionRol()+"");
+			ps.setString(1,tipRepVenta.getIde()+"");
+			ps.setString(2,tipRepVenta.getDescTipoRepVenta()+"");
 			ps.setString(3, "A");
 			state = ps.executeUpdate();
-			System.out.println("RegistroDAO Add: CORRECTO");
+			System.out.println("TipoRepresentanteVentaDAO Add: CORRECTO");
 
 		}catch(SQLException e){
-			System.out.println("RegistroDAO add: ERROR"); 
+			System.out.println("TipoRepresentanteVentaDAO add: ERROR"); 
 			System.out.println(e);
 		}finally{
 			con.desconectar();
