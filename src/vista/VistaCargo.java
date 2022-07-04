@@ -166,7 +166,7 @@ public class VistaCargo {
 		tabla.setModel(new javax.swing.table.DefaultTableModel(
 					null,
 					new String [] {
-						"Ide", "LimiteCredito", "EstadoRegistro"
+						"Ide", "DescripcionCargo", "Sueldo", "EstadoRegistro"
 					}
 					));
 		tabla.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
