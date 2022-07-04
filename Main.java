@@ -31,10 +31,10 @@ public class Main {
 	}
 
 	public static void generateContent(){
-		Vista vi = new Vista();
+		VistaCategoriaCliente vi = new VistaCategoriaCliente();
 		
 		frame.add(vi.getContent());
-		Controlador con = new Controlador(vi); 
+		ControladorCategoriaCliente con = new ControladorCategoriaCliente(vi); 
 	
 	}
 }
