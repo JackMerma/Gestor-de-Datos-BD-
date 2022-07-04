@@ -68,17 +68,18 @@ public class CargoDAO {
 		return state;
 	}
 
-	public int modificar(CategoriaCliente catCli){
+	public int modificar(Cargo cargo){
 		int state = 0;
-		String sql = "UPDATE `GZZ_CATEGORIA_CLIENTE` SET `CatCliLimCre` = ?, `CatCliEstReg` = ? WHERE `GZZ_CATEGORIA_CLIENTE`.`CatCliIde` = ?;";
+		String sql = "UPDATE `GZZ_CARGO` SET `CarDes` = ?, `CarSue` = ?, `CatEstReg` = ? WHERE `GZZ_CARGO`.`CarIde` = ?;";
 		try{
 			con.conectar();
 			bd = con.getConnection();
 			ps = bd.prepareStatement(sql);
 			// llenamos datos
-			ps.setString(1,catCli.getLimCredito()+"");
-			ps.setString(2,catCli.getEstadoRegistro()+"");
-			ps.setString(3,catCli.getIde()+"");
+			ps.setString(1,cargo.getDescripcionCargo()+"");
+			ps.setString(2,cargo.getSueldo()+"");
+			ps.setString(3,cargo.getEstadoRegistro()+"");
+			ps.setString(4,cargo.getIde()+"");
 			state = ps.executeUpdate(); 
 			System.out.println("categoriaClienteDao ModificarInter: CORRECTO");
 		}catch (SQLException e){
