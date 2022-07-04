@@ -9,16 +9,16 @@ import javax.swing.*;
 
 import src.modelo.CategoriaCliente;
 import src.modelo.CategoriaClienteDAO;
-import src.vista.Vista;
+import src.vista.VistaCategoriaCliente;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import java.util.ArrayList;
 
-public class Controlador implements ActionListener{
+public class ControladorCategoriaCliente implements ActionListener{
 
-	public Vista vista = new Vista();
+	public VistaCategoriaCliente vista = new VistaCategoriaCliente();
 	public CategoriaClienteDAO catclidao = new CategoriaClienteDAO();
 	public CategoriaCliente catcli = new CategoriaCliente();
 	DefaultTableModel modelo = new DefaultTableModel();
@@ -27,7 +27,7 @@ public class Controlador implements ActionListener{
 	private int action; // 1: agregar, 
 
 	// constructor
-	public Controlador(Vista v){
+	public ControladorCategoriaCliente(VistaCategoriaCliente v){
 		this.vista = v;
 		vista.adicionar.addActionListener(this);
 		vista.modificar.addActionListener(this);
