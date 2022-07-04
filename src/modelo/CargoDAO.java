@@ -44,22 +44,23 @@ public class CargoDAO {
 	}
 
 	// agregar
-	public int add(CategoriaCliente catCli){
+	public int add(Cargo cargo){
 		int state = 0;
-		String sql = "INSERT INTO `GZZ_CATEGORIA_CLIENTE` (`CatCliIde`, `CatCliLimCre`, `CatCliEstReg`) VALUES (?, ?, ?);";
+		String sql = "INSERT INTO `GZZ_CARGO` (`CarIde`, `CarDes`, `CarSue`, `CatEstReg`) VALUES (?, ?, ?, ?);";
 		try{
 			con.conectar();
 			bd = con.getConnection();
 			ps = bd.prepareStatement(sql);
 			// llenamos los datos
-			ps.setString(1,catCli.getIde()+"");
-			ps.setString(2,catCli.getLimCredito()+"");
-			ps.setString(3, "A");
+			ps.setString(1,cargo.getIde()+"");
+			ps.setString(2,cargo.getDescripcionCargo()+"");
+			ps.setString(3,cargo.getSueldo()+"");
+			ps.setString(4, "A");
 			state = ps.executeUpdate();
-			System.out.println("categoriaClienteDao Add: CORRECTO");
+			System.out.println("CargoDAO Add: CORRECTO");
 
 		}catch(SQLException e){
-			System.out.println("categoriaClienteDao add: ERROR"); 
+			System.out.println("CargoDAO add: ERROR"); 
 			System.out.println(e);
 		}finally{
 			con.desconectar();
