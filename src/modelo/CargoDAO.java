@@ -81,9 +81,9 @@ public class CargoDAO {
 			ps.setString(3,cargo.getEstadoRegistro()+"");
 			ps.setString(4,cargo.getIde()+"");
 			state = ps.executeUpdate(); 
-			System.out.println("categoriaClienteDao ModificarInter: CORRECTO");
+			System.out.println("CargoDAO ModificarInter: CORRECTO");
 		}catch (SQLException e){
-			System.out.println("categoriaClienteDao ModificarInter: ERROR");
+			System.out.println("CargoDAO ModificarInter: ERROR");
 			System.out.println(e);
 		}finally{
 			con.desconectar();
