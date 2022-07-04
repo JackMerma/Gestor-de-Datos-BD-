@@ -20,11 +20,9 @@ SQLCONNECT = .:lib/mysql-connector-java-8.0.28.jar
 
 CLASSES = \
 			 Main.java \
-			 src/controlador/Controlador.java \
-			 src/modelo/CategoriaCliente.java \
-			 src/modelo/CategoriaClienteDAO.java \
-			 src/modelo/Conexion.java \
-			 src/vista/Vista.java
+			 src/controlador/*.java \
+			 src/modelo/*.java \
+			 src/vista/*.java
 
 # default make target entry
 
