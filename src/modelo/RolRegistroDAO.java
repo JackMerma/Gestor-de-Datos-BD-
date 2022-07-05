@@ -26,8 +26,7 @@ public class RolRegistroDAO {
 			while(rs.next()){
 				registro = new RolRegistro();
 				registro.setIde(rs.getInt(1));
-				registro.setDescripcionCargo(rs.getString(2));
-				registro.setSueldo(rs.getString(3));
+				registro.setDescripcionRol(rs.getString(2));
 				registro.setEstadoRegistro(rs.getString(4).charAt(0));
 				listRegistro.add(registro);
 			}
