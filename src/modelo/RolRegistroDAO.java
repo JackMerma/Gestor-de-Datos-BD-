@@ -27,7 +27,7 @@ public class RolRegistroDAO {
 				registro = new RolRegistro();
 				registro.setIde(rs.getInt(1));
 				registro.setDescripcionRol(rs.getString(2));
-				registro.setEstadoRegistro(rs.getString(4).charAt(0));
+				registro.setEstadoRegistro(rs.getString(3).charAt(0));
 				listRegistro.add(registro);
 			}
 			System.out.println("RolRegistroDAO Listar:CORRECTO");
