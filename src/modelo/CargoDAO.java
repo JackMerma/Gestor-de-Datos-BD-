@@ -27,7 +27,7 @@ public class CargoDAO {
 				cargo = new Cargo();
 				cargo.setIde(rs.getInt(1));
 				cargo.setDescripcionCargo(rs.getString(2));
-				cargo.setSueldo(rs.getString(3));
+				cargo.setSueldo(rs.getInt(3));
 				cargo.setEstadoRegistro(rs.getString(4).charAt(0));
 				listCargo.add(cargo);
 			}
