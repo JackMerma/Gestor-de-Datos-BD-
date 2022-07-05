@@ -217,15 +217,17 @@ public class ControladorCargo implements ActionListener{
 		centrarCeldas(tabla);
 		modelo = (DefaultTableModel) tabla.getModel();
 		tabla.setModel(modelo);
-		ArrayList<CategoriaCliente> lista = cargodao.listar();
-		Object[] objeto = new Object[3];
+
+		ArrayList<Cargo> lista = cargodao.listar();
+		Object[] objeto = new Object[4];
+
 		for (int i = 0; i < lista.size(); i++) {
 			objeto[0] = lista.get(i).getIde();
-			objeto[1] = lista.get(i).getLimCredito();
-			objeto[2] = lista.get(i).getEstadoRegistro();
+			objeto[1] = lista.get(i).getDescripcionCargo();
+			objeto[2] = lista.get(i).getSueldo();
+			objeto[3] = lista.get(i).getEstadoRegistro();
 			modelo.addRow(objeto);
 		}
-
 	}
 
 
@@ -241,20 +243,22 @@ public class ControladorCargo implements ActionListener{
 			CarFlaAct = 1;
 			action=1;
 
-
-
 		}else if(e.getSource() == vista.modificar){
 			System.out.println("Apreto: modificar");
 			int fila = vista.tabla.getSelectedRow();
+
 			if (fila == -1) {
 				JOptionPane.showMessageDialog(null, "Debe Seleccionar Una fila..!!");
 			} else {
+
 				String id = (String) vista.tabla.getValueAt(fila, 0).toString();
-				String limete = (String) vista.tabla.getValueAt(fila, 1).toString();
-				String estado = (String) vista.tabla.getValueAt(fila, 2).toString();
+				String descCarg = (String) vista.tabla.getValueAt(fila, 1).toString();
+				String sueldo = (String) vista.tabla.getValueAt(fila, 2).toString();
+				String estado = (String) vista.tabla.getValueAt(fila, 3).toString();
 
 				vista.ide.setText(id);
-				vista.limCredito.setText(limete);
+				vista.descripcion.setText(descCarg);
+				vista.sueldo.setText(sueldo);
 				vista.estaRegis.setText(estado);
 
 				vista.ide.setEditable(false);
@@ -273,15 +277,18 @@ public class ControladorCargo implements ActionListener{
 				JOptionPane.showMessageDialog(null, "Debe Seleccionar Una fila..!!");
 			} else {
 				String id = (String) vista.tabla.getValueAt(fila, 0).toString();
-				String limete = (String) vista.tabla.getValueAt(fila, 1).toString();
-				String estado = (String) vista.tabla.getValueAt(fila, 2).toString();
+				String descCarg = (String) vista.tabla.getValueAt(fila, 1).toString();
+				String sueldo = (String) vista.tabla.getValueAt(fila, 2).toString();
+				String estado = (String) vista.tabla.getValueAt(fila, 3).toString();
 
 				vista.ide.setText(id);
-				vista.limCredito.setText(limete);
+				vista.descripcion.setText(descCarg);
+				vista.sueldo.setText(sueldo);
 				vista.estaRegis.setText("*");
 
 				vista.ide.setEditable(false);
-				vista.limCredito.setEditable(false);
+				vista.descripcion.setEditable(false);
+				vista.sueldo.setEditable(false);
 				vista.estaRegis.setEditable(false);
 
 				CarFlaAct = 1;
@@ -301,15 +308,18 @@ public class ControladorCargo implements ActionListener{
 				JOptionPane.showMessageDialog(null, "Debe Seleccionar Una fila..!!");
 			} else {
 				String id = (String) vista.tabla.getValueAt(fila, 0).toString();
-				String limete = (String) vista.tabla.getValueAt(fila, 1).toString();
-				String estado = (String) vista.tabla.getValueAt(fila, 2).toString();
+				String descCarg = (String) vista.tabla.getValueAt(fila, 1).toString();
+				String sueldo = (String) vista.tabla.getValueAt(fila, 2).toString();
+				String estado = (String) vista.tabla.getValueAt(fila, 3).toString();
 
 				vista.ide.setText(id);
-				vista.limCredito.setText(limete);
+				vista.descripcion.setText(descCarg);
+				vista.sueldo.setText(sueldo);
 				vista.estaRegis.setText("I");
 
 				vista.ide.setEditable(false);
-				vista.limCredito.setEditable(false);
+				vista.descripcion.setEditable(false);
+				vista.sueldo.setEditable(false);
 				vista.estaRegis.setEditable(false);
 
 				CarFlaAct = 1;
@@ -324,15 +334,18 @@ public class ControladorCargo implements ActionListener{
 				JOptionPane.showMessageDialog(null, "Debe Seleccionar Una fila..!!");
 			} else {
 				String id = (String) vista.tabla.getValueAt(fila, 0).toString();
-				String limete = (String) vista.tabla.getValueAt(fila, 1).toString();
-				String estado = (String) vista.tabla.getValueAt(fila, 2).toString();
+				String descCarg = (String) vista.tabla.getValueAt(fila, 1).toString();
+				String sueldo = (String) vista.tabla.getValueAt(fila, 2).toString();
+				String estado = (String) vista.tabla.getValueAt(fila, 3).toString();
 
 				vista.ide.setText(id);
-				vista.limCredito.setText(limete);
+				vista.descripcion.setText(descCarg);
+				vista.sueldo.setText(sueldo);
 				vista.estaRegis.setText("A");
 
 				vista.ide.setEditable(false);
-				vista.limCredito.setEditable(false);
+				vista.descripcion.setEditable(false);
+				vista.sueldo.setEditable(false);
 				vista.estaRegis.setEditable(false);
 
 				CarFlaAct = 1;
@@ -373,12 +386,14 @@ public class ControladorCargo implements ActionListener{
 	// limpia la entrada de texto
 	private void limpiar(){
 		vista.ide.setText("");
-		vista.limCredito.setText("");
+		vista.descripcion.setText("");
+		vista.sueldo.setText("");
 		vista.estaRegis.setText("");
-		vista.ide.setEditable(true);
-		vista.limCredito.setEditable(true);
-		vista.estaRegis.setEditable(true);
 
+		vista.ide.setEditable(true);
+		vista.descripcion.setEditable(true);
+		vista.sueldo.setEditable(true);
+		vista.estaRegis.setEditable(true);
 	}
 
 	// limpia la tabla
