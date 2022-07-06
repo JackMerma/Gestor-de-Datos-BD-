@@ -6,6 +6,7 @@ import java.util.*;
 import java.awt.*;
 import javax.swing.*;
 
+import java.awt.event.*;
 public class Main {
 	
 	public static final String PROJECTNAME = "EMPRESA DE DISTRIBUCION";
@@ -65,7 +66,10 @@ public class Main {
 	public static JPanel addPanelButton(String titleTableReference){
 		JPanel panelInter = new JPanel();
 		panelInter.add(new JLabel(titleTableReference));
-		panelInter.add(new JPanel().add(new JButton("Abrir Interfaz")));
+		JButton button =new JButton(titleTableReference);
+		ControladorMain contro = new ControladorMain();
+		button.addActionListener(contro);
+		panelInter.add(button);
 		return panelInter;
 	}
 
@@ -75,5 +79,19 @@ public class Main {
 		frame.add(vi.getContent());
 		ControladorCargo con = new ControladorCargo(vi); 
 	
+	}
+}
+
+class ControladorMain implements ActionListener{
+	public void actionPerformed(ActionEvent e){
+		if(e.getActionCommand().equals("Cargo")){
+			System.out.println("Cargo");
+		}else if((e.getActionCommand().equals("Categoria Cliente"))){
+			System.out.println("Categoria Cliente");
+		}else if((e.getActionCommand().equals("Rol Registro"))){
+			System.out.println("Rol Registro");
+		}else if((e.getActionCommand().equals("Tipo Representante Venta"))){
+			System.out.println("Tipo Representante Venta");
+		}
 	}
 }
