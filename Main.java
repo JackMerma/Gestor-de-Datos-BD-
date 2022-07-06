@@ -30,15 +30,7 @@ public class Main {
 		
 		frameInitial.setVisible(true);
 		
-		/*
-		frame = new JFrame(PROJECTNAME);
-		frame.setSize(500, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);
-
-		generateContent();
-		frame.setVisible(true);
-		*/
+	
 		//probando la coneccion
 		// CategoriaClienteDAO test = new CategoriaClienteDAO();
 		// CategoriaCliente catCli = new CategoriaCliente(2,2000);// mejorar esta parte, se duplica la clave
@@ -47,6 +39,18 @@ public class Main {
 		// //test.add(catCli);
 		// test.listar();
 
+	}
+
+	public static void mainInitial(String table){
+	
+		frame = new JFrame(PROJECTNAME);
+		frame.setSize(500, 600);
+		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		frame.setLocationRelativeTo(frameInitial);
+
+		generateContent(table);
+		frame.setVisible(true);
+		
 	}
 
 	public static void addButtonsTableReference(){
@@ -73,11 +77,29 @@ public class Main {
 		return panelInter;
 	}
 
-	public static void generateContent(){
-		VistaCargo vi = new VistaCargo();
+	public static void generateContent(String table){
+		if(table.equals("Cargo")){
+			VistaCargo vi = new VistaCargo();
+			frame.add(vi.getContent());
+			ControladorCargo con = new ControladorCargo(vi);
+
+		}else if((table.equals("Categoria Cliente"))){
+			VistaCategoriaCliente vi = new VistaCategoriaCliente();
+			frame.add(vi.getContent());
+			ControladorCategoriaCliente con = new ControladorCategoriaCliente(vi); 
+
+		}else if((table.equals("Rol Registro"))){
+			VistaRolRegistro vi = new VistaRolRegistro();
+			frame.add(vi.getContent());
+			ControladorRolRegistro con = new ControladorRolRegistro(vi); 
+
+		}else if((table.equals("Tipo Representante Venta"))){
+			VistaTipoRepresentanteVenta vi = new VistaTipoRepresentanteVenta();
+			frame.add(vi.getContent());
+			ControladorTipoRepresentanteVenta con = new ControladorTipoRepresentanteVenta(vi); 
+
+		}
 		
-		frame.add(vi.getContent());
-		ControladorCargo con = new ControladorCargo(vi); 
 	
 	}
 }
@@ -86,12 +108,22 @@ class ControladorMain implements ActionListener{
 	public void actionPerformed(ActionEvent e){
 		if(e.getActionCommand().equals("Cargo")){
 			System.out.println("Cargo");
+			Main.mainInitial("Cargo");
+		
 		}else if((e.getActionCommand().equals("Categoria Cliente"))){
 			System.out.println("Categoria Cliente");
+			Main.mainInitial("Categoria Cliente");
+
 		}else if((e.getActionCommand().equals("Rol Registro"))){
 			System.out.println("Rol Registro");
+			Main.mainInitial("Rol Registro");
+
 		}else if((e.getActionCommand().equals("Tipo Representante Venta"))){
 			System.out.println("Tipo Representante Venta");
+			Main.mainInitial("Tipo Representante Venta");
+
 		}
 	}
+
+	
 }
