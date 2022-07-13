@@ -116,7 +116,7 @@ public class ClienteDetalle {
 		return this.numEmple;
 	}
 
-	public String getpagoCuota(){
+	public String getPagoCuota(){
 		return this.pagoCuo;
 	}
 
