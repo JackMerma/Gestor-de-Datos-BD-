@@ -13,7 +13,7 @@ public class Acciones {
 	}
 
 	public Acciones(){
-		this(-1, -1, -1);
+		this(-1, -1);
 	}
 
 	public void setIde(int ide){
