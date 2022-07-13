@@ -56,7 +56,7 @@ public class ClienteDetalle {
 		this.numEmple = numEmple;
 	}
 
-	public void setpagoCuota(String pagoCuo){
+	public void setPagoCuota(String pagoCuo){
 		this.pagoCuo = pagoCuo;
 	}
 
