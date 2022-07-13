@@ -74,8 +74,8 @@ public class AccionesDAO {
 			bd = con.getConnection();
 			ps = bd.prepareStatement(sql);
 			// llenamos datos
-			ps.setString(1,acciones.getDescripcionAcciones()+"");
-			ps.setString(2,acciones.getIdeHistoria()+"");
+			ps.setString(1,acciones.getIdeHistoria()+"");
+			ps.setString(2,acciones.getEstadoRegistro()+"");
 			ps.setString(3,acciones.getIde()+"");
 			state = ps.executeUpdate(); 
 			System.out.println("AccionesDAO ModificarInter: CORRECTO");
