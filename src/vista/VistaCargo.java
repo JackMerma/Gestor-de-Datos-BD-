@@ -6,10 +6,10 @@ import javax.swing.*;
 public class VistaCargo extends Vista {
 
 	// add Panel
-	public JTextField ide = new JTextField(10);
-	public JTextField descripcion = new JTextField(10);
-	public JTextField sueldo = new JTextField(10);
-	public JTextField estaRegis = new JTextField("", 1);
+	public JTextField ide;
+	public JTextField descripcion;
+	public JTextField sueldo;
+	public JTextField estaRegis;
 
 	public VistaCargo() {
 		super("TABLA CARGO", new String[] { "Ide", "DescripcionCargo", "Sueldo", "EstadoRegistro" });
@@ -41,7 +41,7 @@ public class VistaCargo extends Vista {
 		descripcion = new JTextField(10);
 		sueldo = new JTextField(10);
 		estaRegis = new JTextField("", 1);
-		
+
 		ideButtonPanel.add(ide);
 		idePanel.add(ideButtonPanel);
 

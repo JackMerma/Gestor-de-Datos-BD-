@@ -61,9 +61,9 @@ public class CargoDAO extends DAO<Cargo> {
 			ps = bd.prepareStatement(sql);
 
 			// llenamos los datos
-			ps.setString(1,classNormal.getIde()+"");
-			ps.setString(2,classNormal.getDescripcionCargo()+"");
-			ps.setString(3,classNormal.getSueldo()+"");
+			ps.setString(1,cargo.getIde()+"");
+			ps.setString(2,cargo.getDescripcionCargo()+"");
+			ps.setString(3,cargo.getSueldo()+"");
 			ps.setString(4, "A");
 
 			state = ps.executeUpdate();
@@ -89,10 +89,10 @@ public class CargoDAO extends DAO<Cargo> {
 			ps = bd.prepareStatement(sql);
 
 			// llenamos datos
-			ps.setString(1,classNormal.getDescripcionCargo()+"");
-			ps.setString(2,classNormal.getSueldo()+"");
-			ps.setString(3,classNormal.getEstadoRegistro()+"");
-			ps.setString(4,classNormal.getIde()+"");
+			ps.setString(1,cargo.getDescripcionCargo()+"");
+			ps.setString(2,cargo.getSueldo()+"");
+			ps.setString(3,cargo.getEstadoRegistro()+"");
+			ps.setString(4,cargo.getIde()+"");
 
 			state = ps.executeUpdate(); 
 			System.out.println("CargoDAO ModificarInter: CORRECTO");
