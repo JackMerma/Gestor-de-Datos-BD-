@@ -7,8 +7,8 @@ import java.util.*;
 import java.awt.*;
 import javax.swing.*;
 
-import src.modelo.RolRegistro;
-import src.modelo.RolRegistroDAO;
+import src.modelo.RolRegistro.RolRegistro;
+import src.modelo.RolRegistro.RolRegistroDAO;
 import src.vista.VistaRolRegistro;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;

@@ -1,4 +1,4 @@
-package src.modelo;
+package src.modelo.CategoriaCliente;
 
 public class CategoriaCliente {
 	public int ide;

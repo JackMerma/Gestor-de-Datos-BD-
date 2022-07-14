@@ -1,22 +1,18 @@
 package src.vista;
 
-// GUI
 import java.util.*;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.*;
-
-import src.modelo.CategoriaCliente.CategoriaCliente;
-import src.modelo.CategoriaCliente.CategoriaClienteDAO;
 
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 
-public class VistaCategoriaCliente {
+public class VistaCargoBack {
 	public JPanel content;
-	private String nombreTabla = "CATEGORÍA CLIENTE";
+	private String nombreTabla = "CARGO";
 
 	// 3 paneles principales
 	public JPanel addPanel = new JPanel(new BorderLayout());
@@ -25,11 +21,11 @@ public class VistaCategoriaCliente {
 
 	// add Panel
 	public JTextField ide = new JTextField(10);
-	public JTextField limCredito = new JTextField(10);
+	public JTextField descripcion = new JTextField(10);
+	public JTextField sueldo = new JTextField(10);
 	public JTextField estaRegis = new JTextField("", 1);
 
 	// view Panel
-	//decidir recurso a usar...
 	public JTable tabla;
 	public JScrollPane miBarra;
 	public DefaultTableModel modelo;
@@ -75,11 +71,11 @@ public class VistaCategoriaCliente {
 	 */
 
 	public void createAddPanelContent(){
-		addPanel.add(new JLabel("Registro de Categoría Cliente"), BorderLayout.NORTH);
+		addPanel.add(new JLabel("Registro de Cargo"), BorderLayout.NORTH);
 
 		JPanel addPanelContent = new JPanel(new BorderLayout());
 
-		JPanel addPanelContentContent = new JPanel(new GridLayout(3,1,5,25));
+		JPanel addPanelContentContent = new JPanel(new GridLayout(4,1,5,10));
 
 		// ide field
 
@@ -90,24 +86,36 @@ public class VistaCategoriaCliente {
 		idePanel.add(ideLabel);
 
 		JPanel ideButtonPanel= new JPanel(new FlowLayout());
-		//createPanelWidth(ideButtonPanel, true, true, false, false);
 
 		ideButtonPanel.add(ide);
 		idePanel.add(ideButtonPanel);
 
-		// limCredito field
+		// descripcion
 		
-		JPanel limCreditoPanel = new JPanel(new GridLayout(1,2));
-		JLabel limCreditoLabel = new JLabel("Limite de credito:");
-		limCreditoLabel.setHorizontalAlignment(JLabel.CENTER);
+		JPanel descripcionPanel = new JPanel(new GridLayout(1,2));
+		JLabel descripcionLabel = new JLabel("Descripción del cargo:");
+		descripcionLabel.setHorizontalAlignment(JLabel.CENTER);
 
-		limCreditoPanel.add(limCreditoLabel);
+		descripcionPanel.add(descripcionLabel);
 
-		JPanel limCreditoButtonPanel = new JPanel(new FlowLayout());
-		//createPanelWidth(limCreditoButtonPanel, true, true, false, false);
+		JPanel descripcionButtonPanel = new JPanel(new FlowLayout());
+		//createPanelWidth(descripcionButtonPanel, true, true, false, false);
 
-		limCreditoButtonPanel.add(limCredito);
-		limCreditoPanel.add(limCreditoButtonPanel);
+		descripcionButtonPanel.add(descripcion);
+		descripcionPanel.add(descripcionButtonPanel);
+
+		// sueldo
+
+		JPanel sueldoPanel = new JPanel(new GridLayout(1,2));
+		JLabel sueldoLabel = new JLabel("Sueldo:");
+		sueldoLabel.setHorizontalAlignment(JLabel.CENTER);
+
+		sueldoPanel.add(sueldoLabel);
+
+		JPanel sueldoButtonPanel = new JPanel(new FlowLayout());
+
+		sueldoButtonPanel.add(sueldo);
+		sueldoPanel.add(sueldoButtonPanel);
 
 		// estaRegis field
 
@@ -127,7 +135,8 @@ public class VistaCategoriaCliente {
 
 		//agregando paneles
 		addPanelContentContent.add(idePanel);
-		addPanelContentContent.add(limCreditoPanel);
+		addPanelContentContent.add(sueldoPanel);
+		addPanelContentContent.add(descripcionPanel);
 		addPanelContentContent.add(estaRegisPanel);
 
 		createPanelWidth(addPanelContent, true, true, true, true);
@@ -157,7 +166,7 @@ public class VistaCategoriaCliente {
 		tabla.setModel(new javax.swing.table.DefaultTableModel(
 					null,
 					new String [] {
-						"Ide", "LimiteCredito", "EstadoRegistro"
+						"Ide", "DescripcionCargo", "Sueldo", "EstadoRegistro"
 					}
 					));
 		tabla.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));

@@ -7,8 +7,8 @@ import java.util.*;
 import java.awt.*;
 import javax.swing.*;
 
-import src.modelo.Cargo;
-import src.modelo.CargoDAO;
+import src.modelo.Cargo.Cargo;
+import src.modelo.Cargo.CargoDAO;
 import src.vista.VistaCargo;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;

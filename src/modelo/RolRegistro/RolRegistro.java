@@ -1,4 +1,4 @@
-package src.modelo;
+package src.modelo.RolRegistro;
 
 public class RolRegistro {
 	public int ide;
