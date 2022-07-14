@@ -9,6 +9,7 @@ import java.awt.event.MouseListener;
 public abstract class Vista {
 	public JPanel content;
 	public String nombreTabla = "";
+	public String[] columnas = {};
 
 	// 3 paneles principales
 	public JPanel addPanel = new JPanel(new BorderLayout());
@@ -29,6 +30,14 @@ public abstract class Vista {
 	public JButton reactivar = new JButton("Reactivar");
 	public JButton actualizar = new JButton("Actualizar");
 	public JButton salir = new JButton("Salir");
+
+	// constructor
+	public Vista(String nombreTabla, String[] columnas) {
+		this.nombreTabla = nombreTabla;
+		this.columnas = columnas;
+
+		rellenarContent(columnas);
+	}
 
 	// llenamos el contenido
 	protected void rellenarContent(String[] columnas) {
@@ -58,7 +67,7 @@ public abstract class Vista {
 	// obtenemos el contenido del panel central
 	public JPanel getContent() {
 		if (content == null) {
-			rellenarContent(null);
+			rellenarContent(this.columnas);
 		}
 		return content;
 	}
