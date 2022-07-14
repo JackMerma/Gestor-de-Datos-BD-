@@ -11,8 +11,8 @@ public class VistaCargo extends Vista {
 	public JTextField sueldo = new JTextField(10);
 	public JTextField estaRegis = new JTextField("", 1);
 
-	public VistaCargo(String nombreTabla) {
-		super(nombreTabla, new String[] { "Ide", "DescripcionCargo", "Sueldo", "EstadoRegistro"});
+	public VistaCargo() {
+		super("TABLA CARGO", new String[] { "Ide", "DescripcionCargo", "Sueldo", "EstadoRegistro" });
 	}
 
 	/*
@@ -37,6 +37,11 @@ public class VistaCargo extends Vista {
 
 		JPanel ideButtonPanel = new JPanel(new FlowLayout());
 
+		ide = new JTextField(10);
+		descripcion = new JTextField(10);
+		sueldo = new JTextField(10);
+		estaRegis = new JTextField("", 1);
+		
 		ideButtonPanel.add(ide);
 		idePanel.add(ideButtonPanel);
 
