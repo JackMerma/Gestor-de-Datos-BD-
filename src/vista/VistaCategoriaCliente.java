@@ -6,8 +6,8 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.*;
 
-import src.modelo.CategoriaCliente;
-import src.modelo.CategoriaClienteDAO;
+import src.modelo.CategoriaCliente.CategoriaCliente;
+import src.modelo.CategoriaCliente.CategoriaClienteDAO;
 
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;

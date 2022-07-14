@@ -7,8 +7,8 @@ import java.util.*;
 import java.awt.*;
 import javax.swing.*;
 
-import src.modelo.TipoRepresentanteVenta;
-import src.modelo.TipoRepresentanteVentaDAO;
+import src.modelo.TipoRepresentante.TipoRepresentanteVenta;
+import src.modelo.TipoRepresentante.TipoRepresentanteVentaDAO;
 import src.vista.VistaTipoRepresentanteVenta;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;

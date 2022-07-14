@@ -1,4 +1,4 @@
-package src.modelo;
+package src.modelo.Cargo;
 
 public class Cargo {
 	public int ide;

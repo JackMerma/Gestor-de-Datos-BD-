@@ -1,4 +1,4 @@
-package src.modelo;
+package src.modelo.ProductoCabecera;
 
 public class ProductoCabecera {
 	public int ide;

@@ -1,9 +1,11 @@
-package src.modelo;
+package src.modelo.TipoRepresentante;
 
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.*;
 import java.util.*;
+
+import src.modelo.Conexion;
 
 public class TipoRepresentanteVentaDAO {
 

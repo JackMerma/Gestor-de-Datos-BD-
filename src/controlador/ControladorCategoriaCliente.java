@@ -7,8 +7,8 @@ import java.util.*;
 import java.awt.*;
 import javax.swing.*;
 
-import src.modelo.CategoriaCliente;
-import src.modelo.CategoriaClienteDAO;
+import src.modelo.CategoriaCliente.CategoriaCliente;
+import src.modelo.CategoriaCliente.CategoriaClienteDAO;
 import src.vista.VistaCategoriaCliente;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;

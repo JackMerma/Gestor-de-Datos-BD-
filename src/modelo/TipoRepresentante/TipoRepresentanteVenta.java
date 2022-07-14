@@ -1,4 +1,4 @@
-package src.modelo;
+package src.modelo.TipoRepresentante;
 
 public class TipoRepresentanteVenta {
 	public int ide;
