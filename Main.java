@@ -10,15 +10,14 @@ import javax.swing.*;
 public class Main implements ActionListener {
 
 	public static final String PROJECTNAME = "EMPRESA DE DISTRIBUCION";
-	public static JFrame frame;
+	public static JFrame frame, frameContent;
 	public JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16;
 
 	public Main() {
 		frame = new JFrame(PROJECTNAME);
-		frame.setSize(500, 600);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLocationRelativeTo(null);		
-		frame.setLayout(new BorderLayout());
+		frame.setLocationRelativeTo(null);
+		frame.setLayout(new FlowLayout());
 		frame.setVisible(true);
 
 		b1 = new JButton("Cargo");
@@ -58,8 +57,8 @@ public class Main implements ActionListener {
 		JPanel panel = new JPanel();
 
 		// creando el panel para los botones internos
-		panel.setLayout(new GridLayout(8,2,5,10));	
-		
+		panel.setLayout(new GridLayout(8, 1, 10, 10));
+
 		panel.add(b1);
 		panel.add(b2);
 		panel.add(b3);
@@ -77,86 +76,83 @@ public class Main implements ActionListener {
 		panel.add(b15);
 		panel.add(b16);
 
-		
-		frame.add(panel, BorderLayout.CENTER);
+		frame.setSize(800, 600);
+		frame.add(panel);
 		frame.pack();
-		
 
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		Object E = e.getActionCommand();
-
+		FrameContent();
 		if (E.equals("Cargo")) {
 			System.out.println("Cargo");
-			//Main.mainInitial("Cargo");
+			generateContent_Cargo();
 
 		} else if (E.equals("Acciones")) {
-			System.out.println("Categoria Cliente");
-			//Main.mainInitial("Categoria Cliente");
+			System.out.println("Acciones");
 
 		} else if (E.equals("Categoria Clientes")) {
-			System.out.println("Rol Registro");
-			//Main.mainInitial("Rol Registro");
+			System.out.println("Categoria Clientes");
+			generateContent_CatCli();
 
 		} else if (E.equals("Cliente Cabecera")) {
-			System.out.println("Tipo Representante Venta");
-			//Main.mainInitial("Tipo Representante Venta");
+			System.out.println("Cliente Cabecera");
 
-		}else if (E.equals("Cliente Detalle")) {
-			System.out.println("Categoria Cliente");
-			//Main.mainInitial("Categoria Cliente");
+		} else if (E.equals("Cliente Detalle")) {
+			System.out.println("Cliente Detalle");
 
 		} else if (E.equals("Historial Apl. Cab")) {
-			System.out.println("Rol Registro");
-			//Main.mainInitial("Rol Registro");
+			System.out.println("Historial Apl. Cab");
 
 		} else if (E.equals("Historial Apl. Det")) {
-			System.out.println("Tipo Representante Venta");
-			//Main.mainInitial("Tipo Representante Venta");
+			System.out.println("Historial Apl. Det");
 
-		}else if (E.equals("Rol Registro")) {
-			System.out.println("Categoria Cliente");
-			//Main.mainInitial("Categoria Cliente");
+		} else if (E.equals("Rol Registro")) {
+			System.out.println("Rol Registro");
+			generateContent_RolReg();
 
 		} else if (E.equals("Tipo Rep Venta")) {
-			System.out.println("Rol Registro");
-			//Main.mainInitial("Rol Registro");
+			System.out.println("Tipo Rep Venta");
+			generateContent_TipRepVen();
 
-		} else if (E.equals("Rep Venta Cabecera")) { //------------
-			System.out.println("Tipo Representante Venta");
-			//Main.mainInitial("Tipo Representante Venta");
+		} else if (E.equals("Rep Venta Cabecera")) {
+			System.out.println("Rep Venta Cabecera");
 
-		}else if (E.equals("Rep Venta Detalle")) {
-			System.out.println("Categoria Cliente");
-			//Main.mainInitial("Categoria Cliente");
+		} else if (E.equals("Rep Venta Detalle")) {
+			System.out.println("Rep Venta Detalle");
 
 		} else if (E.equals("Usuariob Reg Detalle")) {
-			System.out.println("Rol Registro");
-			//Main.mainInitial("Rol Registro");
+			System.out.println("Usuariob Reg Detalle");
 
 		} else if (E.equals("Oficina Detalle")) {
-			System.out.println("Tipo Representante Venta");
-			//Main.mainInitial("Tipo Representante Venta");
+			System.out.println("Oficina Detalle");
 
-		}else if (E.equals("Oficina Factura")) {
-			System.out.println("Categoria Cliente");
-			//Main.mainInitial("Categoria Cliente");
+		} else if (E.equals("Oficina Factura")) {
+			System.out.println("Oficina Factura");
 
 		} else if (E.equals("Producto Cabecera")) {
-			System.out.println("Rol Registro");
-			//Main.mainInitial("Rol Registro");
+			System.out.println("Producto Cabecera");
 
 		} else if (E.equals("Producto Detalle")) {
-			System.out.println("Tipo Representante Venta");
-			//Main.mainInitial("Tipo Representante Venta");
+			System.out.println("Producto Detalle");
+
 		}
+	}
+
+	public static void FrameContent() {
+		frameContent = new JFrame(PROJECTNAME);
+		frameContent.setSize(500, 600);
+		frameContent.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		frameContent.setLocationRelativeTo(frame);
+		frameContent.setVisible(true);
+
 	}
 
 	// CARGO -------------------------------------
 	public static void generateContent_Cargo() {
 		VistaCargo vi = new VistaCargo();
-		frame.add(vi.getContent());
+		frameContent.add(vi.getContent());
 		ControladorCargo con = new ControladorCargo(vi);
 
 	}
@@ -169,7 +165,7 @@ public class Main implements ActionListener {
 	// CATEGORIA CLIENTES -------------------------------------
 	public static void generateContent_CatCli() {
 		VistaCategoriaCliente vi = new VistaCategoriaCliente();
-		frame.add(vi.getContent());
+		frameContent.add(vi.getContent());
 		ControladorCategoriaCliente con = new ControladorCategoriaCliente(vi);
 	}
 
@@ -196,14 +192,14 @@ public class Main implements ActionListener {
 	// ROL REGISTRO -------------------------------------
 	public static void generateContent_RolReg() {
 		VistaRolRegistro vi = new VistaRolRegistro();
-		frame.add(vi.getContent());
+		frameContent.add(vi.getContent());
 		ControladorRolRegistro con = new ControladorRolRegistro(vi);
 	}
 
 	// TIPO REPRESENTANTE VENTA -------------------------------------
 	public static void generateContent_TipRepVen() {
 		VistaTipoRepresentanteVenta vi = new VistaTipoRepresentanteVenta();
-		frame.add(vi.getContent());
+		frameContent.add(vi.getContent());
 		ControladorTipoRepresentanteVenta con = new ControladorTipoRepresentanteVenta(vi);
 
 	}
@@ -244,7 +240,7 @@ public class Main implements ActionListener {
 	}
 
 	public static void main(String[] args) {
-	Main j = new Main();		
+		Main j = new Main();
 
 	}
 }
