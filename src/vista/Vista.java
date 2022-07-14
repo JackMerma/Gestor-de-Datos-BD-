@@ -9,7 +9,7 @@ import java.awt.event.MouseListener;
 public abstract class Vista {
 	public JPanel content;
 	public String nombreTabla = "";
-	public String[] columnas = {};
+	protected String[] columnas = {};
 
 	// 3 paneles principales
 	public JPanel addPanel = new JPanel(new BorderLayout());
