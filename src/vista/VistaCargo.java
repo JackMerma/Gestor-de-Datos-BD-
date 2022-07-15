@@ -27,65 +27,29 @@ public class VistaCargo extends Vista {
 
 		JPanel addPanelContentContent = new JPanel(new GridLayout(4, 1, 5, 10));
 
-		// ide field
-
-		JPanel idePanel = new JPanel(new GridLayout(1, 2));
-		JLabel ideLabel = new JLabel("Ide:");
-		ideLabel.setHorizontalAlignment(JLabel.CENTER);
-
-		idePanel.add(ideLabel);
-
-		JPanel ideButtonPanel = new JPanel(new FlowLayout());
-
+		// instaciomos Atributos
 		ide = new JTextField(10);
 		descripcion = new JTextField(10);
 		sueldo = new JTextField(10);
 		estaRegis = new JTextField("", 1);
 
-		ideButtonPanel.add(ide);
-		idePanel.add(ideButtonPanel);
+		// ide field
+
+		JPanel idePanel = addComponente(ide, "Ide:");
 
 		// descripcion
 
-		JPanel descripcionPanel = new JPanel(new GridLayout(1, 2));
-		JLabel descripcionLabel = new JLabel("Descripción del cargo:");
-		descripcionLabel.setHorizontalAlignment(JLabel.CENTER);
-
-		descripcionPanel.add(descripcionLabel);
-
-		JPanel descripcionButtonPanel = new JPanel(new FlowLayout());
-		// createPanelWidth(descripcionButtonPanel, true, true, false, false);
-
-		descripcionButtonPanel.add(descripcion);
-		descripcionPanel.add(descripcionButtonPanel);
+		JPanel descripcionPanel = addComponente(descripcion, "Descripcion del Cargo:");
 
 		// sueldo
 
-		JPanel sueldoPanel = new JPanel(new GridLayout(1, 2));
-		JLabel sueldoLabel = new JLabel("Sueldo:");
-		sueldoLabel.setHorizontalAlignment(JLabel.CENTER);
-
-		sueldoPanel.add(sueldoLabel);
-
-		JPanel sueldoButtonPanel = new JPanel(new FlowLayout());
-
-		sueldoButtonPanel.add(sueldo);
-		sueldoPanel.add(sueldoButtonPanel);
+		JPanel sueldoPanel = addComponente(sueldo, "Sueldo:");
+	
 
 		// estaRegis field
 
-		JPanel estaRegisPanel = new JPanel(new GridLayout(1, 2));
-		JLabel estaRegisLabel = new JLabel("Estado de registro:");
-		estaRegisLabel.setHorizontalAlignment(JLabel.CENTER);
-
-		estaRegisPanel.add(estaRegisLabel);
-
-		JPanel estaRegisButtonPanel = new JPanel(new FlowLayout());
-		// createPanelWidth(estaRegisButtonPanel, true, true, false, false);
-
-		// estaRegis.setEditable(false);
-		estaRegisButtonPanel.add(estaRegis);
-		estaRegisPanel.add(estaRegisButtonPanel);
+		JPanel estaRegisPanel = addComponente(estaRegis, "Estado de registro:");
+	
 
 		// agregando paneles
 		addPanelContentContent.add(idePanel);
@@ -96,6 +60,20 @@ public class VistaCargo extends Vista {
 		createPanelWidth(addPanelContent, true, true, true, true);
 		addPanelContent.add(addPanelContentContent);
 		addPanel.add(addPanelContent);
+	}
+
+	private JPanel addComponente(JTextField txtField, String name) {
+		JPanel panel = new JPanel(new GridLayout(1, 2));
+		JLabel label = new JLabel(name);
+		label.setHorizontalAlignment(JLabel.CENTER);
+
+		panel.add(label);
+
+		JPanel buttonPanel = new JPanel(new FlowLayout());
+
+		buttonPanel.add(txtField);
+		panel.add(buttonPanel);
+		return panel;
 	}
 
 }
