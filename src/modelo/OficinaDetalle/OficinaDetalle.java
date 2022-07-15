@@ -1,3 +1,5 @@
+package src.modelo.OficinaDetalle;
+
 public class OficinaDetalle {
     public int ofiIde;
     public String ofiCiu;
