@@ -17,7 +17,8 @@ public abstract class Controlador<CLASS> implements ActionListener {
     DefaultTableModel modelo = new DefaultTableModel();
 
     // Contructor
-    public Controlador(Vista v) {
+    public Controlador(Vista v, DAO dao) {
+        classDAO = dao;
         vistaSuper = v;
         vistaSuper.adicionar.addActionListener(this);
         vistaSuper.modificar.addActionListener(this);

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class ControladorOficinaDetalle extends Controlador<OficinaDetalle> {
 
 	public VistaOficinaDetalle vista = (VistaOficinaDetalle) vistaSuper;
-	public OficinaDetalleDAO oficinaDetalleDAO = new OficinaDetalleDAO();
+	public static OficinaDetalleDAO oficinaDetalleDAO = new OficinaDetalleDAO();
 	public OficinaDetalle ofiDetalle = new OficinaDetalle();
 
 	private int CarFlaAct = 0;
@@ -21,7 +21,7 @@ public class ControladorOficinaDetalle extends Controlador<OficinaDetalle> {
 
 	// constructor
 	public ControladorOficinaDetalle(VistaOficinaDetalle v) {
-		super(v);
+		super(v, oficinaDetalleDAO);
 		this.vista = v;
 		listar(vista.tabla);
 	}
