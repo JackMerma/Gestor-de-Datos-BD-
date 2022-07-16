@@ -23,7 +23,7 @@ public class VistaRepresentanteVentasDetalle extends Vista {
 
     @Override
     public void createAddPanelContent() {
-       
+
         JPanel addPanelContent = new JPanel(new BorderLayout());
 
         JPanel addPanelContentContent = new JPanel(new GridLayout(5, 1, 0, 0));
@@ -44,9 +44,9 @@ public class VistaRepresentanteVentasDetalle extends Vista {
 
         JPanel idePanel = addComponente(ide, "Ide:");
 
-         // ofiIde
+        // ofiIde
 
-         JPanel ofiIdePanel = addComponente(ofiIde, "OfiIde:");
+        JPanel ofiIdePanel = addComponente(ofiIde, "OfiIde:");
 
         // carIde
 
@@ -75,7 +75,7 @@ public class VistaRepresentanteVentasDetalle extends Vista {
         // con
 
         JPanel conPanel = addComponente(con, "Contraseña:");
-        
+
         // objRep
 
         JPanel objRepPanel = addComponente(objRep, "ObjRep:");
@@ -87,8 +87,7 @@ public class VistaRepresentanteVentasDetalle extends Vista {
         addPanelContentContent.add(rolRegIdePanel);
         addPanelContentContent.add(tipIdePanel);
         addPanelContentContent.add(usuRegIdePanel);
-        addPanelContentContent.add(nombrePanel);
-        addPanelContentContent.add(rolRegIdePanel);
+        addPanelContentContent.add(nombrePanel);        
         addPanelContentContent.add(edadPanel);
         addPanelContentContent.add(conPanel);
         addPanelContentContent.add(objRepPanel);
