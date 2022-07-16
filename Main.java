@@ -136,6 +136,7 @@ public class Main implements ActionListener {
 
 		} else if (E.equals("Producto Cabecera")) {
 			System.out.println("Producto Cabecera");
+			generateContent_ProCab();
 
 		} else if (E.equals("Producto Detalle")) {
 			System.out.println("Producto Detalle");
@@ -238,7 +239,8 @@ public class Main implements ActionListener {
 
 	// PRODUCTO CABECERA -------------------------------------
 	public static void generateContent_ProCab() {
-
+		VistaProductoCabecera vi = new VistaProductoCabecera();
+		frameContent.add(vi.getContent());
 	}
 
 	// PRODUCTO DETALLE -------------------------------------
