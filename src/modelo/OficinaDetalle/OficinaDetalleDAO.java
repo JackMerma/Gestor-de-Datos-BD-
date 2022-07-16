@@ -58,7 +58,7 @@ public class OficinaDetalleDAO extends DAO<OficinaDetalle> {
 	// agregar
 	public int add(OficinaDetalle ofiDet){
 		int state = 0;
-		String sql = "INSERT INTO `V1M_OFICINA_DETALLE` (`OfiIde`, `OfiCiu`, `OfiReg`, `OfiDir`, `OfiEmp`, `OfiObj`, `OfiVen`, `OfiEstReg`) VALUES VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+		String sql = "INSERT INTO `V1M_OFICINA_DETALLE` (`OfiIde`, `OfiCiu`, `OfiReg`, `OfiDir`, `OfiEmp`, `OfiObj`, `OfiVen`, `OfiEstReg`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 		try{
 			con.conectar();
 			bd = con.getConnection();
@@ -79,7 +79,7 @@ public class OficinaDetalleDAO extends DAO<OficinaDetalle> {
 
 		}catch(SQLException e){
 			System.out.println("oficinaDetalleDao add: ERROR"); 
-			System.out.println(e);
+			System.out.println(e.getSQLState());
 		}finally{
 			con.desconectar();
 		}
