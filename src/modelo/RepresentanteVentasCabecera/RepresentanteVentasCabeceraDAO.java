@@ -8,8 +8,8 @@ import src.modelo.Conexion;
 import src.modelo.DAO;
 
 public class RepresentanteVentasCabeceraDAO extends DAO<RepresentanteVentasCabecera> {
-    
-    private Conexion con = new Conexion();
+
+	private Conexion con = new Conexion();
 	private PreparedStatement ps;
 	private ResultSet rs;
 	private Connection bd;
@@ -54,7 +54,7 @@ public class RepresentanteVentasCabeceraDAO extends DAO<RepresentanteVentasCabec
 	// agregar
 	public int add(RepresentanteVentasCabecera repVen) {
 		int state = 0;
-		String sql = "INSERT INTO `V1M_REPRESENTANTE_VENTAS_DETALLE` (`RepVenDetIde`, `RepVenDetOfiIde`, `RepVenCabCarIde`, `RepVenDetRolRegIde`, `RepVenDetTipIde`, `RepVenDetUsuRegDetIde`, `RepVenDetNom`, `RepVenDetEdad`, `RepVenDetCon`, `RepVenDetDetObjRep`, `RepVenDetEstReg`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+		String sql = "INSERT INTO `V1M_REPRESENTANTE_VENTAS_CABECERA` (`RepVenCabFacIde`, `RepVenCabRepIde`, `RepVenCabEstReg`) VALUES (?, ?, ?);";
 
 		try {
 			con.conectar();
@@ -62,16 +62,15 @@ public class RepresentanteVentasCabeceraDAO extends DAO<RepresentanteVentasCabec
 			ps = bd.prepareStatement(sql);
 
 			// llenamos los datos
-			ps.setString(1, repVen.getIde() + "");
-			ps.setString(2, repVen.getOficinaIde() + "");
-			ps.setString(3, repVen.getCargoIde() + "");
-			
+			ps.setString(1, repVen.getFacIde() + "");
+			ps.setString(2, repVen.getRepIde() + "");
+			ps.setString(3, "A");
 
 			state = ps.executeUpdate();
-			System.out.println("RepresentanteDetalleDAO Add: CORRECTO");
+			System.out.println("RepresentanteCabeceraDAO Add: CORRECTO");
 
 		} catch (SQLException e) {
-			System.out.println("RepresentanteDetalleDAO add: ERROR");
+			System.out.println("RepresentanteCabeceraDAO add: ERROR");
 			System.out.println(e);
 		} finally {
 			con.desconectar();
@@ -80,14 +79,11 @@ public class RepresentanteVentasCabeceraDAO extends DAO<RepresentanteVentasCabec
 	}
 
 	// modificar
-	public int modificar(RepresentanteVentasDetalle cargo) {
+	public int modificar(RepresentanteVentasCabecera repVenta) {
 		int state = 0;
 
 		// create the sentence for update every values with WHERE is the id
-		String sql = "UPDATE `V1M_REPRESENTANTE_VENTAS_DETALLE` SET `RepVenDetOfiIde` = ?, `RepVenCabCarIde` = ?, `RepVenDetRolRegIde` = ?, `RepVenDetTipIde` = ?, `RepVenDetUsuRegDetIde` = ?, `RepVenDetNom` = ?, `RepVenDetEdad` = ?, `RepVenDetCon` = ?, `RepVenDetDetObjRep` = ?, `RepVenDetEstReg` = ? WHERE `RepVenDetIde` = ?";
-
-		// String sql = "UPDATE `GZZ_CARGO` SET `CarDes` = ?, `CarSue` = ?, `CatEstReg`
-		// = ? WHERE `GZZ_CARGO`.`CarIde` = ?;";
+		String sql = "UPDATE `V1M_REPRESENTANTE_VENTAS_CABECERA` SET `RepVenCabEstReg` = ? WHERE `V1M_REPRESENTANTE_VENTAS_CABECERA`.`RepVenCabFacIde` = ? AND `V1M_REPRESENTANTE_VENTAS_CABECERA`.`RepVenCabRepIde` = ?;";
 
 		try {
 			con.conectar();
@@ -95,23 +91,15 @@ public class RepresentanteVentasCabeceraDAO extends DAO<RepresentanteVentasCabec
 			ps = bd.prepareStatement(sql);
 
 			// llenamos datos
-			ps.setString(1, cargo.getOficinaIde() + "");
-			ps.setString(2, cargo.getCargoIde() + "");
-			ps.setString(3, cargo.getRolRegistroIde() + "");
-			ps.setString(4, cargo.getTipoRepresentanteIde() + "");
-			ps.setString(5, cargo.getUsuarioRegistradoIde() + "");
-			ps.setString(6, cargo.getNombre());
-			ps.setString(7, cargo.getEdad() + "");
-			ps.setString(8, cargo.getContrato());
-			ps.setString(9, cargo.getObjetivoRepresentante());
-			ps.setString(10, cargo.getEstadoRegistro() + "");
-			ps.setString(11, cargo.getIde() + "");
+			ps.setString(1, repVenta.getEstadoRegistro() + "");
+			ps.setString(2, repVenta.getFacIde() + "");
+			ps.setString(3, repVenta.getRepIde() + "");
 
 			state = ps.executeUpdate();
-			System.out.println("RepresentanteDetalleDAO ModificarInter: CORRECTO");
+			System.out.println("RepresentanteCabeceraDAO ModificarInter: CORRECTO");
 
 		} catch (SQLException e) {
-			System.out.println("RepresentanteDetalleDAO ModificarInter: ERROR");
+			System.out.println("RepresentanteCabeceraDAO ModificarInter: ERROR");
 			System.out.println(e);
 		} finally {
 			con.desconectar();

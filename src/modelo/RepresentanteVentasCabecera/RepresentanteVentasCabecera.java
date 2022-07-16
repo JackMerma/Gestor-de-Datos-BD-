@@ -19,7 +19,7 @@ public class RepresentanteVentasCabecera {
 
     // set and geters
     public RepresentanteVentasCabecera() {
-        this(-1, -1, ' ');
+        this(-1, -1, 'A');
     }
 
     public int getFacIde() {
