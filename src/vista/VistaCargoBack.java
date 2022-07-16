@@ -71,8 +71,7 @@ public class VistaCargoBack {
 	 */
 
 	public void createAddPanelContent(){
-		addPanel.add(new JLabel("Registro de Cargo"), BorderLayout.NORTH);
-
+		
 		JPanel addPanelContent = new JPanel(new BorderLayout());
 
 		JPanel addPanelContentContent = new JPanel(new GridLayout(4,1,5,10));

@@ -26,8 +26,7 @@ public class VistaOficinaDetalle extends Vista {
 
 	@Override
 	public void createAddPanelContent() {
-		addPanel.add(new JLabel("Registro de Oficina Detalle"), BorderLayout.NORTH);
-
+		
 		JPanel addPanelContent = new JPanel(new BorderLayout());
 
 		JPanel addPanelContentContent = new JPanel(new GridLayout(8, 1, 5, 10));

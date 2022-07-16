@@ -21,8 +21,7 @@ public class VistaRolRegistro extends Vista {
 	 */
 	@Override
 	public void createAddPanelContent() {
-		addPanel.add(new JLabel("Registro de Rol Registro"), BorderLayout.NORTH);
-
+		
 		JPanel addPanelContent = new JPanel(new BorderLayout());
 
 		JPanel addPanelContentContent = new JPanel(new GridLayout(3, 1, 5, 25));

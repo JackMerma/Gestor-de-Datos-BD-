@@ -21,17 +21,16 @@ public class VistaCargo extends Vista {
 
 	@Override
 	public void createAddPanelContent() {
-		addPanel.add(new JLabel("Registro de Cargo"), BorderLayout.NORTH);
-
+		
 		JPanel addPanelContent = new JPanel(new BorderLayout());
 
 		JPanel addPanelContentContent = new JPanel(new GridLayout(4, 1, 5, 10));
 
 		// instaciomos Atributos
-		ide = new JTextField(10);
-		descripcion = new JTextField(10);
-		sueldo = new JTextField(10);
-		estaRegis = new JTextField("", 1);
+		ide = new JTextField(20);
+		descripcion = new JTextField(20);
+		sueldo = new JTextField(20);
+		estaRegis = new JTextField("", 20);
 
 		// ide field
 
