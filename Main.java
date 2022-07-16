@@ -124,6 +124,7 @@ public class Main implements ActionListener {
 
 		} else if (E.equals("Usuariob Reg Detalle")) {
 			System.out.println("Usuariob Reg Detalle");
+			generateContent_UsuRegDet();
 
 		} else if (E.equals("Oficina Detalle")) {
 			System.out.println("Oficina Detalle");
@@ -216,7 +217,9 @@ public class Main implements ActionListener {
 
 	// USUARIO REGISTRADO DETALLE -------------------------------------
 	public static void generateContent_UsuRegDet() {
-
+		VistaUsuarioRegistradoDetalle vi = new VistaUsuarioRegistradoDetalle();
+		frameContent.add(vi.getContent());
+		//ControladorUsuarioRegistradoDetalle con = new ControladorUsuarioRegistradoDetalle(vi);
 	}
 
 	// OFICINA DETALLE -------------------------------------
