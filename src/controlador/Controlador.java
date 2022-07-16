@@ -13,6 +13,19 @@ public abstract class Controlador implements ActionListener {
     // public OficinaDetalle ofiDetalle = new OficinaDetalle();
     DefaultTableModel modelo = new DefaultTableModel();
 
+    // Contructor
+    public Controlador(Vista v) {
+        vistaSuper = v;
+        vistaSuper.adicionar.addActionListener(this);
+        vistaSuper.modificar.addActionListener(this);
+        vistaSuper.eliminar.addActionListener(this);
+        vistaSuper.cancelar.addActionListener(this);
+        vistaSuper.inactivar.addActionListener(this);
+        vistaSuper.reactivar.addActionListener(this);
+        vistaSuper.actualizar.addActionListener(this);
+        vistaSuper.salir.addActionListener(this);
+    }
+
     // limpia la tabla
     public void limpiarTabla() {
         for (int i = 0; i < vistaSuper.tabla.getRowCount(); i++) {

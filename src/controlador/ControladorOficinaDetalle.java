@@ -21,16 +21,10 @@ public class ControladorOficinaDetalle extends Controlador {
 
 	// constructor
 	public ControladorOficinaDetalle(VistaOficinaDetalle v) {
+		super(v);
 		this.vista = v;
 		this.vistaSuper = v;
-		vista.adicionar.addActionListener(this);
-		vista.modificar.addActionListener(this);
-		vista.eliminar.addActionListener(this);
-		vista.cancelar.addActionListener(this);
-		vista.inactivar.addActionListener(this);
-		vista.reactivar.addActionListener(this);
-		vista.actualizar.addActionListener(this);
-		vista.salir.addActionListener(this);
+
 		listar(vista.tabla);
 	}
 
