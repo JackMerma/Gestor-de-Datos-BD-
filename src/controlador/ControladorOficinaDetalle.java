@@ -261,16 +261,6 @@ public class ControladorOficinaDetalle extends Controlador {
 
 				llenarDatosDeTablaSelecionada(fila, "DEFAULT");
 
-				// String id = (String) vista.tabla.getValueAt(fila, 0).toString();
-				// String descCarg = (String) vista.tabla.getValueAt(fila, 1).toString();
-				// String sueldo = (String) vista.tabla.getValueAt(fila, 2).toString();
-				// String estado = (String) vista.tabla.getValueAt(fila, 3).toString();
-
-				// vista.ide.setText(id);
-				// vista.descripcion.setText(descCarg);
-				// vista.sueldo.setText(sueldo);
-				// vista.estaRegis.setText(estado);
-
 				vista.ide.setEditable(false);
 				vista.estaRegis.setEditable(false);
 
@@ -288,15 +278,6 @@ public class ControladorOficinaDetalle extends Controlador {
 			} else {
 
 				llenarDatosDeTablaSelecionada(fila, "*");
-				// String id = (String) vista.tabla.getValueAt(fila, 0).toString();
-				// String descCarg = (String) vista.tabla.getValueAt(fila, 1).toString();
-				// String sueldo = (String) vista.tabla.getValueAt(fila, 2).toString();
-				// String estado = (String) vista.tabla.getValueAt(fila, 3).toString();
-
-				// vista.ide.setText(id);
-				// vista.descripcion.setText(descCarg);
-				// vista.sueldo.setText(sueldo);
-				// vista.estaRegis.setText("*");
 
 				vista.ide.setEditable(false);
 				vista.ciudad.setEditable(false);
@@ -326,16 +307,6 @@ public class ControladorOficinaDetalle extends Controlador {
 
 				llenarDatosDeTablaSelecionada(fila, "I");
 
-				// String id = (String) vista.tabla.getValueAt(fila, 0).toString();
-				// String descCarg = (String) vista.tabla.getValueAt(fila, 1).toString();
-				// String sueldo = (String) vista.tabla.getValueAt(fila, 2).toString();
-				// String estado = (String) vista.tabla.getValueAt(fila, 3).toString();
-
-				// vista.ide.setText(id);
-				// vista.descripcion.setText(descCarg);
-				// vista.sueldo.setText(sueldo);
-				// vista.estaRegis.setText("I");
-
 				vista.ide.setEditable(false);
 				vista.ciudad.setEditable(false);
 				vista.region.setEditable(false);
@@ -358,16 +329,6 @@ public class ControladorOficinaDetalle extends Controlador {
 			} else {
 
 				llenarDatosDeTablaSelecionada(fila, "A");
-
-				// String id = (String) vista.tabla.getValueAt(fila, 0).toString();
-				// String descCarg = (String) vista.tabla.getValueAt(fila, 1).toString();
-				// String sueldo = (String) vista.tabla.getValueAt(fila, 2).toString();
-				// String estado = (String) vista.tabla.getValueAt(fila, 3).toString();
-
-				// vista.ide.setText(id);
-				// vista.descripcion.setText(descCarg);
-				// vista.sueldo.setText(sueldo);
-				// vista.estaRegis.setText("A");
 
 				vista.ide.setEditable(false);
 				vista.ciudad.setEditable(false);
