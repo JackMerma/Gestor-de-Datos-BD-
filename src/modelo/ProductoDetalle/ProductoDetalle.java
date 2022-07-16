@@ -4,10 +4,10 @@ public class ProductoDetalle {
     public int ide;
     public String fabricante;
     public String descripcion;
-    public float precio;
+    public double precio;
     public int existencia;
     public String claseABC;
-    public float unidadMedida;
+    public String unidadMedida;
     public int stockActual;
     public int stockMinimo;
     public int stockMaximo;
@@ -15,7 +15,7 @@ public class ProductoDetalle {
 
     // constructor all args
     public ProductoDetalle(int ide, String fabricante, String descripcion, float precio, int existencia,
-            String claseABC, float unidadMedida, int stockActual, int stockMinimo, int stockMaximo,
+            String claseABC, String unidadMedida, int stockActual, int stockMinimo, int stockMaximo,
             char estadoRegistro) {
         this.ide = ide;
         this.fabricante = fabricante;
@@ -32,7 +32,7 @@ public class ProductoDetalle {
 
     // constructor no args
     public ProductoDetalle() {
-        this(-1, "", "", 0, 0, "", 0, 0, 0, 0, 'A');
+        this(-1, "", "", 0, 0, "", "", 0, 0, 0, 'A');
     }
 
     // setters and getters
@@ -48,8 +48,8 @@ public class ProductoDetalle {
         this.descripcion = descripcion;
     }
 
-    public void setPrecio(float precio) {
-        this.precio = precio;
+    public void setPrecio(double d) {
+        this.precio = d;
     }
 
     public void setExistencia(int existencia) {
@@ -60,7 +60,7 @@ public class ProductoDetalle {
         this.claseABC = claseABC;
     }
 
-    public void setUnidadMedida(float unidadMedida) {
+    public void setUnidadMedida(String unidadMedida) {
         this.unidadMedida = unidadMedida;
     }
 
@@ -92,7 +92,7 @@ public class ProductoDetalle {
         return descripcion;
     }
 
-    public float getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
@@ -104,7 +104,7 @@ public class ProductoDetalle {
         return claseABC;
     }
 
-    public float getUnidadMedida() {
+    public String getUnidadMedida() {
         return unidadMedida;
     }
 
