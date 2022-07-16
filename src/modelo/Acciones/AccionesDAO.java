@@ -1,17 +1,24 @@
-package src.modelo;
+package src.modelo.Acciones;
 
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.*;
 import java.util.*;
 
-public class AccionesDAO {
+//import src.modelo.DAO;
+
+public class AccionesDAO extends DAO<Acciones>{
 
 	public Conexion con = new Conexion();
 	public Acciones acciones = new Acciones();
 	private PreparedStatement ps; 
 	private ResultSet rs;
 	private Connection bd;  
+
+	// constructor
+	public AccionesDAO() {
+		super();
+	}
 
 	public ArrayList<Acciones> listar(){
 		ArrayList<Acciones> listAcciones = new ArrayList<Acciones>();

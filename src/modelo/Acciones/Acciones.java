@@ -1,4 +1,4 @@
-package src.modelo;
+package src.modelo.Acciones;
 
 public class Acciones {
 	public int ide;
