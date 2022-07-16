@@ -31,7 +31,7 @@ public class Main implements ActionListener {
 		b9 = new JButton("Tipo Rep Venta");
 		b10 = new JButton("Rep Venta Cabecera");
 		b11 = new JButton("Rep Venta Detalle");
-		b12 = new JButton("Usuariob Reg Detalle");
+		b12 = new JButton("Usuario Reg Detalle");
 		b13 = new JButton("Oficina Detalle");
 		b14 = new JButton("Factura");
 		b15 = new JButton("Producto Cabecera");
@@ -123,8 +123,8 @@ public class Main implements ActionListener {
 			System.out.println("Rep Venta Detalle");
 			generateContent_RepVenDet();
 
-		} else if (E.equals("Usuariob Reg Detalle")) {
-			System.out.println("Usuariob Reg Detalle");
+		} else if (E.equals("Usuario Reg Detalle")) {
+			System.out.println("Usuario Reg Detalle");
 			generateContent_UsuRegDet();
 
 		} else if (E.equals("Oficina Detalle")) {
@@ -140,6 +140,7 @@ public class Main implements ActionListener {
 
 		} else if (E.equals("Producto Detalle")) {
 			System.out.println("Producto Detalle");
+			generateContent_ProDet();
 
 		}
 	}
@@ -244,8 +245,9 @@ public class Main implements ActionListener {
 	}
 
 	// PRODUCTO DETALLE -------------------------------------
-	public static void generateContent_CliCabecera() {
-
+	public static void generateContent_ProDet() {
+		VistaProductoDetalle vi = new VistaProductoDetalle();
+		frameContent.add(vi.getContent());
 	}
 
 	public static void main(String[] args) {
