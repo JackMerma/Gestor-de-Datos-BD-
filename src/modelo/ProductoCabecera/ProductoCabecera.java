@@ -1,52 +1,55 @@
 package src.modelo.ProductoCabecera;
 
 public class ProductoCabecera {
-	public int ide;
-	public int ideProducto;
+	public int facturaIde;
+	public int productoIde;
 	public int cantidad;
 	public char estadoRegistro;
 
-	public ProductoCabecera(int ide, int idProducto, int cantidad){
-		this.ide = ide;
-		this.ideProducto = ideProducto;
+	// constructor all args
+	public ProductoCabecera(int facturaIde, int productoIde, int cantidad, char estadoRegistro) {
+		this.facturaIde = facturaIde;
+		this.productoIde = productoIde;
 		this.cantidad = cantidad;
-		this.estadoRegistro = 'A';
+		this.estadoRegistro = estadoRegistro;
 	}
 
-	public ProductoCabecera(){
-		this(-1, -1, -1);
+	// constructor no args
+	public ProductoCabecera() {
+		this(-1, -1, -1, 'A');
 	}
 
-	public void setIde(int ide){
-		this.ide = ide;
+	// setters and getters
+	public void setFacturaIde(int facturaIde) {
+		this.facturaIde = facturaIde;
 	}
 
-	public void setIdeProducto(int ideProducto){
-		this.ideProducto = ideProducto;
+	public void setProductoIde(int productoIde) {
+		this.productoIde = productoIde;
 	}
 
-	public void setCantidad(int cantidad){
+	public void setCantidad(int cantidad) {
 		this.cantidad = cantidad;
 	}
 
-	public void setEstadoRegistro(char s){
-		this.estadoRegistro = s;
+	public void setEstadoRegistro(char estadoRegistro) {
+		this.estadoRegistro = estadoRegistro;
 	}
 
-	public int getIde(){
-		return this.ide;
+	public int getFacturaIde() {
+		return facturaIde;
 	}
 
-	public int getIdeProducto(){
-		return this.ideProducto;
+	public int getProductoIde() {
+		return productoIde;
 	}
 
-	public int getCantidad(){
-		return this.cantidad;
+	public int getCantidad() {
+		return cantidad;
 	}
 
-	public char getEstadoRegistro(){
-		return this.estadoRegistro;
+	public char getEstadoRegistro() {
+		return estadoRegistro;
 	}
+
 }
-
