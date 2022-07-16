@@ -91,22 +91,26 @@ public class Main implements ActionListener {
 
 		} else if (E.equals("Acciones")) {
 			System.out.println("Acciones");
-
+			generateContent_Acciones();
 		} else if (E.equals("Categoria Clientes")) {
 			System.out.println("Categoria Clientes");
 			generateContent_CatCli();
 
 		} else if (E.equals("Cliente Cabecera")) {
 			System.out.println("Cliente Cabecera");
+			generateContent_CliCab();
 
 		} else if (E.equals("Cliente Detalle")) {
 			System.out.println("Cliente Detalle");
+			generateContent_CliDet();
 
 		} else if (E.equals("Historial Apl. Cab")) {
 			System.out.println("Historial Apl. Cab");
+			generateContent_HisApliCab();
 
 		} else if (E.equals("Historial Apl. Det")) {
 			System.out.println("Historial Apl. Det");
+			generateContent_HisApliDet();
 
 		} else if (E.equals("Rol Registro")) {
 			System.out.println("Rol Registro");
@@ -166,7 +170,8 @@ public class Main implements ActionListener {
 
 	// ACCIONES -------------------------------------
 	public static void generateContent_Acciones() {
-
+		VistaAcciones vi = new VistaAcciones();
+		frameContent.add(vi.getContent());
 	}
 
 	// CATEGORIA CLIENTES -------------------------------------
@@ -178,22 +183,28 @@ public class Main implements ActionListener {
 
 	// CLIENTE CABECERA -------------------------------------
 	public static void generateContent_CliCab() {
+		VistaClienteCabecera vi = new VistaClienteCabecera();
+		frameContent.add(vi.getContent());
 
 	}
 
 	// CLIENTE DETALLE -------------------------------------
 	public static void generateContent_CliDet() {
-
+		VistaClienteDetalle vi = new VistaClienteDetalle();
+		frameContent.add(vi.getContent());
 	}
 
 	// HISTORIAL APLICATIVO CABECERA -------------------------------------
 	public static void generateContent_HisApliCab() {
+		VistaHistorialAplicativoCabecera vi = new VistaHistorialAplicativoCabecera();
+		frameContent.add(vi.getContent());
 
 	}
 
 	// HISTORIAL APLICATIVO DETALLE -------------------------------------
 	public static void generateContent_HisApliDet() {
-
+		VistaHistorialAplicativoDetalle vi = new VistaHistorialAplicativoDetalle();
+		frameContent.add(vi.getContent());
 	}
 
 	// ROL REGISTRO -------------------------------------
