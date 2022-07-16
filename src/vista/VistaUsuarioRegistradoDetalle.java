@@ -15,8 +15,7 @@ public class VistaUsuarioRegistradoDetalle extends Vista {
 
     @Override
     public void createAddPanelContent() {
-        addPanel.add(new JLabel("Usuario Registrado Detalle"), BorderLayout.NORTH);
-
+        
         JPanel addPanelContent = new JPanel(new BorderLayout());
 
         JPanel addPanelContentContent = new JPanel(new GridLayout(3, 1, 5, 10));

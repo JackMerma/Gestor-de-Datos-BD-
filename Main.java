@@ -76,7 +76,7 @@ public class Main implements ActionListener {
 		panel.add(b15);
 		panel.add(b16);
 
-		frame.setSize(800, 600);
+		frame.setSize(1000, 700);
 		frame.add(panel);
 		frame.pack();
 
@@ -121,6 +121,7 @@ public class Main implements ActionListener {
 
 		} else if (E.equals("Rep Venta Detalle")) {
 			System.out.println("Rep Venta Detalle");
+			generateContent_RepVenDet();
 
 		} else if (E.equals("Usuariob Reg Detalle")) {
 			System.out.println("Usuariob Reg Detalle");
@@ -143,7 +144,7 @@ public class Main implements ActionListener {
 
 	public static void FrameContent() {
 		frameContent = new JFrame(PROJECTNAME);
-		frameContent.setSize(500, 600);
+		frameContent.setSize(800, 1000);
 		frameContent.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frameContent.setLocationRelativeTo(frame);
 		frameContent.setVisible(true);
@@ -212,7 +213,8 @@ public class Main implements ActionListener {
 
 	// REPRESENTANTE VENTA DETALLE --------------------------------------
 	public static void generateContent_RepVenDet() {
-
+		VistaRepresentanteVentasDetalle vi = new VistaRepresentanteVentasDetalle();
+		frameContent.add(vi.getContent());
 	}
 
 	// USUARIO REGISTRADO DETALLE -------------------------------------
