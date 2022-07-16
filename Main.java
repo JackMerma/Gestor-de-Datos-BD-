@@ -221,6 +221,9 @@ public class Main implements ActionListener {
 
 	// OFICINA DETALLE -------------------------------------
 	public static void generateContent_OfiDet() {
+		VistaOficinaDetalle vi = new VistaOficinaDetalle();
+		frameContent.add(vi.getContent());
+		ControladorOficinaDetalle con = new ControladorOficinaDetalle(vi);
 
 	}
 

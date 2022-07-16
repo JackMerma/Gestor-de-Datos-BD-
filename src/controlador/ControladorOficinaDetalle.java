@@ -109,7 +109,6 @@ public class ControladorOficinaDetalle implements ActionListener {
 		// Modificamos
 		int n = oficinaDetalleDAO.modificar(ofiDetalle);
 
-
 		// verificamor resultado
 		if (n == 1) {
 			JOptionPane.showMessageDialog(null, "Modificado con Exito.");
@@ -188,7 +187,6 @@ public class ControladorOficinaDetalle implements ActionListener {
 		// Modificamos
 		int n = oficinaDetalleDAO.modificar(ofiDetalle);
 
-
 		// verificamor resultado
 		if (n == 1) {
 			JOptionPane.showMessageDialog(null, "Reavilitado con Exito.");
@@ -225,7 +223,33 @@ public class ControladorOficinaDetalle implements ActionListener {
 		}
 	}
 
-	
+	// metodo para llenar en actionPerformed
+	private void llenarDatosDeTablaSelecionada(int fila, String estadoRegistro) {
+
+		String id = (String) vista.tabla.getValueAt(fila, 0).toString();
+		String ciudad = (String) vista.tabla.getValueAt(fila, 1).toString();
+		String region = (String) vista.tabla.getValueAt(fila, 2).toString();
+		String direccion = (String) vista.tabla.getValueAt(fila, 3).toString();
+		String empleado = (String) vista.tabla.getValueAt(fila, 4).toString();
+		String objetivo = (String) vista.tabla.getValueAt(fila, 5).toString();
+		String ventas = (String) vista.tabla.getValueAt(fila, 6).toString();
+		String estareg = (String) vista.tabla.getValueAt(fila, 7).toString();
+
+		vista.ide.setText(id);
+		vista.ciudad.setText(ciudad);
+		vista.region.setText(region);
+		vista.direccion.setText(direccion);
+		vista.empleado.setText(empleado);
+		vista.objetivo.setText(objetivo);
+		vista.ventas.setText(ventas);
+
+		if (estadoRegistro.equals("DEFAULT")) {
+			vista.estaRegis.setText(estareg);
+		} else {
+			vista.estaRegis.setText(estadoRegistro);
+		}
+
+	}
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == vista.adicionar) {
@@ -245,15 +269,17 @@ public class ControladorOficinaDetalle implements ActionListener {
 				JOptionPane.showMessageDialog(null, "Debe Seleccionar Una fila..!!");
 			} else {
 
-				String id = (String) vista.tabla.getValueAt(fila, 0).toString();
-				String descCarg = (String) vista.tabla.getValueAt(fila, 1).toString();
-				String sueldo = (String) vista.tabla.getValueAt(fila, 2).toString();
-				String estado = (String) vista.tabla.getValueAt(fila, 3).toString();
+				llenarDatosDeTablaSelecionada(fila, "DEFAULT");
 
-				vista.ide.setText(id);
-				vista.descripcion.setText(descCarg);
-				vista.sueldo.setText(sueldo);
-				vista.estaRegis.setText(estado);
+				// String id = (String) vista.tabla.getValueAt(fila, 0).toString();
+				// String descCarg = (String) vista.tabla.getValueAt(fila, 1).toString();
+				// String sueldo = (String) vista.tabla.getValueAt(fila, 2).toString();
+				// String estado = (String) vista.tabla.getValueAt(fila, 3).toString();
+
+				// vista.ide.setText(id);
+				// vista.descripcion.setText(descCarg);
+				// vista.sueldo.setText(sueldo);
+				// vista.estaRegis.setText(estado);
 
 				vista.ide.setEditable(false);
 				vista.estaRegis.setEditable(false);
@@ -270,19 +296,25 @@ public class ControladorOficinaDetalle implements ActionListener {
 			if (fila == -1) {
 				JOptionPane.showMessageDialog(null, "Debe Seleccionar Una fila..!!");
 			} else {
-				String id = (String) vista.tabla.getValueAt(fila, 0).toString();
-				String descCarg = (String) vista.tabla.getValueAt(fila, 1).toString();
-				String sueldo = (String) vista.tabla.getValueAt(fila, 2).toString();
-				String estado = (String) vista.tabla.getValueAt(fila, 3).toString();
 
-				vista.ide.setText(id);
-				vista.descripcion.setText(descCarg);
-				vista.sueldo.setText(sueldo);
-				vista.estaRegis.setText("*");
+				llenarDatosDeTablaSelecionada(fila, "*");
+				// String id = (String) vista.tabla.getValueAt(fila, 0).toString();
+				// String descCarg = (String) vista.tabla.getValueAt(fila, 1).toString();
+				// String sueldo = (String) vista.tabla.getValueAt(fila, 2).toString();
+				// String estado = (String) vista.tabla.getValueAt(fila, 3).toString();
+
+				// vista.ide.setText(id);
+				// vista.descripcion.setText(descCarg);
+				// vista.sueldo.setText(sueldo);
+				// vista.estaRegis.setText("*");
 
 				vista.ide.setEditable(false);
-				vista.descripcion.setEditable(false);
-				vista.sueldo.setEditable(false);
+				vista.ciudad.setEditable(false);
+				vista.region.setEditable(false);
+				vista.direccion.setEditable(false);
+				vista.empleado.setEditable(false);
+				vista.objetivo.setEditable(false);
+				vista.ventas.setEditable(false);
 				vista.estaRegis.setEditable(false);
 
 				CarFlaAct = 1;
@@ -301,19 +333,26 @@ public class ControladorOficinaDetalle implements ActionListener {
 			if (fila == -1) {
 				JOptionPane.showMessageDialog(null, "Debe Seleccionar Una fila..!!");
 			} else {
-				String id = (String) vista.tabla.getValueAt(fila, 0).toString();
-				String descCarg = (String) vista.tabla.getValueAt(fila, 1).toString();
-				String sueldo = (String) vista.tabla.getValueAt(fila, 2).toString();
-				String estado = (String) vista.tabla.getValueAt(fila, 3).toString();
 
-				vista.ide.setText(id);
-				vista.descripcion.setText(descCarg);
-				vista.sueldo.setText(sueldo);
-				vista.estaRegis.setText("I");
+				llenarDatosDeTablaSelecionada(fila, "I");
+
+				// String id = (String) vista.tabla.getValueAt(fila, 0).toString();
+				// String descCarg = (String) vista.tabla.getValueAt(fila, 1).toString();
+				// String sueldo = (String) vista.tabla.getValueAt(fila, 2).toString();
+				// String estado = (String) vista.tabla.getValueAt(fila, 3).toString();
+
+				// vista.ide.setText(id);
+				// vista.descripcion.setText(descCarg);
+				// vista.sueldo.setText(sueldo);
+				// vista.estaRegis.setText("I");
 
 				vista.ide.setEditable(false);
-				vista.descripcion.setEditable(false);
-				vista.sueldo.setEditable(false);
+				vista.ciudad.setEditable(false);
+				vista.region.setEditable(false);
+				vista.direccion.setEditable(false);
+				vista.empleado.setEditable(false);
+				vista.objetivo.setEditable(false);
+				vista.ventas.setEditable(false);
 				vista.estaRegis.setEditable(false);
 
 				CarFlaAct = 1;
@@ -327,19 +366,26 @@ public class ControladorOficinaDetalle implements ActionListener {
 			if (fila == -1) {
 				JOptionPane.showMessageDialog(null, "Debe Seleccionar Una fila..!!");
 			} else {
-				String id = (String) vista.tabla.getValueAt(fila, 0).toString();
-				String descCarg = (String) vista.tabla.getValueAt(fila, 1).toString();
-				String sueldo = (String) vista.tabla.getValueAt(fila, 2).toString();
-				String estado = (String) vista.tabla.getValueAt(fila, 3).toString();
 
-				vista.ide.setText(id);
-				vista.descripcion.setText(descCarg);
-				vista.sueldo.setText(sueldo);
-				vista.estaRegis.setText("A");
+				llenarDatosDeTablaSelecionada(fila, "A");
+
+				// String id = (String) vista.tabla.getValueAt(fila, 0).toString();
+				// String descCarg = (String) vista.tabla.getValueAt(fila, 1).toString();
+				// String sueldo = (String) vista.tabla.getValueAt(fila, 2).toString();
+				// String estado = (String) vista.tabla.getValueAt(fila, 3).toString();
+
+				// vista.ide.setText(id);
+				// vista.descripcion.setText(descCarg);
+				// vista.sueldo.setText(sueldo);
+				// vista.estaRegis.setText("A");
 
 				vista.ide.setEditable(false);
-				vista.descripcion.setEditable(false);
-				vista.sueldo.setEditable(false);
+				vista.ciudad.setEditable(false);
+				vista.region.setEditable(false);
+				vista.direccion.setEditable(false);
+				vista.empleado.setEditable(false);
+				vista.objetivo.setEditable(false);
+				vista.ventas.setEditable(false);
 				vista.estaRegis.setEditable(false);
 
 				CarFlaAct = 1;
@@ -381,13 +427,21 @@ public class ControladorOficinaDetalle implements ActionListener {
 	// limpia la entrada de texto
 	private void limpiar() {
 		vista.ide.setText("");
-		vista.descripcion.setText("");
-		vista.sueldo.setText("");
+		vista.ciudad.setText("");
+		vista.region.setText("");
+		vista.direccion.setText("");
+		vista.empleado.setText("");
+		vista.objetivo.setText("");
+		vista.ventas.setText("");
 		vista.estaRegis.setText("");
 
 		vista.ide.setEditable(true);
-		vista.descripcion.setEditable(true);
-		vista.sueldo.setEditable(true);
+		vista.ciudad.setEditable(true);
+		vista.region.setEditable(true);
+		vista.direccion.setEditable(true);
+		vista.empleado.setEditable(true);
+		vista.objetivo.setEditable(true);
+		vista.ventas.setEditable(true);
 		vista.estaRegis.setEditable(true);
 	}
 
