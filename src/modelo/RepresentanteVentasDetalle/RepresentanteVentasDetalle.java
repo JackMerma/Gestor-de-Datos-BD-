@@ -15,8 +15,8 @@ public class RepresentanteVentasDetalle {
     public String nombre;
     public int edad;
     public String contrato;
-    public String ObjeticoRepresentante;
-    public String estadoRegistro;
+    public String ObjetivoRepresentante;
+    public char estadoRegistro;
 
     // Constructor
     public RepresentanteVentasDetalle(int ide, int oficinaIde, int cargoIde, int rolRegistroIde,
@@ -31,8 +31,8 @@ public class RepresentanteVentasDetalle {
         this.nombre = nombre;
         this.edad = edad;
         this.contrato = contrato;
-        this.ObjeticoRepresentante = ObjeticoRepresentante;
-        this.estadoRegistro = "A";
+        this.ObjetivoRepresentante = ObjeticoRepresentante;
+        this.estadoRegistro = 'A';
     }
 
     public RepresentanteVentasDetalle() {
@@ -112,20 +112,20 @@ public class RepresentanteVentasDetalle {
         this.contrato = contrato;
     }
 
-    public String getObjeticoRepresentante() {
-        return ObjeticoRepresentante;
+    public String getObjetivoRepresentante() {
+        return ObjetivoRepresentante;
     }
 
-    public void setObjeticoRepresentante(String ObjeticoRepresentante) {
-        this.ObjeticoRepresentante = ObjeticoRepresentante;
+    public void setObjetivoRepresentante(String ObjeticoRepresentante) {
+        this.ObjetivoRepresentante = ObjeticoRepresentante;
     }
 
-    public String getEstadoRegistro() {
+    public char getEstadoRegistro() {
         return estadoRegistro;
     }
 
-    public void setEstadoRegistro(String estadoRegistro) {
-        this.estadoRegistro = estadoRegistro;
+    public void setEstadoRegistro(char c) {
+        this.estadoRegistro = c;
     }
 
 }
