@@ -4,6 +4,8 @@ public class UsuarioRegistrado {
 	public int ide;
 	public String userName;
 	public String password;
+	public char estadoRegistro;
+
 
 	public UsuarioRegistrado(int ide, String userName, String password) {
 		this.ide = ide;
@@ -38,5 +40,13 @@ public class UsuarioRegistrado {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public char getEstadoRegistro() {
+		return estadoRegistro;
+	}
+
+	public void setEstadoRegistro(char estadoRegistro) {
+		this.estadoRegistro = estadoRegistro;
 	}
 }

@@ -21,8 +21,8 @@ public class UsuarioRegistradoDAO extends DAO<UsuarioRegistrado> {
 
 	// Listar
 	public ArrayList<UsuarioRegistrado> listar(){
-		ArrayList<UsuarioRegistrado> listCargo = new ArrayList<UsuarioRegistrado>();
-		String sql = "SELECT * FROM `GZZ_CARGO`";
+		ArrayList<UsuarioRegistrado> lista = new ArrayList<UsuarioRegistrado>();
+		String sql = "SELECT * FROM `V4M_USUARIO_REGISTRADOS_DETALLE`";
 
 		try{
 			con.conectar();
@@ -31,29 +31,29 @@ public class UsuarioRegistradoDAO extends DAO<UsuarioRegistrado> {
 			rs = ps.executeQuery();
 			// recibimos los resultados
 			while(rs.next()){
-				classNormal = new Cargo();
+				classNormal = new UsuarioRegistrado();
 				classNormal.setIde(rs.getInt(1));
-				classNormal.setDescripcionCargo(rs.getString(2));
-				classNormal.setSueldo(rs.getInt(3));
+				classNormal.setUserName(rs.getString(2));
+				classNormal.setPassword(rs.getString(3));
 				classNormal.setEstadoRegistro(rs.getString(4).charAt(0));
-				listCargo.add(classNormal);
+				lista.add(classNormal);
 			}
-			System.out.println("CargoDAO Listar:CORRECTO");
+			System.out.println("UsuarioRegistradoDAO Listar:CORRECTO");
 
 		}catch(Exception e){
-			System.out.println("CargoDAO listar:ERROR");
+			System.out.println("UsuarioRegistradoDAO listar:ERROR");
 			System.err.println(e);
 		}finally{
 			con.desconectar();
 		}
 		
-		return listCargo;
+		return lista;
 	}
 
 	// agregar
-	public int add(UsuarioRegistrado cargo){
+	public int add(UsuarioRegistrado usuRegis){
 		int state = 0;
-		String sql = "INSERT INTO `GZZ_CARGO` (`CarIde`, `CarDes`, `CarSue`, `CatEstReg`) VALUES (?, ?, ?, ?);";
+		String sql = "INSERT INTO `V4M_USUARIO_REGISTRADOS_DETALLE` (`UsuRegDetIde`, `UsuRegDetUsu`, `UsuRegDetPass`, `UsuRegEstReg`) VALUES (?, ?, ?, ?);";
 		
 		try{
 			con.conectar();
@@ -61,16 +61,16 @@ public class UsuarioRegistradoDAO extends DAO<UsuarioRegistrado> {
 			ps = bd.prepareStatement(sql);
 
 			// llenamos los datos
-			ps.setString(1,cargo.getIde()+"");
-			ps.setString(2,cargo.getDescripcionCargo()+"");
-			ps.setString(3,cargo.getSueldo()+"");
+			ps.setString(1,usuRegis.getIde()+"");
+			ps.setString(2,usuRegis.getUserName()+"");
+			ps.setString(3,usuRegis.getPassword()+"");
 			ps.setString(4, "A");
 
 			state = ps.executeUpdate();
-			System.out.println("CargoDAO Add: CORRECTO");
+			System.out.println("UsuarioRegistradoDAO Add: CORRECTO");
 
 		}catch(SQLException e){
-			System.out.println("CargoDAO add: ERROR"); 
+			System.out.println("UsuarioRegistradoDAO add: ERROR"); 
 			System.out.println(e);
 		}finally{
 			con.desconectar();
@@ -79,9 +79,9 @@ public class UsuarioRegistradoDAO extends DAO<UsuarioRegistrado> {
 	}
 
 	// modificar
-	public int modificar(UsuarioRegistrado cargo){
+	public int modificar(UsuarioRegistrado usuRegis){
 		int state = 0;
-		String sql = "UPDATE `GZZ_CARGO` SET `CarDes` = ?, `CarSue` = ?, `CatEstReg` = ? WHERE `GZZ_CARGO`.`CarIde` = ?;";
+		String sql = "UPDATE `V4M_USUARIO_REGISTRADOS_DETALLE` SET `UsuRegDetUsu` = ?, `UsuRegDetPass` = ?, `UsuRegEstReg` = ? WHERE `V4M_USUARIO_REGISTRADOS_DETALLE`.`UsuRegDetIde` = ?;";
 		
 		try{
 			con.conectar();
@@ -89,16 +89,16 @@ public class UsuarioRegistradoDAO extends DAO<UsuarioRegistrado> {
 			ps = bd.prepareStatement(sql);
 
 			// llenamos datos
-			ps.setString(1,cargo.getDescripcionCargo()+"");
-			ps.setString(2,cargo.getSueldo()+"");
-			ps.setString(3,cargo.getEstadoRegistro()+"");
-			ps.setString(4,cargo.getIde()+"");
+			ps.setString(1,usuRegis.getUserName()+"");
+			ps.setString(2,usuRegis.getPassword()+"");
+			ps.setString(3,usuRegis.getEstadoRegistro()+"");
+			ps.setString(4,usuRegis.getIde()+"");
 
 			state = ps.executeUpdate(); 
-			System.out.println("CargoDAO ModificarInter: CORRECTO");
+			System.out.println("UsuarioRegistradoDAO ModificarInter: CORRECTO");
 			
 		}catch (SQLException e){
-			System.out.println("CargoDAO ModificarInter: ERROR");
+			System.out.println("UsuarioRegistradoDAO ModificarInter: ERROR");
 			System.out.println(e);
 		}finally{
 			con.desconectar();
