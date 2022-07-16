@@ -1,4 +1,5 @@
-package src.modelo.OficinaDetalle;
+package src.modelo.Factura;
+
 import java.sql.Connection;
 import java.sql.*;
 import java.util.*;
@@ -9,9 +10,9 @@ import src.modelo.DAO;
 public class FacturaDAO extends DAO<Factura> {
 
 	private Conexion con = new Conexion();
-	private PreparedStatement ps; 
+	private PreparedStatement ps;
 	private ResultSet rs;
-	private Connection bd;  
+	private Connection bd;
 
 	// constructor
 	public FacturaDAO() {
@@ -19,105 +20,97 @@ public class FacturaDAO extends DAO<Factura> {
 	}
 
 	// listar
-	public ArrayList<Factura> listar(){
-		ArrayList<Factura> listCatCli = new ArrayList<Factura>();
-		String sql = "SELECT * FROM `V1M_OFICINA_DETALLE`";
+	public ArrayList<Factura> listar() {
+		ArrayList<Factura> lista = new ArrayList<Factura>();
+		String sql = "SELECT * FROM `V2T_FACTURA`";
 
-		try{
+		try {
 			con.conectar();
 			bd = con.getConnection();
 			ps = bd.prepareStatement(sql);
 			rs = ps.executeQuery();
 
 			// recibimos los resultados
-			while(rs.next()){
+			while (rs.next()) {
 				classNormal = new Factura();
-				classNormal.setOfiIde(rs.getInt(1));
-				classNormal.setOfiCiu(rs.getString(2));
-				classNormal.setOfiReg(rs.getString(3));
-                classNormal.setOfiDir(rs.getString(4));
-				classNormal.setOfiEmp(rs.getString(5));
-				classNormal.setOfiObj(rs.getInt(6));
-                classNormal.setOfiVen(rs.getString(7));
-				classNormal.setOfiEstReg(rs.getString(8));
-				
-				listCatCli.add(classNormal);
-			}
-			System.out.println("OficinaDetalleDAO Listar:CORRECTO");
+				classNormal.setIde(rs.getInt(1));
+				classNormal.setImporte(rs.getInt(2));
+				classNormal.setAnio(rs.getString(3));
+				classNormal.setMes(rs.getString(4));
+				classNormal.setDia(rs.getString(5));
+				classNormal.setEstReg(rs.getString(6));
 
-		}catch(Exception e){
-			System.out.println("OficinaDetalleDAO listar:ERROR");
+				lista.add(classNormal);
+			}
+			System.out.println("FacturaDAO Listar:CORRECTO");
+
+		} catch (Exception e) {
+			System.out.println("FacturaDAO listar:ERROR");
 			System.err.println(e);
-		}finally{
+		} finally {
 			con.desconectar();
 		}
-		
-		return listCatCli;
+
+		return lista;
 	}
 
 	// agregar
-	public int add(Factura ofiDet){
+	public int add(Factura factura) {
 		int state = 0;
-		String sql = "INSERT INTO `V1M_OFICINA_DETALLE` (`OfiIde`, `OfiCiu`, `OfiReg`, `OfiDir`, `OfiEmp`, `OfiObj`, `OfiVen`, `OfiEstReg`) VALUES VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
-		try{
+		String sql = "INSERT INTO `V2T_FACTURA` (`FacIde`, `FacImp`, `FacAño`, `FacMes`, `FacDia`, `FacEstReg`) VALUES VALUES (?, ?, ?, ?, ?, ?);";
+		try {
 			con.conectar();
 			bd = con.getConnection();
 			ps = bd.prepareStatement(sql);
 
 			// llenamos los datos
-			ps.setString(1,ofiDet.getOfiIde()+"");
-			ps.setString(2,ofiDet.getOfiCiu()+"");
-			ps.setString(3,ofiDet.getOfiReg()+"");
-			ps.setString(4,ofiDet.getOfiDir()+"");
-			ps.setString(5,ofiDet.getOfiEmp()+"");
-			ps.setString(6,ofiDet.getOfiObj()+"");
-			ps.setString(7,ofiDet.getOfiVen()+"");
-			ps.setString(8,ofiDet.getOfiEstReg()+"");
+
+			ps.setString(1, factura.getIde() + "");
+			ps.setString(2, factura.getImporte() + "");
+			ps.setString(3, factura.getAnio() + "");
+			ps.setString(4, factura.getMes() + "");
+			ps.setString(5, factura.getDia() + "");
+			ps.setString(6, "A");
 
 			state = ps.executeUpdate();
-			System.out.println("oficinaDetalleDao Add: CORRECTO");
+			System.out.println("FacturaDao Add: CORRECTO");
 
-		}catch(SQLException e){
-			System.out.println("oficinaDetalleDao add: ERROR"); 
+		} catch (SQLException e) {
+			System.out.println("FacturaDao add: ERROR");
 			System.out.println(e);
-		}finally{
+		} finally {
 			con.desconectar();
 		}
 		return state;
 	}
 
 	// modificar
-	public int modificar(Factura ofiDet){
+	public int modificar(Factura ofiDet) {
 		int state = 0;
-		String sql = "UPDATE `V1M_OFICINA_DETALLE` SET `OfiCiu` = ?, `OfiReg` = ?, `OfiDir` = ?, `OfiEmp` = ?, `OfiObj` = ?, `OfiVen` = ?, `OfiEstReg` = ? WHERE `V1M_OFICINA_DETALLE`.`OfiIde` = ?";
-		try{
+		String sql = "UPDATE `V2T_FACTURA` SET `FacImp` = ?, `FacAño` = ?, `FacMes` = ?, `FacDia` = ?, `FacEstReg` = ? WHERE `V2T_FACTURA`.`FacIde` = ?;";
+		try {
 			con.conectar();
 			bd = con.getConnection();
 			ps = bd.prepareStatement(sql);
 
 			// llenamos datos
-			ps.setString(1,ofiDet.getOfiCiu()+"");
-			ps.setString(2,ofiDet.getOfiReg()+"");
-			ps.setString(3,ofiDet.getOfiDir()+"");
-			ps.setString(4,ofiDet.getOfiEmp()+"");
-			ps.setString(5,ofiDet.getOfiObj()+"");
-			ps.setString(6,ofiDet.getOfiVen()+"");
-			ps.setString(7,ofiDet.getOfiEstReg()+"");
-			ps.setString(8,ofiDet.getOfiIde()+"");
+			ps.setString(1, ofiDet.getImporte() + "");
+			ps.setString(2, ofiDet.getAnio() + "");
+			ps.setString(3, ofiDet.getMes() + "");
+			ps.setString(4, ofiDet.getDia() + "");
+			ps.setString(5, ofiDet.getEstReg() + "");
+			ps.setString(6, ofiDet.getIde() + "");
 
-			state = ps.executeUpdate(); 
-			System.out.println("oficinaDetalleDao ModificarInter: CORRECTO");
-		}catch (SQLException e){
-			System.out.println("oficinaDetalleDao ModificarInter: ERROR");
+			state = ps.executeUpdate();
+			System.out.println("FacturaDao ModificarInter: CORRECTO");
+		} catch (SQLException e) {
+			System.out.println("FacturaDao ModificarInter: ERROR");
 			System.out.println(e);
-		}finally{
+		} finally {
 			con.desconectar();
 		}
 
 		return state;
 	}
-   
 
 }
-
-
