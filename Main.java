@@ -33,7 +33,7 @@ public class Main implements ActionListener {
 		b11 = new JButton("Rep Venta Detalle");
 		b12 = new JButton("Usuariob Reg Detalle");
 		b13 = new JButton("Oficina Detalle");
-		b14 = new JButton("Oficina Factura");
+		b14 = new JButton("Factura");
 		b15 = new JButton("Producto Cabecera");
 		b16 = new JButton("Producto Detalle");
 
@@ -130,8 +130,9 @@ public class Main implements ActionListener {
 		} else if (E.equals("Oficina Detalle")) {
 			System.out.println("Oficina Detalle");
 
-		} else if (E.equals("Oficina Factura")) {
-			System.out.println("Oficina Factura");
+		} else if (E.equals("Factura")) {
+			System.out.println("Factura");
+			generateContent_Fac();
 
 		} else if (E.equals("Producto Cabecera")) {
 			System.out.println("Producto Cabecera");
@@ -229,9 +230,10 @@ public class Main implements ActionListener {
 
 	}
 
-	// OFICINA FACTURA -------------------------------------
-	public static void generateContent_OfiFac() {
-
+	// FACTURA -------------------------------------
+	public static void generateContent_Fac() {
+		VistaFactura vi = new VistaFactura();
+		frameContent.add(vi.getContent());
 	}
 
 	// PRODUCTO CABECERA -------------------------------------
