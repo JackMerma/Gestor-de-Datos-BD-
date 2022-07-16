@@ -118,6 +118,7 @@ public class Main implements ActionListener {
 
 		} else if (E.equals("Rep Venta Cabecera")) {
 			System.out.println("Rep Venta Cabecera");
+			generateContent_RepVenCab();
 
 		} else if (E.equals("Rep Venta Detalle")) {
 			System.out.println("Rep Venta Detalle");
@@ -211,7 +212,8 @@ public class Main implements ActionListener {
 
 	// REPRESENTANTE VENTAS CABECERA -------------------------------------
 	public static void generateContent_RepVenCab() {
-
+		VistaRepresentanteVentasCabecera vi = new VistaRepresentanteVentasCabecera();
+		frameContent.add(vi.getContent());
 	}
 
 	// REPRESENTANTE VENTA DETALLE --------------------------------------
