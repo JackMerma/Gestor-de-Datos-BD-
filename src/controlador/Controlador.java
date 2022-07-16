@@ -2,12 +2,15 @@ package src.controlador;
 
 import java.awt.event.ActionListener;
 import javax.swing.*;
+
+import src.modelo.DAO;
 import src.vista.Vista;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
-public abstract class Controlador implements ActionListener {
-
+public abstract class Controlador<CLASS> implements ActionListener {
+    public CLASS classInterna;
+    public DAO classDAO;
     public Vista vistaSuper;
     // public OficinaDetalleDAO oficinaDetalleDAO = new OficinaDetalleDAO();
     // public OficinaDetalle ofiDetalle = new OficinaDetalle();
@@ -25,6 +28,44 @@ public abstract class Controlador implements ActionListener {
         vistaSuper.actualizar.addActionListener(this);
         vistaSuper.salir.addActionListener(this);
     }
+
+    public abstract CLASS getOficinaDetalle();
+
+
+
+	// metodo que agrera a una nueva categoria
+	public void agregar() {
+
+		// Obtenemos datos
+
+		classInterna = getOficinaDetalle();
+
+		// limpiamos la tabla anterior
+		limpiarTabla();
+
+		// agregamos
+		int n = classDAO.add(classInterna);
+
+		// verificamor resultado
+		if (n == 1) {
+			JOptionPane.showMessageDialog(null, "Agregado con Exito.");
+		} else {
+			JOptionPane.showMessageDialog(null, "Error");
+		}
+
+		// limpiamor entrada de texto
+		limpiar();
+
+		// listamor nueva tabla
+		listar(vistaSuper.tabla);
+	}
+
+    // Lista los nuevos datos
+    public abstract void listar(JTable tabla);
+
+
+    // Limpia la entrada de texto
+    public abstract void limpiar();
 
     // limpia la tabla
     public void limpiarTabla() {

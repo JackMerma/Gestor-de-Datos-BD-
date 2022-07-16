@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
-public class ControladorOficinaDetalle extends Controlador {
+public class ControladorOficinaDetalle extends Controlador<OficinaDetalle> {
 
 	public VistaOficinaDetalle vista = (VistaOficinaDetalle) vistaSuper;
 	public OficinaDetalleDAO oficinaDetalleDAO = new OficinaDetalleDAO();
@@ -23,13 +23,12 @@ public class ControladorOficinaDetalle extends Controlador {
 	public ControladorOficinaDetalle(VistaOficinaDetalle v) {
 		super(v);
 		this.vista = v;
-		this.vistaSuper = v;
-
 		listar(vista.tabla);
 	}
 
 	// metodo auxiliar para obtener un objeto con los datos de la vista
-	private OficinaDetalle getOficinaDetalle() {
+	@Override
+	public OficinaDetalle getOficinaDetalle() {
 		OficinaDetalle ofide = new OficinaDetalle();
 		String ide = vista.ide.getText();
 		String ciudad = vista.ciudad.getText();
@@ -53,32 +52,32 @@ public class ControladorOficinaDetalle extends Controlador {
 		return ofide;
 	}
 
-	// metodo que agrera a una nueva categoria
-	private void agregar() {
+	// // metodo que agrera a una nueva categoria
+	// private void agregar() {
 
-		// Obtenemos datos
+	// 	// Obtenemos datos
 
-		ofiDetalle = getOficinaDetalle();
+	// 	ofiDetalle = getOficinaDetalle();
 
-		// limpiamos la tabla anterior
-		limpiarTabla();
+	// 	// limpiamos la tabla anterior
+	// 	limpiarTabla();
 
-		// agregamos
-		int n = oficinaDetalleDAO.add(ofiDetalle);
+	// 	// agregamos
+	// 	int n = oficinaDetalleDAO.add(ofiDetalle);
 
-		// verificamor resultado
-		if (n == 1) {
-			JOptionPane.showMessageDialog(null, "Agregado con Exito.");
-		} else {
-			JOptionPane.showMessageDialog(null, "Error");
-		}
+	// 	// verificamor resultado
+	// 	if (n == 1) {
+	// 		JOptionPane.showMessageDialog(null, "Agregado con Exito.");
+	// 	} else {
+	// 		JOptionPane.showMessageDialog(null, "Error");
+	// 	}
 
-		// limpiamor entrada de texto
-		limpiar();
+	// 	// limpiamor entrada de texto
+	// 	limpiar();
 
-		// listamor nueva tabla
-		listar(vista.tabla);
-	}
+	// 	// listamor nueva tabla
+	// 	listar(vista.tabla);
+	// }
 
 	// Para modificar una categoria
 	private void modificar() {
@@ -186,6 +185,7 @@ public class ControladorOficinaDetalle extends Controlador {
 	}
 
 	// lista los nuevos datos
+	@Override
 	public void listar(JTable tabla) {
 		centrarCeldas(tabla);
 		modelo = (DefaultTableModel) tabla.getModel();
@@ -370,7 +370,7 @@ public class ControladorOficinaDetalle extends Controlador {
 	}
 
 	// limpia la entrada de texto
-	private void limpiar() {
+	public void limpiar() {
 		vista.ide.setText("");
 		vista.ciudad.setText("");
 		vista.region.setText("");
