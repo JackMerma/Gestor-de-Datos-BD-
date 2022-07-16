@@ -2,30 +2,19 @@ package src.controlador;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
-import java.util.*;
-import java.awt.*;
 import javax.swing.*;
-
-import src.modelo.Cargo.Cargo;
-import src.modelo.Cargo.CargoDAO;
 import src.modelo.OficinaDetalle.OficinaDetalle;
 import src.modelo.OficinaDetalle.OficinaDetalleDAO;
-import src.vista.VistaCargo;
 import src.vista.VistaOficinaDetalle;
-
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-
 import java.util.ArrayList;
 
-public class ControladorOficinaDetalle implements ActionListener {
+public class ControladorOficinaDetalle extends Controlador {
 
-	public VistaOficinaDetalle vista = new VistaOficinaDetalle();
+	public VistaOficinaDetalle vista = (VistaOficinaDetalle) vistaSuper;
 	public OficinaDetalleDAO oficinaDetalleDAO = new OficinaDetalleDAO();
 	public OficinaDetalle ofiDetalle = new OficinaDetalle();
-	DefaultTableModel modelo = new DefaultTableModel();
 
 	private int CarFlaAct = 0;
 	private int action; // 1: agregar,
@@ -445,20 +434,4 @@ public class ControladorOficinaDetalle implements ActionListener {
 		vista.estaRegis.setEditable(true);
 	}
 
-	// limpia la tabla
-	void limpiarTabla() {
-		for (int i = 0; i < vista.tabla.getRowCount(); i++) {
-			modelo.removeRow(i);
-			i = i - 1;
-		}
-	}
-
-	// centra los numeros
-	void centrarCeldas(JTable tabla) {
-		DefaultTableCellRenderer tcr = new DefaultTableCellRenderer();
-		tcr.setHorizontalAlignment(SwingConstants.CENTER);
-		for (int i = 0; i < vista.tabla.getColumnCount(); i++) {
-			tabla.getColumnModel().getColumn(i).setCellRenderer(tcr);
-		}
-	}
 }
