@@ -3,8 +3,8 @@ package src.modelo;
 import java.sql.DriverManager;
 import java.sql.*;
 
-public class Conexion {
-	private String url = "jdbc:mysql://0.tcp.sa.ngrok.io:15864/";
+public class Conexion implements Configuracion {
+	private String url = "jdbc:mysql://"+ HOST + ":" + PORT+"/";
 	private String password = "mypassword";
 	private String dataBaseName = "BD_EMPRESA_DISTRIBUCION";
 	private String userName = "root";
