@@ -26,19 +26,19 @@ public class VistaRepresentanteVentasDetalle extends Vista {
        
         JPanel addPanelContent = new JPanel(new BorderLayout());
 
-        JPanel addPanelContentContent = new JPanel(new GridLayout(10, 1, 0, 0));
+        JPanel addPanelContentContent = new JPanel(new GridLayout(5, 1, 0, 0));
 
         // instaciomos Atributos
-        ide = new JTextField(20);
-        ofiIde = new JTextField(20);
-        cargIde = new JTextField(20);
-        RolRegIde = new JTextField(20);
-        tipIde = new JTextField(20);
-        usuRegIde = new JTextField(20);
-        nombre = new JTextField(20);
-        edad = new JTextField(20);
-        con = new JTextField(20);
-        objRep = new JTextField(20);
+        ide = new JTextField(10);
+        ofiIde = new JTextField(10);
+        cargIde = new JTextField(10);
+        RolRegIde = new JTextField(10);
+        tipIde = new JTextField(10);
+        usuRegIde = new JTextField(10);
+        nombre = new JTextField(10);
+        edad = new JTextField(10);
+        con = new JTextField(10);
+        objRep = new JTextField(10);
 
         // ide
 
