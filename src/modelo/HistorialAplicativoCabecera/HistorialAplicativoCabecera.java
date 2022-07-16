@@ -1,4 +1,4 @@
-package src.modelo;
+package src.modelo.HistorialAplicativoCabecera;
 
 public class HistorialAplicativoCabecera {
 	public int ideFact;

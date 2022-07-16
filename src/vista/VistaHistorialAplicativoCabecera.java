@@ -1,124 +1,47 @@
 package src.vista;
 
-import java.util.*;
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.table.*;
 
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.ActionEvent;
-
-public class VistaHistorialAplicativoCabecera {
-	public JPanel content;
-	private String nombreTabla = "HISTORIAL APLICATIVO CABECERA";
-
-	// 3 paneles principales
-	public JPanel addPanel = new JPanel(new BorderLayout());
-	public JPanel viewPanel = new JPanel(new BorderLayout());
-	public JPanel optionPanel = new JPanel(new BorderLayout());
+public class VistaHistorialAplicativoCabecera extends Vista {
 
 	// add Panel
-	public JTextField ide = new JTextField(10);
-	public JTextField ideHistoria = new JTextField(10);
-	public JTextField estaRegis = new JTextField("", 1);
+	public JTextField ide;
+	public JTextField ideHistoria;
+	public JTextField estaRegis;
 
-	// view Panel
-	public JTable tabla;
-	public JScrollPane miBarra;
-	public DefaultTableModel modelo;
-
-	// option Panel
-	public JButton adicionar = new JButton("Adicionar");
-	public JButton modificar = new JButton("Modificar");
-	public JButton eliminar = new JButton("Eliminar");
-	public JButton cancelar = new JButton("Cancelar");
-	public JButton inactivar = new JButton("Inactivar");
-	public JButton reactivar = new JButton("Reactivar");
-	public JButton actualizar = new JButton("Actualizar");
-	public JButton salir = new JButton("Salir");
-
-
-	public JPanel getContent(){
-		content = new JPanel(new BorderLayout());
-		JPanel centerContent = new JPanel(new GridLayout(3,1,5,5));
-
-		// relleno (bordes) en panel
-
-		createPanelWidth(content, true, true, true, true);
-
-		// creación de contenido en cada panel
-
-		createAddPanelContent();
-		createViewPanelContent();
-		createOptionPanelContent();
-
-		// agregación de los paneles 
-
-		centerContent.add(addPanel);
-		centerContent.add(viewPanel);
-		centerContent.add(optionPanel);
-
-		content.add(centerContent);
-		content.add(new JLabel(this.nombreTabla), BorderLayout.NORTH);//nombre de tabla
-		return content;
+	public VistaHistorialAplicativoCabecera() {
+		super("TABLA HISTORIAL APLICATIVO CABECERA", new String[] { "IdeFactura", "ideHistoria", "EstadoRegistro" });
 	}
 
 	/*
 	 * Metodos a implementar
 	 */
 
-	public void createAddPanelContent(){
-		addPanel.add(new JLabel("Registro de Historia Aplicativo Cabecera"), BorderLayout.NORTH);
-
+	@Override
+	public void createAddPanelContent() {
+		
 		JPanel addPanelContent = new JPanel(new BorderLayout());
 
-		JPanel addPanelContentContent = new JPanel(new GridLayout(3,1,5,25));
+		JPanel addPanelContentContent = new JPanel(new GridLayout(3, 1, 5, 45));
+
+		// instaciomos Atributos
+		ide = new JTextField(20);
+		ideHistoria = new JTextField(20);
+		estaRegis = new JTextField("", 20);
 
 		// ide field
+		JPanel idePanel = addComponente(ide, "Ide:");
 
-		JPanel idePanel = new JPanel(new GridLayout(1,2));
-		JLabel ideLabel = new JLabel("Ide Factura:");
-		ideLabel.setHorizontalAlignment(JLabel.CENTER);
-
-		idePanel.add(ideLabel);
-
-		JPanel ideButtonPanel= new JPanel(new FlowLayout());
-
-		ideButtonPanel.add(ide);
-		idePanel.add(ideButtonPanel);
 
 		// ideHistoria
-
-		JPanel ideHistoriaPanel = new JPanel(new GridLayout(1,2));
-		JLabel ideHistoriaLabel = new JLabel("Ide Historia:");
-		ideHistoriaLabel.setHorizontalAlignment(JLabel.CENTER);
-
-		ideHistoriaPanel.add(ideHistoriaLabel);
-
-		JPanel ideHistoriaButtonPanel = new JPanel(new FlowLayout());
-
-		ideHistoriaButtonPanel.add(ideHistoria);
-		ideHistoriaPanel.add(ideHistoriaButtonPanel);
-
+		JPanel ideHistoriaPanel = addComponente(ideHistoria, "ideHistoria:");
+	
 		// estaRegis field
+		JPanel estaRegisPanel = addComponente(estaRegis, "Estado de registro:");
+	
 
-		JPanel estaRegisPanel = new JPanel(new GridLayout(1,2));
-		JLabel estaRegisLabel = new JLabel("Estado de registro:");
-		estaRegisLabel.setHorizontalAlignment(JLabel.CENTER);
-
-		estaRegisPanel.add(estaRegisLabel);
-
-		JPanel estaRegisButtonPanel = new JPanel(new FlowLayout());
-		//createPanelWidth(estaRegisButtonPanel, true, true, false, false);
-
-		//estaRegis.setEditable(false);
-		estaRegisButtonPanel.add(estaRegis);
-		estaRegisPanel.add(estaRegisButtonPanel);
-		
-
-		//agregando paneles
+		// agregando paneles
 		addPanelContentContent.add(idePanel);
 		addPanelContentContent.add(ideHistoriaPanel);
 		addPanelContentContent.add(estaRegisPanel);
@@ -128,101 +51,18 @@ public class VistaHistorialAplicativoCabecera {
 		addPanel.add(addPanelContent);
 	}
 
-	public void createViewPanelContent(){
-		//modifica viewPanel
-		
-		//DefaultTableModel model = new DefaultTableModel(new String[] {"Columna 1", "Columna 2"}, 0);        
-		tabla = new JTable(){
-			// para evitar que sea editabue
-			public boolean isCellEditable(int fila,int col){
-				return false;
-			}};
-		modelo = (DefaultTableModel)tabla.getModel();
+	private JPanel addComponente(JTextField txtField, String name) {
+		JPanel panel = new JPanel(new GridLayout(1, 2));
+		JLabel label = new JLabel(name);
+		label.setHorizontalAlignment(JLabel.CENTER);
 
-		miBarra = new JScrollPane(tabla);
-		
-		
-		//tabla.setModel(new DefaultTableModel(
-			//		null,
-				//	title
-		//));
-		tabla.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-		tabla.setModel(new javax.swing.table.DefaultTableModel(
-					null,
-					new String [] {
-						"IdeFactura", "IdeHistoria", "EstadoRegistro"
-					}
-					));
-		tabla.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-		tabla.setFocusable(false);
-		tabla.getTableHeader().setReorderingAllowed(false);
-		
-		tabla.setRowMargin(4);
+		panel.add(label);
 
-		tabla.addMouseListener( new MouseListener() {
-			@Override
-			public void mouseClicked(MouseEvent e){
-				int fila = tabla.rowAtPoint(e.getPoint());
-				int columna = tabla.columnAtPoint(e.getPoint());
-				System.out.println("fila:"+fila+", Col:"+columna);
-			}
-      		
+		JPanel buttonPanel = new JPanel(new FlowLayout());
 
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-   		});
-		viewPanel.add(miBarra, BorderLayout.CENTER);
+		buttonPanel.add(txtField);
+		panel.add(buttonPanel);
+		return panel;
 	}
 
-	public void createOptionPanelContent(){
-		JPanel optionPanelContent = new JPanel(new BorderLayout());
-
-		JPanel optionPanelContentContent = new JPanel(new GridLayout(2,4,5,45));
-
-		optionPanelContentContent.add(adicionar);
-		optionPanelContentContent.add(modificar);
-		optionPanelContentContent.add(eliminar);
-		optionPanelContentContent.add(cancelar);
-		optionPanelContentContent.add(inactivar);
-		optionPanelContentContent.add(reactivar);
-		optionPanelContentContent.add(actualizar);
-		optionPanelContentContent.add(salir);
-
-		optionPanelContent.add(optionPanelContentContent);
-		createPanelWidth(optionPanelContent, true, true, true, true);
-		createPanelWidth(optionPanel, true, true, true, true);
-		optionPanel.add(optionPanelContent);
-	}
-
-
-	public void createPanelWidth(JPanel panel, boolean n, boolean s, boolean e, boolean w){
-		if(n) panel.add(new JLabel("\n"), BorderLayout.NORTH);
-		if(s) panel.add(new JLabel("\n"), BorderLayout.SOUTH);
-		if(e) panel.add(new JLabel("   "), BorderLayout.EAST);
-		if(w) panel.add(new JLabel("   "), BorderLayout.WEST);
-	}
 }
-
-

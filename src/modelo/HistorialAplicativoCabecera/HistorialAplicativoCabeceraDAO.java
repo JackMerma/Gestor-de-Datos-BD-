@@ -5,13 +5,20 @@ import java.sql.Connection;
 import java.sql.*;
 import java.util.*;
 
-public class HistorialAplicativoCabeceraDAO {
+//import src.modelo.DAO;
+
+public class HistorialAplicativoCabeceraDAO extends DAO<HistorialAplicativoCabecera> {
 
 	public Conexion con = new Conexion();
 	public HistorialAplicativoCabecera historialAplicativoCabecera = new HistorialAplicativoCabecera();
 	private PreparedStatement ps; 
 	private ResultSet rs;
 	private Connection bd;  
+
+	// constructor
+	public HistorialAplicativoCabeceraDAO() {
+		super();
+	}
 
 	public ArrayList<HistorialAplicativoCabecera> listar(){
 		ArrayList<HistorialAplicativoCabecera> listHistorialAplicativoCabecera = new ArrayList<HistorialAplicativoCabecera>();
