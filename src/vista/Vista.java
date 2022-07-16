@@ -53,10 +53,11 @@ public abstract class Vista {
 		createAddPanelContent();
 		createViewPanelContent(columnas);
 		createOptionPanelContent();
+		JScrollPane scroll = new JScrollPane(addPanel);
 
 		// agregación de los paneles
 
-		centerContent.add(addPanel);
+		centerContent.add(scroll);
 		centerContent.add(viewPanel);
 		centerContent.add(optionPanel);
 

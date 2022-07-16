@@ -5,13 +5,20 @@ import java.sql.Connection;
 import java.sql.*;
 import java.util.*;
 
-public class ClienteDetalleDAO {
+//import src.modelo.DAO;
+
+public class ClienteDetalleDAO extends DAO<ClienteDetalle> {
 
 	public Conexion con = new Conexion();
 	public ClienteDetalle clienteDetalle = new ClienteDetalle();
 	private PreparedStatement ps; 
 	private ResultSet rs;
 	private Connection bd;  
+
+	// constructor
+	public ClienteDetalleDAO() {
+		super();
+	}
 
 	public ArrayList<ClienteDetalle> listar(){
 		ArrayList<ClienteDetalle> listClienteDetalle = new ArrayList<ClienteDetalle>();
