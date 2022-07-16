@@ -127,6 +127,7 @@ public class Main implements ActionListener {
 
 		} else if (E.equals("Oficina Detalle")) {
 			System.out.println("Oficina Detalle");
+			generateContent_OfiDet();
 
 		} else if (E.equals("Oficina Factura")) {
 			System.out.println("Oficina Factura");

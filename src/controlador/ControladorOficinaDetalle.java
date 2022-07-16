@@ -208,7 +208,7 @@ public class ControladorOficinaDetalle implements ActionListener {
 		tabla.setModel(modelo);
 
 		ArrayList<OficinaDetalle> lista = oficinaDetalleDAO.listar();
-		Object[] objeto = new Object[4];
+		Object[] objeto = new Object[8];
 
 		for (int i = 0; i < lista.size(); i++) {
 			objeto[0] = lista.get(i).getOfiIde();
