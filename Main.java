@@ -31,9 +31,9 @@ public class Main implements ActionListener {
 		b9 = new JButton("Tipo Rep Venta");
 		b10 = new JButton("Rep Venta Cabecera");
 		b11 = new JButton("Rep Venta Detalle");
-		b12 = new JButton("Usuariob Reg Detalle");
+		b12 = new JButton("Usuario Reg Detalle");
 		b13 = new JButton("Oficina Detalle");
-		b14 = new JButton("Oficina Factura");
+		b14 = new JButton("Factura");
 		b15 = new JButton("Producto Cabecera");
 		b16 = new JButton("Producto Detalle");
 
@@ -76,7 +76,7 @@ public class Main implements ActionListener {
 		panel.add(b15);
 		panel.add(b16);
 
-		frame.setSize(800, 600);
+		frame.setSize(1000, 700);
 		frame.add(panel);
 		frame.pack();
 
@@ -118,32 +118,38 @@ public class Main implements ActionListener {
 
 		} else if (E.equals("Rep Venta Cabecera")) {
 			System.out.println("Rep Venta Cabecera");
+			generateContent_RepVenCab();
 
 		} else if (E.equals("Rep Venta Detalle")) {
 			System.out.println("Rep Venta Detalle");
+			generateContent_RepVenDet();
 
-		} else if (E.equals("Usuariob Reg Detalle")) {
-			System.out.println("Usuariob Reg Detalle");
+		} else if (E.equals("Usuario Reg Detalle")) {
+			System.out.println("Usuario Reg Detalle");
+			generateContent_UsuRegDet();
 
 		} else if (E.equals("Oficina Detalle")) {
 			System.out.println("Oficina Detalle");
 			generateContent_OfiDet();
 
-		} else if (E.equals("Oficina Factura")) {
-			System.out.println("Oficina Factura");
+		} else if (E.equals("Factura")) {
+			System.out.println("Factura");
+			generateContent_Fac();
 
 		} else if (E.equals("Producto Cabecera")) {
 			System.out.println("Producto Cabecera");
+			generateContent_ProCab();
 
 		} else if (E.equals("Producto Detalle")) {
 			System.out.println("Producto Detalle");
+			generateContent_ProDet();
 
 		}
 	}
 
 	public static void FrameContent() {
 		frameContent = new JFrame(PROJECTNAME);
-		frameContent.setSize(500, 600);
+		frameContent.setSize(800, 1000);
 		frameContent.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frameContent.setLocationRelativeTo(frame);
 		frameContent.setVisible(true);
@@ -207,17 +213,21 @@ public class Main implements ActionListener {
 
 	// REPRESENTANTE VENTAS CABECERA -------------------------------------
 	public static void generateContent_RepVenCab() {
-
+		VistaRepresentanteVentasCabecera vi = new VistaRepresentanteVentasCabecera();
+		frameContent.add(vi.getContent());
 	}
 
 	// REPRESENTANTE VENTA DETALLE --------------------------------------
 	public static void generateContent_RepVenDet() {
-
+		VistaRepresentanteVentasDetalle vi = new VistaRepresentanteVentasDetalle();
+		frameContent.add(vi.getContent());
 	}
 
 	// USUARIO REGISTRADO DETALLE -------------------------------------
 	public static void generateContent_UsuRegDet() {
-
+		VistaUsuarioRegistradoDetalle vi = new VistaUsuarioRegistradoDetalle();
+		frameContent.add(vi.getContent());
+		//ControladorUsuarioRegistradoDetalle con = new ControladorUsuarioRegistradoDetalle(vi);
 	}
 
 	// OFICINA DETALLE -------------------------------------
@@ -228,19 +238,22 @@ public class Main implements ActionListener {
 
 	}
 
-	// OFICINA FACTURA -------------------------------------
-	public static void generateContent_OfiFac() {
-
+	// FACTURA -------------------------------------
+	public static void generateContent_Fac() {
+		VistaFactura vi = new VistaFactura();
+		frameContent.add(vi.getContent());
 	}
 
 	// PRODUCTO CABECERA -------------------------------------
 	public static void generateContent_ProCab() {
-
+		VistaProductoCabecera vi = new VistaProductoCabecera();
+		frameContent.add(vi.getContent());
 	}
 
 	// PRODUCTO DETALLE -------------------------------------
-	public static void generateContent_CliCabecera() {
-
+	public static void generateContent_ProDet() {
+		VistaProductoDetalle vi = new VistaProductoDetalle();
+		frameContent.add(vi.getContent());
 	}
 
 	public static void main(String[] args) {

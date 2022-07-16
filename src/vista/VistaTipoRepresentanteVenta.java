@@ -18,8 +18,7 @@ public class VistaTipoRepresentanteVenta extends Vista {
 	 */
 
 	public void createAddPanelContent() {
-		addPanel.add(new JLabel("Registro de Tipo Representante Venta"), BorderLayout.NORTH);
-
+		
 		JPanel addPanelContent = new JPanel(new BorderLayout());
 
 		JPanel addPanelContentContent = new JPanel(new GridLayout(3, 1, 5, 25));

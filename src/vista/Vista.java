@@ -42,7 +42,7 @@ public abstract class Vista {
 	// llenamos el contenido
 	protected void rellenarContent(String[] columnas) {
 		content = new JPanel(new BorderLayout());
-		JPanel centerContent = new JPanel(new GridLayout(3, 1, 5, 5));
+		JPanel centerContent = new JPanel(new GridLayout(3, 1, 5, 3));
 
 		// relleno (bordes) en panel
 
@@ -137,9 +137,8 @@ public abstract class Vista {
 
 	// llena la tabla de opcines
 	public void createOptionPanelContent() {
-		JPanel optionPanelContent = new JPanel(new BorderLayout());
-
-		JPanel optionPanelContentContent = new JPanel(new GridLayout(2, 4, 5, 45));
+		JPanel optionPanelContent = new JPanel(new BorderLayout());		
+		JPanel optionPanelContentContent = new JPanel(new GridLayout(2, 4, 10, 35));
 
 		optionPanelContentContent.add(adicionar);
 		optionPanelContentContent.add(modificar);

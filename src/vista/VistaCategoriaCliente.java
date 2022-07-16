@@ -19,8 +19,7 @@ public class VistaCategoriaCliente extends Vista {
 	 */
 	@Override
 	public void createAddPanelContent() {
-		addPanel.add(new JLabel("Registro de Categoría Cliente"), BorderLayout.NORTH);
-
+		
 		JPanel addPanelContent = new JPanel(new BorderLayout());
 
 		JPanel addPanelContentContent = new JPanel(new GridLayout(3, 1, 5, 25));
