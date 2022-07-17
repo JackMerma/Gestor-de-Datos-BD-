@@ -38,7 +38,7 @@ public class FacturaDAO extends DAO<Factura> {
 				classNormal.setAnio(rs.getString(3));
 				classNormal.setMes(rs.getString(4));
 				classNormal.setDia(rs.getString(5));
-				classNormal.setEstReg(rs.getString(6));
+				classNormal.setEstReg(rs.getString(6).charAt(0));
 
 				lista.add(classNormal);
 			}
@@ -57,7 +57,7 @@ public class FacturaDAO extends DAO<Factura> {
 	// agregar
 	public int add(Factura factura) {
 		int state = 0;
-		String sql = "INSERT INTO `V2T_FACTURA` (`FacIde`, `FacImp`, `FacAño`, `FacMes`, `FacDia`, `FacEstReg`) VALUES VALUES (?, ?, ?, ?, ?, ?);";
+		String sql = "INSERT INTO `V2T_FACTURA` (`FacIde`, `FacImp`, `FacAño`, `FacMes`, `FacDia`, `FacEstReg`) VALUES (?, ?, ?, ?, ?, ?);";
 		try {
 			con.conectar();
 			bd = con.getConnection();

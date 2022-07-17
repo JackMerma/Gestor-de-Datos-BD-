@@ -254,6 +254,7 @@ public class Main implements ActionListener {
 	public static void generateContent_Fac() {
 		VistaFactura vi = new VistaFactura();
 		frameContent.add(vi.getContent());
+		ControladorFactura con = new ControladorFactura(vi);
 	}
 
 	// PRODUCTO CABECERA -------------------------------------

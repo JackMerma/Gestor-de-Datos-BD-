@@ -6,9 +6,9 @@ public class Factura {
     public String anio;
     public String mes;
     public String dia;
-    public String estReg;
+    public char estReg;
 
-    public Factura(int ide, int importe, String anio, String mes, String dia, String estReg) {
+    public Factura(int ide, int importe, String anio, String mes, String dia, char estReg) {
         this.ide = ide;
         this.importe = importe;
         this.anio = anio;
@@ -24,7 +24,7 @@ public class Factura {
         this.anio = "";
         this.mes = "";
         this.dia = "";
-        this.estReg = "";
+        this.estReg = 'A';
     }
 
     // get and set
@@ -68,12 +68,12 @@ public class Factura {
         this.dia = dia;
     }
 
-    public String getEstReg() {
+    public char getEstReg() {
         return estReg;
     }
 
-    public void setEstReg(String estReg) {
-        this.estReg = estReg;
+    public void setEstReg(char c) {
+        this.estReg = c;
     }
 
 }
