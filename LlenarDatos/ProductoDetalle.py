@@ -1,6 +1,6 @@
 import random
 
-sql = "INSERT INTO `V1T_PRODUCTO_DETALLE` (`ProDetIde`, `ProDetFab`, `ProDetDes`, `ProDetPre`, `ProDetExi`, `ProDetClaABC`, `ProDetUni`, `ProDetStoAct`, `ProDetStoMin`, `ProDetStoMax`, `ProDetEstReg`) VALUES ({ide}, '{fab}', '{des}', {precio}, {exis}, {cla}, 'unidad', {act}, '1', {max}, 'A');"
+sql = "INSERT INTO `V1T_PRODUCTO_DETALLE` (`ProDetIde`, `ProDetFab`, `ProDetDes`, `ProDetPre`, `ProDetExi`, `ProDetClaABC`, `ProDetUni`, `ProDetStoAct`, `ProDetStoMin`, `ProDetStoMax`, `ProDetEstReg`) VALUES ({ide}, '{fab}', '{des}', {precio}, {exis}, '{cla}', 'unidad', {act}, '1', {max}, 'A');"
 
 exi = [150, 200, 250, 300, 350]
 prec = [5.50, 10.20, 15.50, 3.20, 7.50, 10.50, 4.50, 4.20]
