@@ -267,6 +267,7 @@ public class Main implements ActionListener {
 	public static void generateContent_ProDet() {
 		VistaProductoDetalle vi = new VistaProductoDetalle();
 		frameContent.add(vi.getContent());
+		ControladorProductoDetalle con = new ControladorProductoDetalle(vi);
 	}
 
 	public static void main(String[] args) {
