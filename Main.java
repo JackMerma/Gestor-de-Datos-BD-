@@ -261,6 +261,7 @@ public class Main implements ActionListener {
 	public static void generateContent_ProCab() {
 		VistaProductoCabecera vi = new VistaProductoCabecera();
 		frameContent.add(vi.getContent());
+		ControladorProductoCabecera con = new ControladorProductoCabecera(vi);
 	}
 
 	// PRODUCTO DETALLE -------------------------------------
