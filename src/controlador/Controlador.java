@@ -185,4 +185,8 @@ public abstract class Controlador<CLASS> implements ActionListener {
             tabla.getColumnModel().getColumn(i).setCellRenderer(tcr);
         }
     }
+
+    // Llena los campos con los datos de la tabla
+    public abstract void llenarDatosDeTablaSelecionada(int fila, String estadoRegistro);
+
 }

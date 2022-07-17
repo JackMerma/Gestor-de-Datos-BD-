@@ -238,7 +238,7 @@ public class Main implements ActionListener {
 	public static void generateContent_UsuRegDet() {
 		VistaUsuarioRegistradoDetalle vi = new VistaUsuarioRegistradoDetalle();
 		frameContent.add(vi.getContent());
-		//ControladorUsuarioRegistradoDetalle con = new ControladorUsuarioRegistradoDetalle(vi);
+		ControladorUsuariosRegistrados con = new ControladorUsuariosRegistrados(vi);
 	}
 
 	// OFICINA DETALLE -------------------------------------

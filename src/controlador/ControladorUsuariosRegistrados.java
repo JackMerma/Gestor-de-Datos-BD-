@@ -2,24 +2,25 @@ package src.controlador;
 
 import java.awt.event.ActionEvent;
 import javax.swing.*;
-import src.modelo.OficinaDetalle.OficinaDetalle;
-import src.modelo.OficinaDetalle.OficinaDetalleDAO;
-import src.vista.VistaOficinaDetalle;
+import src.modelo.UsuarioRegistrado.UsuarioRegistrado;
+import src.modelo.UsuarioRegistrado.UsuarioRegistradoDAO;
+import src.vista.VistaUsuarioRegistradoDetalle;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
-public class ControladorOficinaDetalle extends Controlador<OficinaDetalle> {
+public class ControladorUsuariosRegistrados extends Controlador<UsuarioRegistrado> {
 
-	public VistaOficinaDetalle vista = (VistaOficinaDetalle) vistaSuper;
-	public static OficinaDetalleDAO oficinaDetalleDAO = new OficinaDetalleDAO();
-	public OficinaDetalle ofiDetalle = new OficinaDetalle();
+	public VistaUsuarioRegistradoDetalle vista = (VistaUsuarioRegistradoDetalle) vistaSuper;
+	public static UsuarioRegistradoDAO oficinaDetalleDAO = new UsuarioRegistradoDAO();
+	public UsuarioRegistrado ofiDetalle = new UsuarioRegistrado();
 
 	private int CarFlaAct = 0;
 	private int action; // 1: agregar,
 
-	// constructor
-	public ControladorOficinaDetalle(VistaOficinaDetalle v) {
+	// constructor de la clase, se pasan los parametros de la vistaEspecifica
+	public ControladorUsuariosRegistrados(VistaUsuarioRegistradoDetalle v) {
 		super(v, oficinaDetalleDAO);
 		this.vista = v;
 		listar(vista.tabla);
@@ -27,28 +28,20 @@ public class ControladorOficinaDetalle extends Controlador<OficinaDetalle> {
 
 	// metodo auxiliar para obtener un objeto con los datos de la vista
 	@Override
-	public OficinaDetalle getOficinaDetalle() {
-		OficinaDetalle ofide = new OficinaDetalle();
+	public UsuarioRegistrado getOficinaDetalle() {
+		UsuarioRegistrado classInterna = new UsuarioRegistrado();
 		String ide = vista.ide.getText();
-		String ciudad = vista.ciudad.getText();
-		String region = vista.region.getText();
-		String direccion = vista.direccion.getText();
-		String empleado = vista.empleado.getText();
-		String objetivo = vista.objetivo.getText();
-		String ventas = vista.ventas.getText();
+		String userName = vista.usuario.getText();
+		String password = vista.contrasenia.getText();
 		String estaRegis = vista.estaRegis.getText();
 
 		// Creamos un objeto
-		ofide.setOfiIde(Integer.parseInt(ide));
-		ofide.setOfiCiu(ciudad);
-		ofide.setOfiReg(region);
-		ofide.setOfiDir(direccion);
-		ofide.setOfiEmp(empleado);
-		ofide.setOfiObj(Integer.parseInt(objetivo));
-		ofide.setOfiVen(ventas);
-		ofide.setOfiEstReg(estaRegis);
+		classInterna.setIde(Integer.parseInt(ide));
+		classInterna.setUserName(userName);
+		classInterna.setPassword(password);
+		classInterna.setEstadoRegistro(estaRegis.charAt(0));
 
-		return ofide;
+		return classInterna;
 	}
 
 	// lista los nuevos datos
@@ -58,42 +51,34 @@ public class ControladorOficinaDetalle extends Controlador<OficinaDetalle> {
 		modelo = (DefaultTableModel) tabla.getModel();
 		tabla.setModel(modelo);
 
-		ArrayList<OficinaDetalle> lista = oficinaDetalleDAO.listar();
-		Object[] objeto = new Object[8];
+		// Tenemos que cambiar esta parte
+		ArrayList<UsuarioRegistrado> lista = oficinaDetalleDAO.listar();
+		Object[] objeto = new Object[4]; // cambiar segun el numero de atributos
+
 
 		for (int i = 0; i < lista.size(); i++) {
-			objeto[0] = lista.get(i).getOfiIde();
-			objeto[1] = lista.get(i).getOfiCiu();
-			objeto[2] = lista.get(i).getOfiReg();
-			objeto[3] = lista.get(i).getOfiDir();
-			objeto[4] = lista.get(i).getOfiEmp();
-			objeto[5] = lista.get(i).getOfiObj();
-			objeto[6] = lista.get(i).getOfiVen();
-			objeto[7] = lista.get(i).getOfiEstReg();
+			objeto[0] = lista.get(i).getIde();
+			objeto[1] = lista.get(i).getUserName();
+			objeto[2] = lista.get(i).getPassword();
+			objeto[3] = lista.get(i).getEstadoRegistro();
 			modelo.addRow(objeto);
 		}
 	}
 
-	// metodo para llenar en actionPerformed
+	// metodo para llenar los campos de la vista, trabaja con la fila 'fila', y el estado de registro, si el estado de registro se quiere matener
+	// se pasa 'DEFAULT'
 	@Override
 	public void llenarDatosDeTablaSelecionada(int fila, String estadoRegistro) {
 
 		String id = (String) vista.tabla.getValueAt(fila, 0).toString();
-		String ciudad = (String) vista.tabla.getValueAt(fila, 1).toString();
-		String region = (String) vista.tabla.getValueAt(fila, 2).toString();
-		String direccion = (String) vista.tabla.getValueAt(fila, 3).toString();
-		String empleado = (String) vista.tabla.getValueAt(fila, 4).toString();
-		String objetivo = (String) vista.tabla.getValueAt(fila, 5).toString();
-		String ventas = (String) vista.tabla.getValueAt(fila, 6).toString();
-		String estareg = (String) vista.tabla.getValueAt(fila, 7).toString();
+		String userName = (String) vista.tabla.getValueAt(fila, 1).toString();
+		String password = (String) vista.tabla.getValueAt(fila, 2).toString();
+		String estareg = (String) vista.tabla.getValueAt(fila, 3).toString();
 
 		vista.ide.setText(id);
-		vista.ciudad.setText(ciudad);
-		vista.region.setText(region);
-		vista.direccion.setText(direccion);
-		vista.empleado.setText(empleado);
-		vista.objetivo.setText(objetivo);
-		vista.ventas.setText(ventas);
+		vista.usuario.setText(userName);
+		vista.contrasenia.setText(password);
+		vista.estaRegis.setText(estareg);
 
 		if (estadoRegistro.equals("DEFAULT")) {
 			vista.estaRegis.setText(estareg);
@@ -103,6 +88,21 @@ public class ControladorOficinaDetalle extends Controlador<OficinaDetalle> {
 
 	}
 
+	// limpia la entrada de texto de la vista
+	@Override
+	public void limpiar() {
+		vista.ide.setText("");
+		vista.usuario.setText("");
+		vista.contrasenia.setText("");
+		vista.estaRegis.setText("");
+
+		vista.ide.setEditable(true);
+		vista.usuario.setEditable(true);
+		vista.contrasenia.setEditable(true);
+		vista.estaRegis.setEditable(true);
+	}
+
+	// Metodo para las acciones
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == vista.adicionar) {
 			System.out.println("Apreto: adicionar");
@@ -123,6 +123,7 @@ public class ControladorOficinaDetalle extends Controlador<OficinaDetalle> {
 
 				llenarDatosDeTablaSelecionada(fila, "DEFAULT");
 
+				// se tiene que cambiar estas partes (casi en todas es igual xd)
 				vista.ide.setEditable(false);
 				vista.estaRegis.setEditable(false);
 
@@ -142,12 +143,8 @@ public class ControladorOficinaDetalle extends Controlador<OficinaDetalle> {
 				llenarDatosDeTablaSelecionada(fila, "*");
 
 				vista.ide.setEditable(false);
-				vista.ciudad.setEditable(false);
-				vista.region.setEditable(false);
-				vista.direccion.setEditable(false);
-				vista.empleado.setEditable(false);
-				vista.objetivo.setEditable(false);
-				vista.ventas.setEditable(false);
+				vista.usuario.setEditable(false);
+				vista.contrasenia.setEditable(false);
 				vista.estaRegis.setEditable(false);
 
 				CarFlaAct = 1;
@@ -170,12 +167,8 @@ public class ControladorOficinaDetalle extends Controlador<OficinaDetalle> {
 				llenarDatosDeTablaSelecionada(fila, "I");
 
 				vista.ide.setEditable(false);
-				vista.ciudad.setEditable(false);
-				vista.region.setEditable(false);
-				vista.direccion.setEditable(false);
-				vista.empleado.setEditable(false);
-				vista.objetivo.setEditable(false);
-				vista.ventas.setEditable(false);
+				vista.usuario.setEditable(false);
+				vista.contrasenia.setEditable(false);
 				vista.estaRegis.setEditable(false);
 
 				CarFlaAct = 1;
@@ -193,12 +186,8 @@ public class ControladorOficinaDetalle extends Controlador<OficinaDetalle> {
 				llenarDatosDeTablaSelecionada(fila, "A");
 
 				vista.ide.setEditable(false);
-				vista.ciudad.setEditable(false);
-				vista.region.setEditable(false);
-				vista.direccion.setEditable(false);
-				vista.empleado.setEditable(false);
-				vista.objetivo.setEditable(false);
-				vista.ventas.setEditable(false);
+				vista.usuario.setEditable(false);
+				vista.contrasenia.setEditable(false);
 				vista.estaRegis.setEditable(false);
 
 				CarFlaAct = 1;
@@ -235,28 +224,6 @@ public class ControladorOficinaDetalle extends Controlador<OficinaDetalle> {
 			System.exit(0);
 
 		}
-	}
-
-	// limpia la entrada de texto
-	@Override
-	public void limpiar() {
-		vista.ide.setText("");
-		vista.ciudad.setText("");
-		vista.region.setText("");
-		vista.direccion.setText("");
-		vista.empleado.setText("");
-		vista.objetivo.setText("");
-		vista.ventas.setText("");
-		vista.estaRegis.setText("");
-
-		vista.ide.setEditable(true);
-		vista.ciudad.setEditable(true);
-		vista.region.setEditable(true);
-		vista.direccion.setEditable(true);
-		vista.empleado.setEditable(true);
-		vista.objetivo.setEditable(true);
-		vista.ventas.setEditable(true);
-		vista.estaRegis.setEditable(true);
 	}
 
 }
