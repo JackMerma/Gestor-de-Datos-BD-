@@ -172,6 +172,7 @@ public class Main implements ActionListener {
 	public static void generateContent_Acciones() {
 		VistaAcciones vi = new VistaAcciones();
 		frameContent.add(vi.getContent());
+		ControladorAcciones con = new ControladorAcciones(vi);
 	}
 
 	// CATEGORIA CLIENTES -------------------------------------

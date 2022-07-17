@@ -5,6 +5,9 @@ import java.sql.Connection;
 import java.sql.*;
 import java.util.*;
 
+import src.modelo.Conexion;
+import src.modelo.DAO;
+
 //import src.modelo.DAO;
 
 public class AccionesDAO extends DAO<Acciones>{
