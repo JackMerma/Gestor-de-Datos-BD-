@@ -12,7 +12,7 @@ public class VistaProductoCabecera extends Vista {
 
 
     public VistaProductoCabecera() {
-        super("PRODUCTO CABECERA", new String[] { "FacIde", "ProIde", "DetCan" , "EstaRegis" });
+        super("V1Z_PRODUCTO_CABECERA", new String[] { "FacIde", "ProIde", "DetCan" , "EstaRegis" });
     }
 
     @Override

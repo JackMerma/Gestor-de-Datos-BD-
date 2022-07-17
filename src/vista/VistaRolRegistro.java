@@ -12,7 +12,7 @@ public class VistaRolRegistro extends Vista {
 	public JTextField estaRegis;
 
 	public VistaRolRegistro() {
-		super("Rol Registro", new String[] { "Ide", "DescripcionRol", "EstadoRegistro" });
+		super("GZZ_ROL_REGISTRO", new String[] { "Ide", "DescripcionRol", "EstadoRegistro" });
 		// TODO Auto-generated constructor stub
 	}
 

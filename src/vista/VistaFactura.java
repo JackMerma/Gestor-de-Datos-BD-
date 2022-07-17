@@ -14,7 +14,7 @@ public class VistaFactura extends Vista {
 
 
     public VistaFactura() {
-        super("FACTURA", new String[] { "Ide", "Imp", "Anio", "Mes", "Dia", "EstadoRegistro" });
+        super("V2T_FACTURA", new String[] { "Ide", "Imp", "Anio", "Mes", "Dia", "EstadoRegistro" });
     }
 
     @Override

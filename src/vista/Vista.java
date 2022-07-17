@@ -62,7 +62,10 @@ public abstract class Vista {
 		centerContent.add(optionPanel);
 
 		content.add(centerContent);
-		content.add(new JLabel(this.nombreTabla), BorderLayout.NORTH);// nombre de tabla
+		JLabel name = new JLabel(this.nombreTabla);
+		name.setFont(new Font("Serif", Font.BOLD, 18));
+		name.setHorizontalAlignment(JLabel.CENTER);
+		content.add(name ,BorderLayout.NORTH);// nombre de tabla
 	}
 
 	// obtenemos el contenido del panel central

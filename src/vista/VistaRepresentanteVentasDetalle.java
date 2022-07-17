@@ -19,7 +19,7 @@ public class VistaRepresentanteVentasDetalle extends Vista {
 
 
     public VistaRepresentanteVentasDetalle() {
-        super("REPRESENTANTE VENTAS DETALLE", new String[] { "Ide", "OfiIde", "CargIde", "RolRegIde", "TipIde",
+        super("V1M_REPRESENTANTE_VENTAS_DETALLE", new String[] { "Ide", "OfiIde", "CargIde", "RolRegIde", "TipIde",
                 "UsuRegIde", "Nombre", "Edad", "Con", "ObjRep", "EstadoRegistro" });
     }
 

@@ -10,7 +10,7 @@ public class VistaTipoRepresentanteVenta extends Vista {
 	public JTextField estaRegis;
 
 	public VistaTipoRepresentanteVenta() {
-		super("Tipo Representante Venta", new String[] { "Ide", "TipoRepresentante", "EstadoRegistro" });
+		super("GZZ_TIPO_REPRESENTANTE_VENTAS", new String[] { "Ide", "TipoRepresentante", "EstadoRegistro" });
 	}
 
 	/*

@@ -12,7 +12,7 @@ public class VistaCargo extends Vista {
 	public JTextField estaRegis;
 
 	public VistaCargo() {
-		super("TABLA CARGO", new String[] { "Ide", "DescripcionCargo", "Sueldo", "EstadoRegistro" });
+		super("GZZ_CARGO", new String[] { "Ide", "DescripcionCargo", "Sueldo", "EstadoRegistro" });
 	}
 
 	/*

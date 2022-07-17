@@ -12,7 +12,7 @@ public class VistaRepresentanteVentasCabecera extends Vista {
 
 	
 	public VistaRepresentanteVentasCabecera() {
-		super("REPRESENTANTE VENTAS DETALLE", new String[] { "FactIde", "RepIde", "EstadoRegistro" });
+		super("V1M_REPRESENTANTE_VENTAS_CABECERA", new String[] { "FactIde", "RepIde", "EstadoRegistro" });
 	}
 
 	/*

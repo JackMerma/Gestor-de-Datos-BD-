@@ -11,7 +11,7 @@ public class VistaAcciones extends Vista {
 	public JTextField estaRegis;
 
 	public VistaAcciones() {
-		super("TABLA ACCIONES", new String[] { "Ide", "IdeHistoria", "EstadoRegistro" });
+		super("V3H_ACCIONES", new String[] { "Ide", "IdeHistoria", "EstadoRegistro" });
 	}
 
 	/*

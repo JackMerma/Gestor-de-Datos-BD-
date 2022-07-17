@@ -15,7 +15,7 @@ public class VistaHistorialAplicativoDetalle extends Vista {
 	public JTextField estaRegis;
 
 	public VistaHistorialAplicativoDetalle() {
-		super("TABLA HISTORIAL APLICATIVO DETALLE", new String[] { "Ide", "Hora", "Descripcion", "Año", "Mes", "Dia", "EstadoRegistro" });
+		super("V3H_HISTORIAL _APLICATIVO_DETALLE", new String[] { "Ide", "Hora", "Descripcion", "Año", "Mes", "Dia", "EstadoRegistro" });
 	}
 
 	/*

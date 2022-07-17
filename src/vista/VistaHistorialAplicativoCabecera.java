@@ -11,7 +11,7 @@ public class VistaHistorialAplicativoCabecera extends Vista {
 	public JTextField estaRegis;
 
 	public VistaHistorialAplicativoCabecera() {
-		super("TABLA HISTORIAL APLICATIVO CABECERA", new String[] { "IdeFactura", "ideHistoria", "EstadoRegistro" });
+		super("V3Z_HISTORIAL _APLICATIVO_CABECERA", new String[] { "IdeFactura", "ideHistoria", "EstadoRegistro" });
 	}
 
 	/*
