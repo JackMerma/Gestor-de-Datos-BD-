@@ -10,9 +10,11 @@ public class VistaFactura extends Vista {
     public JTextField anio;
     public JTextField mes;
     public JTextField dia;
+    public JTextField estaRegis;
+
 
     public VistaFactura() {
-        super("FACTURA", new String[] { "Ide", "Imp", "Anio", "Mes", "Dia" });
+        super("FACTURA", new String[] { "Ide", "Imp", "Anio", "Mes", "Dia", "EstadoRegistro" });
     }
 
     @Override
@@ -28,6 +30,7 @@ public class VistaFactura extends Vista {
         anio = new JTextField(20);
         mes = new JTextField(20);
         dia = new JTextField(20);
+        estaRegis = new JTextField("", 5);
 
         // ide field
 
@@ -49,12 +52,16 @@ public class VistaFactura extends Vista {
 
         JPanel diaPanel = addComponente(dia, "Dia:");
 
+        // estaRegis field
+        JPanel estaRegisPanel = addComponente(estaRegis, "Estado de registro:");
+
         // agregando paneles
         addPanelContentContent.add(idePanel);
         addPanelContentContent.add(impPanel);
         addPanelContentContent.add(anioPanel);
         addPanelContentContent.add(mesPanel);
         addPanelContentContent.add(diaPanel);
+        addPanelContentContent.add(estaRegisPanel);
 
         createPanelWidth(addPanelContent, true, true, true, true);
         addPanelContent.add(addPanelContentContent);
