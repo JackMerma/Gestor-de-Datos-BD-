@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
-public class ControladorUsuariosRegistrados extends Controlador<UsuarioRegistrado> {
+public class ControladorUsuariosRegistradosDetalle extends Controlador<UsuarioRegistrado> {
 
 	public VistaUsuarioRegistradoDetalle vista = (VistaUsuarioRegistradoDetalle) vistaSuper;
 	public static UsuarioRegistradoDAO oficinaDetalleDAO = new UsuarioRegistradoDAO();
@@ -20,7 +20,7 @@ public class ControladorUsuariosRegistrados extends Controlador<UsuarioRegistrad
 	private int action; // 1: agregar,
 
 	// constructor de la clase, se pasan los parametros de la vistaEspecifica
-	public ControladorUsuariosRegistrados(VistaUsuarioRegistradoDetalle v) {
+	public ControladorUsuariosRegistradosDetalle(VistaUsuarioRegistradoDetalle v) {
 		super(v, oficinaDetalleDAO);
 		this.vista = v;
 		listar(vista.tabla);

@@ -232,13 +232,14 @@ public class Main implements ActionListener {
 	public static void generateContent_RepVenDet() {
 		VistaRepresentanteVentasDetalle vi = new VistaRepresentanteVentasDetalle();
 		frameContent.add(vi.getContent());
+		ControladorRepresentanteVentasDetalle con = new ControladorRepresentanteVentasDetalle(vi);
 	}
 
 	// USUARIO REGISTRADO DETALLE -------------------------------------
 	public static void generateContent_UsuRegDet() {
 		VistaUsuarioRegistradoDetalle vi = new VistaUsuarioRegistradoDetalle();
 		frameContent.add(vi.getContent());
-		ControladorUsuariosRegistrados con = new ControladorUsuariosRegistrados(vi);
+		ControladorUsuariosRegistradosDetalle con = new ControladorUsuariosRegistradosDetalle(vi);
 	}
 
 	// OFICINA DETALLE -------------------------------------
