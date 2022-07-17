@@ -15,10 +15,12 @@ public class VistaRepresentanteVentasDetalle extends Vista {
     public JTextField edad;
     public JTextField con;
     public JTextField objRep;
+    public JTextField estaRegis;
+
 
     public VistaRepresentanteVentasDetalle() {
         super("REPRESENTANTE VENTAS DETALLE", new String[] { "Ide", "OfiIde", "CargIde", "RolRegIde", "TipIde",
-                "UsuRegIde", "Nombre", "Edad", "Con", "ObjRep" });
+                "UsuRegIde", "Nombre", "Edad", "Con", "ObjRep", "EstadoRegistro" });
     }
 
     @Override
@@ -39,6 +41,8 @@ public class VistaRepresentanteVentasDetalle extends Vista {
         edad = new JTextField(10);
         con = new JTextField(10);
         objRep = new JTextField(10);
+        estaRegis = new JTextField("", 5);
+
 
         // ide
 
@@ -80,6 +84,9 @@ public class VistaRepresentanteVentasDetalle extends Vista {
 
         JPanel objRepPanel = addComponente(objRep, "ObjRep:");
 
+        // estaRegis field
+        JPanel estaRegisPanel = addComponente(estaRegis, "Estado de registro:");
+
         // agregando paneles
         addPanelContentContent.add(idePanel);
         addPanelContentContent.add(ofiIdePanel);
@@ -91,6 +98,7 @@ public class VistaRepresentanteVentasDetalle extends Vista {
         addPanelContentContent.add(edadPanel);
         addPanelContentContent.add(conPanel);
         addPanelContentContent.add(objRepPanel);
+        addPanelContentContent.add(estaRegisPanel);
 
         createPanelWidth(addPanelContent, true, true, true, true);
         addPanelContent.add(addPanelContentContent);
