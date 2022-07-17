@@ -1,6 +1,5 @@
 package src.controlador;
 
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
 import src.modelo.OficinaDetalle.OficinaDetalle;
@@ -238,6 +237,7 @@ public class ControladorOficinaDetalle extends Controlador<OficinaDetalle> {
 	}
 
 	// limpia la entrada de texto
+	@Override
 	public void limpiar() {
 		vista.ide.setText("");
 		vista.ciudad.setText("");
