@@ -226,6 +226,7 @@ public class Main implements ActionListener {
 	public static void generateContent_RepVenCab() {
 		VistaRepresentanteVentasCabecera vi = new VistaRepresentanteVentasCabecera();
 		frameContent.add(vi.getContent());
+		ControladorRepresentanteVentasCabecera con = new ControladorRepresentanteVentasCabecera(vi);
 	}
 
 	// REPRESENTANTE VENTA DETALLE --------------------------------------
