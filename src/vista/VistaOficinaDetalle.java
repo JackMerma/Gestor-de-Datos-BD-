@@ -16,7 +16,7 @@ public class VistaOficinaDetalle extends Vista {
 	public JTextField estaRegis;
 
 	public VistaOficinaDetalle() {
-		super("Oficina Detalle", new String[] { "Ide", "Ciudad", "Region", "Direccion", "Empleado", "Obejtico",
+		super("V1M_OFICINA_DETALLE", new String[] { "Ide", "Ciudad", "Region", "Direccion", "Empleado", "Obejtico",
 				"Ventas", "EstadoRegistro" });
 	}
 

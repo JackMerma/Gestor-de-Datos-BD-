@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class VistaCategoriaCliente extends Vista {
 	public VistaCategoriaCliente() {
-		super("Categoria Clientes", new String[] { "Ide", "LimiteCredito", "EstadoRegistro" });
+		super("GZZ_CATEGORIA_CLIENTE", new String[] { "Ide", "LimiteCredito", "EstadoRegistro" });
 	}
 
 	// add Panel

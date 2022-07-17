@@ -9,7 +9,7 @@ import javax.swing.*;
 
 public class Main implements ActionListener {
 
-	public static final String PROJECTNAME = "EMPRESA DE DISTRIBUCION";
+	public static final String PROJECTNAME = "<-<->-> EMPRESA DE DISTRIBUCION <-<->->";
 	public static JFrame frame, frameContent;
 	public JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16;
 

@@ -12,7 +12,7 @@ public class VistaUsuarioRegistradoDetalle extends Vista {
  
 
     public VistaUsuarioRegistradoDetalle() {
-        super("USUARIO REGISTRADO DETALLE", new String[] { "Ide", "Usuario", "Contraseña", "EstadoRegistro" });
+        super("V4M_USUARIO_REGISTRADOS_DETALLE", new String[] { "Ide", "Usuario", "Contraseña", "EstadoRegistro" });
     }
 
     @Override

@@ -11,7 +11,7 @@ public class VistaClienteCabecera extends Vista {
 	public JTextField estaRegis;
 
 	public VistaClienteCabecera() {
-		super("TABLA CARGO", new String[] { "Ide", "DescripcionCargo", "ideCliente", "EstadoRegistro" });
+		super("V1M_CLIENTE_CABECERA", new String[] { "Ide", "DescripcionCargo", "ideCliente", "EstadoRegistro" });
 	}
 
 	/*

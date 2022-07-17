@@ -19,7 +19,7 @@ public class VistaProductoDetalle extends Vista {
 
 
     public VistaProductoDetalle() {
-        super("PRODUCTO DETALLE", new String[] { "Ide", "Fabricacion", "Descripcion", "Precio", "Exi", "ClaseABC",
+        super("V1T_PRODUCTO_DETALLE", new String[] { "Ide", "Fabricacion", "Descripcion", "Precio", "Exi", "ClaseABC",
                 "Unidad", "StockAct", "StockMin", "StockMax", "EstadoRegistro" });
     }
 

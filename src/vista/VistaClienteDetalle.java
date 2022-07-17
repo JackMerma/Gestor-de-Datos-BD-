@@ -23,7 +23,7 @@ public class VistaClienteDetalle extends Vista {
 	public JTextField estaRegis;
 
 	public VistaClienteDetalle() {
-		super("TABLA CLIENTE DETALLE", new String[] { "Ide", "IdeCategoria", "EmpresaDesc", "Representante", "PagoCuota", "Credito", "Departamento", "Nombre", "Comportamiento", "ApellPaterno", "ApellMaterno", "Direccion", "Telefono", "Correo", "EstadoRegistro" });
+		super("V1M_CLIENTE_DETALLE", new String[] { "Ide", "IdeCategoria", "EmpresaDesc", "Representante", "PagoCuota", "Credito", "Departamento", "Nombre", "Comportamiento", "ApellPaterno", "ApellMaterno", "Direccion", "Telefono", "Correo", "EstadoRegistro" });
 	}
 
 	/*
