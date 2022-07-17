@@ -2,14 +2,9 @@ package src.controlador;
 
 import java.awt.event.ActionEvent;
 import javax.swing.*;
-
 import src.modelo.Acciones.Acciones;
 import src.modelo.Acciones.AccionesDAO;
-import src.modelo.RepresentanteVentasCabecera.RepresentanteVentasCabecera;
-import src.modelo.RepresentanteVentasCabecera.RepresentanteVentasCabeceraDAO;
 import src.vista.VistaAcciones;
-import src.vista.VistaRepresentanteVentasCabecera;
-
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
@@ -75,9 +70,9 @@ public class ControladorAcciones extends Controlador<Acciones> {
     @Override
     public void llenarDatosDeTablaSelecionada(int fila, String estadoRegistro) {
 
-        String ide = vista.ideHistoria.getText();
-        String ideHistoria = vista.ideHistoria.getText();
-        String estaRegis = vista.estaRegis.getText();
+		String ide = (String) vista.tabla.getValueAt(fila, 0).toString();
+        String ideHistoria = (String) vista.tabla.getValueAt(fila, 1).toString();
+        String estaRegis = (String) vista.tabla.getValueAt(fila, 2).toString();
 
         vista.ide.setText(ide);
         vista.ideHistoria.setText(ideHistoria);
@@ -128,6 +123,7 @@ public class ControladorAcciones extends Controlador<Acciones> {
 
                 // se tiene que cambiar estas partes (casi en todas es igual xd)
                 vista.ide.setEditable(false);
+                vista.ideHistoria.setEditable(false);
                 vista.estaRegis.setEditable(false);
 
                 CarFlaAct = 1;
