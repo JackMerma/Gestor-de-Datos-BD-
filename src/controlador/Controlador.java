@@ -32,38 +32,139 @@ public abstract class Controlador<CLASS> implements ActionListener {
 
     public abstract CLASS getOficinaDetalle();
 
+    // metodo que agrera a una nueva categoria
+    public void agregar() {
 
+        // Obtenemos datos
 
-	// metodo que agrera a una nueva categoria
-	public void agregar() {
+        classInterna = getOficinaDetalle();
 
-		// Obtenemos datos
+        // limpiamos la tabla anterior
+        limpiarTabla();
 
-		classInterna = getOficinaDetalle();
+        // agregamos
+        int n = classDAO.add(classInterna);
 
-		// limpiamos la tabla anterior
-		limpiarTabla();
+        // verificamor resultado
+        if (n == 1) {
+            JOptionPane.showMessageDialog(null, "Agregado con Exito.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Error");
+        }
 
-		// agregamos
-		int n = classDAO.add(classInterna);
+        // limpiamor entrada de texto
+        limpiar();
 
-		// verificamor resultado
-		if (n == 1) {
-			JOptionPane.showMessageDialog(null, "Agregado con Exito.");
-		} else {
-			JOptionPane.showMessageDialog(null, "Error");
-		}
+        // listamor nueva tabla
+        listar(vistaSuper.tabla);
+    }
 
-		// limpiamor entrada de texto
-		limpiar();
+    public void modificar() {
 
-		// listamor nueva tabla
-		listar(vistaSuper.tabla);
-	}
+        // Obtenemos datos
+
+        classInterna = getOficinaDetalle();
+
+        // limpiamos la tabla anterior
+        limpiarTabla();
+
+        // Modificamos
+        int n = classDAO.modificar(classInterna);
+
+        // verificamor resultado
+        if (n == 1) {
+            JOptionPane.showMessageDialog(null, "Modificado con Exito.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+
+        // limpiamor entrada de texto
+        limpiar();
+
+        // listamor nueva tabla
+        listar(vistaSuper.tabla);
+    }
+
+    // Para eliminar una categoria
+    public void eliminar() {
+        // Obtenemos datos
+
+        classInterna = getOficinaDetalle();
+
+        // limpiamos la tabla anterior
+        limpiarTabla();
+
+        // Modificamos
+        int n = classDAO.modificar(classInterna);
+
+        // verificamor resultado
+        if (n == 1) {
+            JOptionPane.showMessageDialog(null, "Eliminado con Exito.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+
+        // limpiamor entrada de texto
+        limpiar();
+
+        // listamor nueva tabla
+        listar(vistaSuper.tabla);
+    }
+
+    // Para inavilitar una categoria
+    public void inavilitar() {
+        // Obtenemos datos
+
+        classInterna = getOficinaDetalle();
+
+        // limpiamos la tabla anterior
+        limpiarTabla();
+
+        // Modificamos
+        int n = classDAO.modificar(classInterna);
+
+        // verificamor resultado
+        if (n == 1) {
+            JOptionPane.showMessageDialog(null, "Inavilitado con Exito.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+
+        // limpiamor entrada de texto
+        limpiar();
+
+        // listamor nueva tabla
+        listar(vistaSuper.tabla);
+    }
+
+    // Para reactivar una categoria
+    public void reactivar() {
+        // Obtenemos datos
+
+        classInterna = getOficinaDetalle();
+
+        // limpiamos la tabla anterior
+        limpiarTabla();
+
+        // Modificamos
+        int n = classDAO.modificar(classInterna);
+
+        // verificamor resultado
+        if (n == 1) {
+            JOptionPane.showMessageDialog(null, "Reavilitado con Exito.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+
+        // limpiamor entrada de texto
+        limpiar();
+
+        // listamor nueva tabla
+        listar(vistaSuper.tabla);
+    }
 
     // Lista los nuevos datos
     public abstract void listar(JTable tabla);
-
 
     // Limpia la entrada de texto
     public abstract void limpiar();
