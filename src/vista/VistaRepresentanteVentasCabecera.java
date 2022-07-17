@@ -8,9 +8,11 @@ public class VistaRepresentanteVentasCabecera extends Vista {
 	// add Panel
 	public JTextField factIde;
 	public JTextField repIde;
+	public JTextField estaRegis;
+
 	
 	public VistaRepresentanteVentasCabecera() {
-		super("REPRESENTANTE VENTAS DETALLE", new String[] { "FactIde", "RepIde"});
+		super("REPRESENTANTE VENTAS DETALLE", new String[] { "FactIde", "RepIde", "EstadoRegistro" });
 	}
 
 	/*
@@ -27,6 +29,7 @@ public class VistaRepresentanteVentasCabecera extends Vista {
 		// instaciomos Atributos
 		factIde = new JTextField(20);
 		repIde = new JTextField(20);
+		estaRegis = new JTextField("", 5);
 		
 		// ide field
 
@@ -36,9 +39,13 @@ public class VistaRepresentanteVentasCabecera extends Vista {
 
         JPanel repIdePanel = addComponente(repIde, "Representante Ide:");
 
+		// estaRegis field
+		JPanel estaRegisPanel = addComponente(estaRegis, "Estado de registro:");
+
 		// agregando paneles
 		addPanelContentContent.add(factIdePanel);
 		addPanelContentContent.add(repIdePanel);
+		addPanelContentContent.add(estaRegisPanel);
 		
 		createPanelWidth(addPanelContent, true, true, true, true);
 		addPanelContent.add(addPanelContentContent);

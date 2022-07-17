@@ -15,10 +15,12 @@ public class VistaProductoDetalle extends Vista {
     public JTextField stockAct;
     public JTextField stockMin;
     public JTextField stockMax;
+    public JTextField estaRegis;
+
 
     public VistaProductoDetalle() {
         super("PRODUCTO DETALLE", new String[] { "Ide", "Fabricacion", "Descripcion", "Precio", "Exi", "ClaseABC",
-                "Unidad", "StockAct", "StockMin", "StockMax" });
+                "Unidad", "StockAct", "StockMin", "StockMax", "EstadoRegistro" });
     }
 
     @Override
@@ -39,6 +41,8 @@ public class VistaProductoDetalle extends Vista {
         stockAct = new JTextField(10);
         stockMin = new JTextField(10);
         stockMax = new JTextField(10);
+        estaRegis = new JTextField("", 5);
+
 
         // ide
 
@@ -80,6 +84,9 @@ public class VistaProductoDetalle extends Vista {
 
         JPanel stockMaxPanel = addComponente(stockMax, "Stock Max:");
 
+        // estaRegis field
+        JPanel estaRegisPanel = addComponente(estaRegis, "Estado Registro:");
+
         // agregando paneles
         addPanelContentContent.add(idePanel);
         addPanelContentContent.add(fabPanel);
@@ -91,6 +98,7 @@ public class VistaProductoDetalle extends Vista {
         addPanelContentContent.add(stockActPanel);
         addPanelContentContent.add(stockMinPanel);
         addPanelContentContent.add(stockMaxPanel);
+        addPanelContentContent.add(estaRegisPanel);
         
 
         createPanelWidth(addPanelContent, true, true, true, true);

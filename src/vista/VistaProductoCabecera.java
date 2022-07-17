@@ -8,9 +8,11 @@ public class VistaProductoCabecera extends Vista {
     public JTextField facIde;
     public JTextField proIde;
     public JTextField detCan;
+    public JTextField estaRegis;
+
 
     public VistaProductoCabecera() {
-        super("PRODUCTO CABECERA", new String[] { "FacIde", "ProIde", "DetCan" });
+        super("PRODUCTO CABECERA", new String[] { "FacIde", "ProIde", "DetCan" , "EstaRegis" });
     }
 
     @Override
@@ -24,6 +26,8 @@ public class VistaProductoCabecera extends Vista {
         facIde = new JTextField(20);
         proIde = new JTextField(20);
         detCan = new JTextField(20);
+        estaRegis = new JTextField("", 5);
+
         
         // factIde
 
@@ -37,11 +41,15 @@ public class VistaProductoCabecera extends Vista {
 
         JPanel detCanPanel = addComponente(detCan, "Detalle Cantidad:");
 
+        // estaRegis field
+        JPanel estaRegisPanel = addComponente(estaRegis, "Estado de registro:");
+
         
         // agregando paneles
         addPanelContentContent.add(facIdePanel);
         addPanelContentContent.add(proIdePanel);
         addPanelContentContent.add(detCanPanel);
+        addPanelContentContent.add(estaRegisPanel);
         
         createPanelWidth(addPanelContent, true, true, true, true);
         addPanelContent.add(addPanelContentContent);
