@@ -155,11 +155,6 @@ public class ControladorHistorialAplicativoDetalle extends Controlador<Historial
 
                 // se tiene que cambiar estas partes (casi en todas es igual xd)
                 vista.ide.setEditable(false);
-                vista.hora.setEditable(false);
-                vista.descripcion.setEditable(false);
-                vista.anio.setEditable(false);
-                vista.mes.setEditable(false);
-                vista.dia.setEditable(false);
                 vista.estaRegis.setEditable(false);
 
                 CarFlaAct = 1;
