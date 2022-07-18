@@ -10,14 +10,14 @@ import javax.swing.table.DefaultTableModel;
 
 public abstract class Controlador<CLASS> implements ActionListener {
     public CLASS classInterna;
-    public DAO classDAO;
+    public DAO<CLASS> classDAO;
     public Vista vistaSuper;
     // public OficinaDetalleDAO oficinaDetalleDAO = new OficinaDetalleDAO();
     // public OficinaDetalle ofiDetalle = new OficinaDetalle();
     DefaultTableModel modelo = new DefaultTableModel();
 
     // Contructor
-    public Controlador(Vista v, DAO dao) {
+    public Controlador(Vista v, DAO<CLASS> dao) {
         classDAO = dao;
         vistaSuper = v;
         vistaSuper.adicionar.addActionListener(this);
