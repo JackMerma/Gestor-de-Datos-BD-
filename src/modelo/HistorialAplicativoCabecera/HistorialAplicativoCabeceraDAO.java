@@ -1,11 +1,11 @@
-package src.modelo;
+package src.modelo.HistorialAplicativoCabecera;
 
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.*;
 import java.util.*;
 
-//import src.modelo.DAO;
+import src.modelo.*;
 
 public class HistorialAplicativoCabeceraDAO extends DAO<HistorialAplicativoCabecera> {
 
