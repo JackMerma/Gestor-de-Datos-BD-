@@ -1,14 +1,10 @@
 package src.vista;
 
-import java.util.*;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.*;
-
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.awt.event.ActionEvent;
 
 public class VistaCargoBack {
 	public JPanel content;

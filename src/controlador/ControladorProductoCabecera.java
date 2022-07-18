@@ -3,20 +3,9 @@ package src.controlador;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
 
-import src.modelo.Factura.Factura;
-import src.modelo.Factura.FacturaDAO;
 import src.modelo.ProductoCabecera.ProductoCabecera;
 import src.modelo.ProductoCabecera.ProductoCabeceraDAO;
-import src.modelo.RepresentanteVentasCabecera.RepresentanteVentasCabeceraDAO;
-import src.modelo.RepresentanteVentasDetalle.RepresentanteVentasDetalle;
-import src.modelo.RepresentanteVentasDetalle.RepresentanteVentasDetalleDAO;
-import src.modelo.UsuarioRegistrado.UsuarioRegistrado;
-import src.modelo.UsuarioRegistrado.UsuarioRegistradoDAO;
-import src.vista.VistaFactura;
 import src.vista.VistaProductoCabecera;
-import src.vista.VistaProductoDetalle;
-import src.vista.VistaRepresentanteVentasDetalle;
-import src.vista.VistaUsuarioRegistradoDetalle;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;

@@ -1,9 +1,7 @@
 import src.vista.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import src.modelo.*;
 import src.controlador.*;
-import java.util.*;
 import java.awt.*;
 import javax.swing.*;
 

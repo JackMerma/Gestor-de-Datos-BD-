@@ -5,14 +5,7 @@ import javax.swing.*;
 
 import src.modelo.ProductoDetalle.ProductoDetalle;
 import src.modelo.ProductoDetalle.ProductoDetalleDAO;
-import src.modelo.RepresentanteVentasCabecera.RepresentanteVentasCabeceraDAO;
-import src.modelo.RepresentanteVentasDetalle.RepresentanteVentasDetalle;
-import src.modelo.RepresentanteVentasDetalle.RepresentanteVentasDetalleDAO;
-import src.modelo.UsuarioRegistrado.UsuarioRegistrado;
-import src.modelo.UsuarioRegistrado.UsuarioRegistradoDAO;
 import src.vista.VistaProductoDetalle;
-import src.vista.VistaRepresentanteVentasDetalle;
-import src.vista.VistaUsuarioRegistradoDetalle;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;

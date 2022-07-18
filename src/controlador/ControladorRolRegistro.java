@@ -3,8 +3,6 @@ package src.controlador;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import java.util.*;
-import java.awt.*;
 import javax.swing.*;
 
 import src.modelo.RolRegistro.RolRegistro;

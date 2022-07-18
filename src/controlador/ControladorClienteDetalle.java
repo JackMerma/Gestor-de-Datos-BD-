@@ -131,7 +131,7 @@ public class ControladorClienteDetalle extends Controlador<ClienteDetalle> {
 		vista.apellMaterno.setText(apellMaterno);
 		vista.direccion.setText(direccion);
 		vista.telefono.setText(telefono);
-		vista.correo.setText(telefono);
+		vista.correo.setText(correo);
 		vista.estaRegis.setText(estareg);
 
 		if (estadoRegistro.equals("DEFAULT")) {

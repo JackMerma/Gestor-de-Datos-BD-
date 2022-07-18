@@ -3,13 +3,9 @@ package src.controlador;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
 
-import src.modelo.RepresentanteVentasCabecera.RepresentanteVentasCabeceraDAO;
 import src.modelo.RepresentanteVentasDetalle.RepresentanteVentasDetalle;
 import src.modelo.RepresentanteVentasDetalle.RepresentanteVentasDetalleDAO;
-import src.modelo.UsuarioRegistrado.UsuarioRegistrado;
-import src.modelo.UsuarioRegistrado.UsuarioRegistradoDAO;
 import src.vista.VistaRepresentanteVentasDetalle;
-import src.vista.VistaUsuarioRegistradoDetalle;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
