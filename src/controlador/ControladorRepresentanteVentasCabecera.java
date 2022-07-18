@@ -38,7 +38,7 @@ public class ControladorRepresentanteVentasCabecera extends Controlador<Represen
 
         // Creamos un objeto
 
-        classInterna.setFacIde(Integer.parseInt(factIde));
+        classInterna.setIde(Integer.parseInt(factIde));
         classInterna.setRepIde(Integer.parseInt(repIde));
         classInterna.setEstadoRegistro(estaRegis.charAt(0));
 
@@ -58,7 +58,7 @@ public class ControladorRepresentanteVentasCabecera extends Controlador<Represen
 
         for (int i = 0; i < lista.size(); i++) {
 
-            objeto[0] = lista.get(i).getFacIde();
+            objeto[0] = lista.get(i).getIde();
             objeto[1] = lista.get(i).getRepIde();
             objeto[2] = lista.get(i).getEstadoRegistro();
 
@@ -72,11 +72,12 @@ public class ControladorRepresentanteVentasCabecera extends Controlador<Represen
     @Override
     public void llenarDatosDeTablaSelecionada(int fila, String estadoRegistro) {
 
-        String facIde = vista.factIde.getText();
-        String repIde = vista.repIde.getText();
-        String estaRegis = vista.estaRegis.getText();
+        String id = (String) vista.tabla.getValueAt(fila, 0).toString();
+        String repIde = (String) vista.tabla.getValueAt(fila, 1).toString();
+        String estaRegis = (String) vista.tabla.getValueAt(fila, 2).toString();
 
-        vista.factIde.setText(facIde);
+
+        vista.factIde.setText(id);
         vista.repIde.setText(repIde);
         vista.estaRegis.setText(estaRegis);
 

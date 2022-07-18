@@ -2,7 +2,7 @@ package src.modelo.RepresentanteVentasCabecera;
 
 public class RepresentanteVentasCabecera {
     // identificador
-    public int facIde;
+    public int ide;
 
     // llaves foraneas
     public int repIde;
@@ -11,8 +11,8 @@ public class RepresentanteVentasCabecera {
     public char estadoRegistro;
 
     // Constructor
-    public RepresentanteVentasCabecera(int facIde, int repIde, char estadoRegistro) {
-        this.facIde = facIde;
+    public RepresentanteVentasCabecera(int ide, int repIde, char estadoRegistro) {
+        this.ide = ide;
         this.repIde = repIde;
         this.estadoRegistro = estadoRegistro;
     }
@@ -22,12 +22,12 @@ public class RepresentanteVentasCabecera {
         this(-1, -1, 'A');
     }
 
-    public int getFacIde() {
-        return facIde;
+    public int getIde() {
+        return ide;
     }
 
-    public void setFacIde(int facIde) {
-        this.facIde = facIde;
+    public void setIde(int ide) {
+        this.ide = ide;
     }
 
     public int getRepIde() {

@@ -33,7 +33,7 @@ public class RepresentanteVentasCabeceraDAO extends DAO<RepresentanteVentasCabec
 			while (rs.next()) {
 				classNormal = new RepresentanteVentasCabecera();
 
-				classNormal.setFacIde(rs.getInt(1));
+				classNormal.setIde(rs.getInt(1));
 				classNormal.setRepIde(rs.getInt(2));
 				classNormal.setEstadoRegistro(rs.getString(3).charAt(0));
 
@@ -62,7 +62,7 @@ public class RepresentanteVentasCabeceraDAO extends DAO<RepresentanteVentasCabec
 			ps = bd.prepareStatement(sql);
 
 			// llenamos los datos
-			ps.setString(1, repVen.getFacIde() + "");
+			ps.setString(1, repVen.getIde() + "");
 			ps.setString(2, repVen.getRepIde() + "");
 			ps.setString(3, "A");
 
@@ -92,7 +92,7 @@ public class RepresentanteVentasCabeceraDAO extends DAO<RepresentanteVentasCabec
 
 			// llenamos datos
 			ps.setString(1, repVenta.getEstadoRegistro() + "");
-			ps.setString(2, repVenta.getFacIde() + "");
+			ps.setString(2, repVenta.getIde() + "");
 			ps.setString(3, repVenta.getRepIde() + "");
 
 			state = ps.executeUpdate();
