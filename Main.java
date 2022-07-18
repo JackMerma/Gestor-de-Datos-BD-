@@ -186,20 +186,21 @@ public class Main implements ActionListener {
 	public static void generateContent_CliCab() {
 		VistaClienteCabecera vi = new VistaClienteCabecera();
 		frameContent.add(vi.getContent());
-
+		ControladorClienteCabecera con = new ControladorClienteCabecera(vi);
 	}
 
 	// CLIENTE DETALLE -------------------------------------
 	public static void generateContent_CliDet() {
 		VistaClienteDetalle vi = new VistaClienteDetalle();
 		frameContent.add(vi.getContent());
+		ControladorClienteDetalle con = new ControladorClienteDetalle(vi);
 	}
 
 	// HISTORIAL APLICATIVO CABECERA -------------------------------------
 	public static void generateContent_HisApliCab() {
 		VistaHistorialAplicativoCabecera vi = new VistaHistorialAplicativoCabecera();
 		frameContent.add(vi.getContent());
-
+		ControladorHistorialAplicativoCabecera con = new ControladorHistorialAplicativoCabecera(vi);
 	}
 
 	// HISTORIAL APLICATIVO DETALLE -------------------------------------
