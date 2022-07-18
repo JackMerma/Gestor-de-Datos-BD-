@@ -7,7 +7,7 @@ import java.util.*;
 import src.modelo.Conexion;
 import src.modelo.DAO;
 
-//import src.modelo.DAO;
+import src.modelo.*;
 
 public class HistorialAplicativoDetalleDAO extends DAO<HistorialAplicativoDetalle> {
 
