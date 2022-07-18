@@ -7,9 +7,9 @@ public class HistorialAplicativoDetalle {
     public String anio;
     public String mes;
     public String dia;
-    public String estReg;
+    public char estReg;
 
-    public HistorialAplicativoDetalle(int ide, String hora, String descripcion, String anio, String mes, String dia, String estReg) {
+    public HistorialAplicativoDetalle(int ide, String hora, String descripcion, String anio, String mes, String dia, char estReg) {
         this.ide = ide;
 		  this.hora = hora;
 		  this.descripcion = descripcion;
@@ -27,7 +27,7 @@ public class HistorialAplicativoDetalle {
         this.anio = "";
         this.mes = "";
         this.dia = "";
-        this.estReg = "";
+        this.estReg = 'A';
     }
 
     // get and set
@@ -79,12 +79,12 @@ public class HistorialAplicativoDetalle {
         this.dia = dia;
     }
 
-    public String getEstReg() {
+    public char getEstReg() {
         return estReg;
     }
 
-    public void setEstReg(String estReg) {
-        this.estReg = estReg;
+    public void setEstReg(char c) {
+        this.estReg = c;
     }
 
 }
