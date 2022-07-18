@@ -1,8 +1,11 @@
-package src.modelo.HistoralAplicativoDetalle;
+package src.modelo.HistorialAplicativoDetalle;
 
 import java.sql.Connection;
 import java.sql.*;
 import java.util.*;
+
+import src.modelo.Conexion;
+import src.modelo.DAO;
 
 //import src.modelo.DAO;
 
@@ -37,7 +40,7 @@ public class HistorialAplicativoDetalleDAO extends DAO<HistorialAplicativoDetall
 				classNormal.setAnio(rs.getString(4));
 				classNormal.setMes(rs.getString(5));
 				classNormal.setDia(rs.getString(6));
-				classNormal.setEstadoRegistro(rs.getString(7).charAt(0));
+				classNormal.setEstReg(rs.getString(7).charAt(0));
 				listHistorialAplicativoDetalle.add(classNormal);
 			}
 			System.out.println("HistorialAplicativoDetalleDAO Listar:CORRECTO");
@@ -86,7 +89,7 @@ public class HistorialAplicativoDetalleDAO extends DAO<HistorialAplicativoDetall
 	// modificar
 	public int modificar(HistorialAplicativoDetalle historialAplicativoDetalle){
 		int state = 0;
-		String sql = "UPDATE `V3H_HISTORIAL _APLICATIVO_DETALLE` SET `HisApliDetHor` = ?, `HisApliDetDes` = ?, `HisApliDetAni` = ?, `HisApliDetMes` = ?, ``HisApliDetDia = ?, ``HisAplEstReg = ? WHERE `V3H_HISTORIAL _APLICATIVO_DETALLE`.`HisApliDetIde` = ?;";
+		String sql = "UPDATE `V3H_HISTORIAL _APLICATIVO_DETALLE` SET `HisApliDetHor` = ?, `HisApliDetDes` = ?, `HisApliDetAni` = ?, `HisApliDetMes` = ?, `HisApliDetDia` = ?, `HisAplEstReg` = ? WHERE `V3H_HISTORIAL _APLICATIVO_DETALLE`.`HisApliDetIde` = ?;";
 		
 		try{
 			con.conectar();
@@ -99,7 +102,7 @@ public class HistorialAplicativoDetalleDAO extends DAO<HistorialAplicativoDetall
 			ps.setString(3,historialAplicativoDetalle.getAnio()+"");
 			ps.setString(4,historialAplicativoDetalle.getMes()+"");
 			ps.setString(5,historialAplicativoDetalle.getDia()+"");
-			ps.setString(6,historialAplicativoDetalle.getIde());
+			ps.setString(6, historialAplicativoDetalle.getEstReg()+"");
 			ps.setString(7,historialAplicativoDetalle.getIde()+"");
 
 			state = ps.executeUpdate(); 

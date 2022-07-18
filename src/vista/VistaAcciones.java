@@ -11,7 +11,7 @@ public class VistaAcciones extends Vista {
 	public JTextField estaRegis;
 
 	public VistaAcciones() {
-		super("V3H_ACCIONES", new String[] { "Ide", "IdeHistoria", "EstadoRegistro" });
+		super("V3H_ACCIONES", new String[] { "IdeUsuario", "IdeHistoria", "EstadoRegistro" });
 	}
 
 	/*
@@ -31,10 +31,10 @@ public class VistaAcciones extends Vista {
 		estaRegis = new JTextField("", 20);
 
 		// ide field
-		JPanel idePanel = addComponente(ide, "Ide:");
+		JPanel idePanel = addComponente(ide, "Ide Usuario:");
 
 		// ideHistoria field
-		JPanel ideHistoriaPanel = addComponente(ideHistoria, "ideHistoria:");
+		JPanel ideHistoriaPanel = addComponente(ideHistoria, "Ide Historia:");
 	
 
 		// estaRegis field

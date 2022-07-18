@@ -172,6 +172,7 @@ public class Main implements ActionListener {
 	public static void generateContent_Acciones() {
 		VistaAcciones vi = new VistaAcciones();
 		frameContent.add(vi.getContent());
+		ControladorAcciones con = new ControladorAcciones(vi);
 	}
 
 	// CATEGORIA CLIENTES -------------------------------------
@@ -205,6 +206,7 @@ public class Main implements ActionListener {
 	public static void generateContent_HisApliDet() {
 		VistaHistorialAplicativoDetalle vi = new VistaHistorialAplicativoDetalle();
 		frameContent.add(vi.getContent());
+		ControladorHistorialAplicativoDetalle con = new ControladorHistorialAplicativoDetalle(vi);
 	}
 
 	// ROL REGISTRO -------------------------------------
