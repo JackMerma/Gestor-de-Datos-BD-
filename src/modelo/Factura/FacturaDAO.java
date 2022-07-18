@@ -3,7 +3,6 @@ package src.modelo.Factura;
 import java.sql.Connection;
 import java.sql.*;
 import java.util.*;
-
 import src.modelo.Conexion;
 import src.modelo.DAO;
 
