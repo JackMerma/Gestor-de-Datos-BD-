@@ -75,10 +75,11 @@ public class ControladorProductoCabecera extends Controlador<ProductoCabecera> {
     @Override
     public void llenarDatosDeTablaSelecionada(int fila, String estadoRegistro) {
 
-        String facIde = vista.facIde.getText();
-        String proIde = vista.proIde.getText();
-        String detCan = vista.detCan.getText();
-        String estaRegis = vista.estaRegis.getText();
+        // String facIde = vista.facIde.getText();
+        String facIde = vista.tabla.getValueAt(fila, 0).toString();
+        String proIde = vista.tabla.getValueAt(fila, 1).toString();
+        String detCan = vista.tabla.getValueAt(fila, 2).toString();
+        String estaRegis = vista.tabla.getValueAt(fila, 3).toString();
 
         vista.facIde.setText(facIde);
         vista.proIde.setText(proIde);
@@ -132,6 +133,7 @@ public class ControladorProductoCabecera extends Controlador<ProductoCabecera> {
 
                 // se tiene que cambiar estas partes (casi en todas es igual xd)
                 vista.facIde.setEditable(false);
+                vista.proIde.setEditable(false);
                 vista.estaRegis.setEditable(false);
 
                 CarFlaAct = 1;

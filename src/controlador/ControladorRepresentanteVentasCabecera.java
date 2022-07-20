@@ -126,6 +126,7 @@ public class ControladorRepresentanteVentasCabecera extends Controlador<Represen
 
                 // se tiene que cambiar estas partes (casi en todas es igual xd)
                 vista.factIde.setEditable(false);
+                vista.repIde.setEditable(false);
                 vista.estaRegis.setEditable(false);
 
                 CarFlaAct = 1;

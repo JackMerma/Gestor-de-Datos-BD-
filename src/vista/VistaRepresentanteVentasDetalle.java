@@ -20,7 +20,7 @@ public class VistaRepresentanteVentasDetalle extends Vista {
 
     public VistaRepresentanteVentasDetalle() {
         super("V1M_REPRESENTANTE_VENTAS_DETALLE", new String[] { "Ide", "OfiIde", "CargIde", "RolRegIde", "TipIde",
-                "UsuRegIde", "Nombre", "Edad", "Con", "ObjRep", "EstadoRegistro" });
+                "UsuRegIde", "Nombre", "Edad", "Contrato", "ObjRep", "EstadoRegistro" });
     }
 
     @Override
@@ -78,7 +78,7 @@ public class VistaRepresentanteVentasDetalle extends Vista {
 
         // con
 
-        JPanel conPanel = addComponente(con, "Contraseña:");
+        JPanel conPanel = addComponente(con, "Contrato:");
 
         // objRep
 

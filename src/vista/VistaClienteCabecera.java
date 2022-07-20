@@ -11,7 +11,7 @@ public class VistaClienteCabecera extends Vista {
 	public JTextField estaRegis;
 
 	public VistaClienteCabecera() {
-		super("V1M_CLIENTE_CABECERA", new String[] { "Ide", "DescripcionCargo", "ideCliente", "EstadoRegistro" });
+		super("V1M_CLIENTE_CABECERA", new String[] { "FacturaIde", "DescripcionCargo", "ideCliente", "EstadoRegistro" });
 	}
 
 	/*
@@ -31,7 +31,7 @@ public class VistaClienteCabecera extends Vista {
 		estaRegis = new JTextField("", 20);
 
 		// ide field
-		JPanel idePanel = addComponente(ide, "Ide:");
+		JPanel idePanel = addComponente(ide, "FacturaIde:");
 
 		// ideCliente
 		JPanel ideClientePanel = addComponente(ideCliente, "ideCliente:");

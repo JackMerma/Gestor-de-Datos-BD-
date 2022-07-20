@@ -14,7 +14,7 @@ public class VistaFactura extends Vista {
 
 
     public VistaFactura() {
-        super("V2T_FACTURA", new String[] { "Ide", "Imp", "Anio", "Mes", "Dia", "EstadoRegistro" });
+        super("V2T_FACTURA", new String[] { "Ide", "Importe", "Anio", "Mes", "Dia", "EstadoRegistro" });
     }
 
     @Override
@@ -38,7 +38,7 @@ public class VistaFactura extends Vista {
 
         // imp
 
-        JPanel impPanel = addComponente(imp, "Imp:");
+        JPanel impPanel = addComponente(imp, "Importe:");
 
         // anio
 
