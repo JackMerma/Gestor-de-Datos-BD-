@@ -49,7 +49,7 @@ public class ControladorClienteDetalle extends Controlador<ClienteDetalle> {
 		classInterna.setIde(Integer.parseInt(ide));
 		classInterna.setIdeCategoria(Integer.parseInt(ideCategoria));
 		classInterna.setEmpDescripcion(empDesc);
-		classInterna.setNumEmpleado(Integer.parseInt(numEmple));
+		classInterna.setNumEmpleado(numEmple);
 		classInterna.setPagoCuota(pagoCuo);
 		classInterna.setCredito(Integer.parseInt(credito));
 		classInterna.setDepartamento(departamento);

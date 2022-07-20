@@ -116,6 +116,7 @@ public class ControladorHistorialAplicativoCabecera extends Controlador<Historia
 
 				// se tiene que cambiar estas partes (casi en todas es igual xd)
 				vista.ide.setEditable(false);
+				vista.ideHistoria.setEditable(false);
 				vista.estaRegis.setEditable(false);
 
 				CarFlaAct = 1;

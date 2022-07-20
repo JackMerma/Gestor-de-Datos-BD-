@@ -31,7 +31,7 @@ public class VistaHistorialAplicativoCabecera extends Vista {
 		estaRegis = new JTextField("", 20);
 
 		// ide field
-		JPanel idePanel = addComponente(ide, "Ide:");
+		JPanel idePanel = addComponente(ide, "IdeFactura:");
 
 
 		// ideHistoria

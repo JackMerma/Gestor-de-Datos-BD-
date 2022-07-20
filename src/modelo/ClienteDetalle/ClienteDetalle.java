@@ -4,7 +4,7 @@ public class ClienteDetalle {
 	public int ide;
 	public int ideCategoria;
 	public String empDesc;
-	public int numEmple;
+	public String numEmple;
 	public String pagoCuo;
 	public int credito;
 	public String departamento;
@@ -17,7 +17,7 @@ public class ClienteDetalle {
 	public String correo;
 	public char estadoRegistro;
 
-	public ClienteDetalle(int ide, int ideCategoria, String empDesc, int numEmple, String pagoCuo, int credito, String departamento, String nombre, String comportamiento, String apellPaterno, String apellMaterno, String direccion, int telefono, String correo){
+	public ClienteDetalle(int ide, int ideCategoria, String empDesc, String numEmple, String pagoCuo, int credito, String departamento, String nombre, String comportamiento, String apellPaterno, String apellMaterno, String direccion, int telefono, String correo){
 		this.ide = ide;
 		this.ideCategoria = ideCategoria;
 		this.empDesc = empDesc;
@@ -37,7 +37,7 @@ public class ClienteDetalle {
 	}
 
 	public ClienteDetalle(){
-		this(-1, -1, "", -1, "", -1, "", "", "", "", "", "", -1, "");
+		this(-1, -1, "", "", "", -1, "", "", "", "", "", "", -1, "");
 	}
 
 	public void setIde(int ide){
@@ -52,7 +52,7 @@ public class ClienteDetalle {
 		this.empDesc = empDesc;
 	}
 
-	public void setNumEmpleado(int numEmple){
+	public void setNumEmpleado(String numEmple){
 		this.numEmple = numEmple;
 	}
 
@@ -112,7 +112,7 @@ public class ClienteDetalle {
 		return this.empDesc;
 	}
 
-	public int getNumEmpleado(){
+	public String getNumEmpleado(){
 		return this.numEmple;
 	}
 

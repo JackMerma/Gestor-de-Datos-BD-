@@ -117,6 +117,7 @@ public class ControladorClienteCabecera extends Controlador<ClienteCabecera> {
 
 				// se tiene que cambiar estas partes (casi en todas es igual xd)
 				vista.ide.setEditable(false);
+				vista.ideCliente.setEditable(false);
 				vista.estaRegis.setEditable(false);
 
 				CarFlaAct = 1;

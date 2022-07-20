@@ -34,7 +34,7 @@ public class ClienteDetalleDAO extends DAO<ClienteDetalle> {
 				clienteDetalle.setIde(rs.getInt(1));
 				clienteDetalle.setIdeCategoria(rs.getInt(2));
 				clienteDetalle.setEmpDescripcion(rs.getString(3));
-				clienteDetalle.setNumEmpleado(rs.getInt(4));
+				clienteDetalle.setNumEmpleado(rs.getString(4));
 				clienteDetalle.setPagoCuota(rs.getString(5));
 				clienteDetalle.setCredito(rs.getInt(6));
 				clienteDetalle.setDepartamento(rs.getString(7));
