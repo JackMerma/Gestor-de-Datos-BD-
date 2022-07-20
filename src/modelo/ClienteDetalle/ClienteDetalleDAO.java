@@ -31,21 +31,23 @@ public class ClienteDetalleDAO extends DAO<ClienteDetalle> {
 			// recibimos los resultados
 			while(rs.next()){
 				clienteDetalle = new ClienteDetalle();
+
 				clienteDetalle.setIde(rs.getInt(1));
 				clienteDetalle.setIdeCategoria(rs.getInt(2));
 				clienteDetalle.setEmpDescripcion(rs.getString(3));
 				clienteDetalle.setNumEmpleado(rs.getString(4));
-				clienteDetalle.setPagoCuota(rs.getString(5));
-				clienteDetalle.setCredito(rs.getInt(6));
-				clienteDetalle.setDepartamento(rs.getString(7));
-				clienteDetalle.setNombre(rs.getString(8));
-				clienteDetalle.setComportamiento(rs.getString(9));
-				clienteDetalle.setApellidoPaterno(rs.getString(10));
-				clienteDetalle.setApellidoMaterno(rs.getString(11));
-				clienteDetalle.setDireccion(rs.getString(12));
-				clienteDetalle.setTelefono(rs.getInt(13));
-				clienteDetalle.setCorreo(rs.getString(14));
+				clienteDetalle.setCredito((rs.getInt(5)));
+				clienteDetalle.setDepartamento(rs.getString(6));
+				clienteDetalle.setNombre(rs.getString(7));
+				clienteDetalle.setApellidoPaterno(rs.getString(8));
+				clienteDetalle.setApellidoMaterno(rs.getString(9));
+				clienteDetalle.setDireccion(rs.getString(10));
+				clienteDetalle.setTelefono(rs.getInt(11));
+				clienteDetalle.setCorreo(rs.getString(12));
+				clienteDetalle.setComportamiento(rs.getString(13));
+				clienteDetalle.setPagoCuota(rs.getString(14));
 				clienteDetalle.setEstadoRegistro(rs.getString(15).charAt(0));
+
 				listClienteDetalle.add(clienteDetalle);
 			}
 			System.out.println("ClienteDetalleDAO Listar:CORRECTO");
