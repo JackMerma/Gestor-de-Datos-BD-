@@ -35,7 +35,7 @@ public class VistaConReferenciales {
         // tabla
 
         int count = 8;
-        String cols[] = { "Nombre", "Edad", "Cargo", "Sueldo", "TipoRepresentante", "CiudadOficina",
+        String cols[] = { "Nombre", "Edad", "Cargo", "Sueldo", "Rol", "TipoRepresentante", "CiudadOficina",
                 "ObjetivoOficina" };
         int colsType[] = { 0, 1, 0, 1, 0, 0, 0, 1 };
         String tableName = "RepreConReferenciales"; // nombre de la vista
