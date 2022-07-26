@@ -9,7 +9,7 @@ public class Main implements ActionListener {
 
 	public static final String PROJECTNAME = "<-<->-> EMPRESA DE DISTRIBUCION <-<->->";
 	public static JFrame frame, frameContent;
-	public JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16;
+	public JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, bTablas;
 
 	public Main() {
 		frame = new JFrame(PROJECTNAME);
@@ -34,6 +34,7 @@ public class Main implements ActionListener {
 		b14 = new JButton("Factura");
 		b15 = new JButton("Producto Cabecera");
 		b16 = new JButton("Producto Detalle");
+		bTablas = new JButton("Informacion de 3 tablas");
 
 		b1.addActionListener((java.awt.event.ActionListener) this);
 		b2.addActionListener((java.awt.event.ActionListener) this);
@@ -51,11 +52,12 @@ public class Main implements ActionListener {
 		b14.addActionListener((java.awt.event.ActionListener) this);
 		b15.addActionListener((java.awt.event.ActionListener) this);
 		b16.addActionListener((java.awt.event.ActionListener) this);
+		bTablas.addActionListener((java.awt.event.ActionListener) this);
 
 		JPanel panel = new JPanel();
 
 		// creando el panel para los botones internos
-		panel.setLayout(new GridLayout(8, 1, 10, 10));
+		panel.setLayout(new GridLayout(9, 1, 10, 10));
 
 		panel.add(b1);
 		panel.add(b2);
@@ -73,11 +75,11 @@ public class Main implements ActionListener {
 		panel.add(b14);
 		panel.add(b15);
 		panel.add(b16);
+		panel.add(bTablas);
 
 		frame.setSize(1000, 700);
 		frame.add(panel);
 		frame.pack();
-
 	}
 
 	public void actionPerformed(ActionEvent e) {
@@ -146,6 +148,9 @@ public class Main implements ActionListener {
 			System.out.println("Producto Detalle");
 			generateContent_ProDet();
 
+		} else if (E.equals("Informacion de 3 tablas")) {
+			System.out.println("Informacion de 3 tablas");
+			generateContent_Inf3Tablas();
 		}
 	}
 
@@ -271,6 +276,12 @@ public class Main implements ActionListener {
 		VistaProductoDetalle vi = new VistaProductoDetalle();
 		frameContent.add(vi.getContent());
 		ControladorProductoDetalle con = new ControladorProductoDetalle(vi);
+	}
+
+	// INFORMACION 3 TABLAS -------------------------------------
+	public static void generateContent_Inf3Tablas() {
+		Vista3Tablas vi = new Vista3Tablas();
+		frameContent.add(vi.getContent());
 	}
 
 	public static void main(String[] args) {
