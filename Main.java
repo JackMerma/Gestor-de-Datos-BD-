@@ -9,7 +9,7 @@ public class Main implements ActionListener {
 
 	public static final String PROJECTNAME = "<-<->-> EMPRESA DE DISTRIBUCION <-<->->";
 	public static JFrame frame, frameContent;
-	public JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16;
+	public JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17_conRef;
 
 	public Main() {
 		frame = new JFrame(PROJECTNAME);
@@ -34,6 +34,7 @@ public class Main implements ActionListener {
 		b14 = new JButton("Factura");
 		b15 = new JButton("Producto Cabecera");
 		b16 = new JButton("Producto Detalle");
+		b17_conRef = new JButton("VistaConRefenciales");
 
 		b1.addActionListener((java.awt.event.ActionListener) this);
 		b2.addActionListener((java.awt.event.ActionListener) this);
@@ -51,6 +52,7 @@ public class Main implements ActionListener {
 		b14.addActionListener((java.awt.event.ActionListener) this);
 		b15.addActionListener((java.awt.event.ActionListener) this);
 		b16.addActionListener((java.awt.event.ActionListener) this);
+		b17_conRef.addActionListener((java.awt.event.ActionListener) this);
 
 		JPanel panel = new JPanel();
 
@@ -73,6 +75,7 @@ public class Main implements ActionListener {
 		panel.add(b14);
 		panel.add(b15);
 		panel.add(b16);
+		panel.add(b17_conRef);
 
 		frame.setSize(1000, 700);
 		frame.add(panel);
@@ -145,6 +148,10 @@ public class Main implements ActionListener {
 		} else if (E.equals("Producto Detalle")) {
 			System.out.println("Producto Detalle");
 			generateContent_ProDet();
+
+		} else if (E.equals("VistaConRefenciales")) {
+			System.out.println("VistaConRefenciales");
+			generateContent_RepreVenDetReferenciales();
 
 		}
 	}
@@ -271,6 +278,12 @@ public class Main implements ActionListener {
 		VistaProductoDetalle vi = new VistaProductoDetalle();
 		frameContent.add(vi.getContent());
 		ControladorProductoDetalle con = new ControladorProductoDetalle(vi);
+	}
+
+	// REPRESENTANTE VENTAS CON REFERENCIALES -------------------------------------
+	public static void generateContent_RepreVenDetReferenciales() {
+		VistaConReferenciales vi = new VistaConReferenciales();
+		frameContent.add(vi.getContent());
 	}
 
 	public static void main(String[] args) {
