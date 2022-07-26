@@ -9,7 +9,7 @@ public class Main implements ActionListener {
 
 	public static final String PROJECTNAME = "<-<->-> EMPRESA DE DISTRIBUCION <-<->->";
 	public static JFrame frame, frameContent;
-	public JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17_conRef;
+	public JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17_conRef, b18;
 
 	public Main() {
 		frame = new JFrame(PROJECTNAME);
@@ -35,6 +35,7 @@ public class Main implements ActionListener {
 		b15 = new JButton("Producto Cabecera");
 		b16 = new JButton("Producto Detalle");
 		b17_conRef = new JButton("VistaConRefenciales");
+		b18 = new JButton("Vista Cliente Factura Producto");
 
 		b1.addActionListener((java.awt.event.ActionListener) this);
 		b2.addActionListener((java.awt.event.ActionListener) this);
@@ -53,6 +54,7 @@ public class Main implements ActionListener {
 		b15.addActionListener((java.awt.event.ActionListener) this);
 		b16.addActionListener((java.awt.event.ActionListener) this);
 		b17_conRef.addActionListener((java.awt.event.ActionListener) this);
+		b18.addActionListener((java.awt.event.ActionListener) this);
 
 		JPanel panel = new JPanel();
 
@@ -76,6 +78,7 @@ public class Main implements ActionListener {
 		panel.add(b15);
 		panel.add(b16);
 		panel.add(b17_conRef);
+		panel.add(b18);
 
 		frame.setSize(1000, 700);
 		frame.add(panel);
@@ -153,6 +156,9 @@ public class Main implements ActionListener {
 			System.out.println("VistaConRefenciales");
 			generateContent_RepreVenDetReferenciales();
 
+		} else if (E.equals("Vista Cliente Factura Producto")) {
+			System.out.println("Vista Cliente Factura Producto");
+			generateContent_vistaCliFactPro();
 		}
 	}
 
@@ -283,6 +289,12 @@ public class Main implements ActionListener {
 	// REPRESENTANTE VENTAS CON REFERENCIALES -------------------------------------
 	public static void generateContent_RepreVenDetReferenciales() {
 		VistaConReferenciales vi = new VistaConReferenciales();
+		frameContent.add(vi.getContent());
+	}
+
+	// VISTA CLIENTE FACTURA PRODUCTO -------------------------------------
+	public static void generateContent_vistaCliFactPro() {
+		VistaClienteFacturaProducto vi = new VistaClienteFacturaProducto();
 		frameContent.add(vi.getContent());
 	}
 
