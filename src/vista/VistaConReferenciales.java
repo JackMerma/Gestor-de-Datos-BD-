@@ -23,11 +23,11 @@ public class VistaConReferenciales {
     private Connection bd;
 
     public JPanel getContent() {
-        content = new JPanel(new GridLayout(1, 1, 5, 5));
+        content = new JPanel(new BorderLayout());
 
         JPanel panelContenido = createTabla1Panel();
 
-        content.add(panelContenido);
+        content.add(panelContenido, BorderLayout.CENTER);
         return content;
     }
 
@@ -39,7 +39,7 @@ public class VistaConReferenciales {
                 "ObjetivoOficina" };
         int colsType[] = { 0, 1, 0, 1, 0, 0, 0, 1 };
         String tableName = "RepreConReferenciales"; // nombre de la vista
-        String name = "CARGO";
+        String name = "V1M_REPRESENTANTE_VENTAS_DETALLE_CON_REFERENCIALES"; // nombre de la tabla
 
         JPanel tablaPanelPanel = createTableContent(count, cols, colsType, tableName, name);
         return tablaPanelPanel;
